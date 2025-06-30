@@ -3,9 +3,5 @@
 html,
 body,
 #root {
-  @apply h-full;
-}
-
-#root > div {
-  @apply h-full;
+  @apply h-full w-full text-white bg-gray-900;
 }
