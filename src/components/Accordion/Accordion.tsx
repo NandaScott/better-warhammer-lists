@@ -1,4 +1,4 @@
-import { useState, type PropsWithChildren } from 'react';
+import { useEffect, useRef, useState, type PropsWithChildren } from 'react';
 import ChevronDown from '../../assets/chevron-down.svg?react';
 import clsx from 'clsx';
 
@@ -7,8 +7,16 @@ interface AccordionProps extends PropsWithChildren {
 }
 
 export default function Accordion(props: AccordionProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const contentHeight = useRef<number>(0);
   const { title, children } = props;
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentHeight.current = open ? contentRef.current.scrollHeight : 0;
+    }
+  }, [open]);
 
   const handleClick = () => {
     setOpen((open) => !open);
@@ -32,12 +40,15 @@ export default function Accordion(props: AccordionProps) {
         </div>
       </div>
       <div
+        style={{ maxHeight: `${contentHeight.current}px` }}
         className={clsx(
           'transition-all ease-in-out overflow-hidden',
-          open ? 'max-h-96 duration-300' : 'max-h-0 duration-150'
+          open ? 'duration-300' : 'duration-150'
         )}
       >
-        <div className='pt-4'>{children}</div>
+        <div className='pt-4' ref={contentRef}>
+          {children}
+        </div>
       </div>
     </button>
   );

@@ -5,3 +5,11 @@ body,
 #root {
   @apply h-full w-full text-white bg-gray-900;
 }
+
+strong {
+  @apply uppercase font-bold;
+}
+
+aside {
+  @apply flex before:content-[''] before:rounded before:bg-red-800 before:block before:w-1 before:mr-4;
+}
