@@ -6,6 +6,7 @@ import EnhancementBladeofSaintEllynor from './content/Sororitas/detatchments/arm
 import EnhancementDivineAspect from './content/Sororitas/detatchments/army-of-faith/enhancments/EnhancementDivineAspect';
 import EnhancementLitaniesOfFaith from './content/Sororitas/detatchments/army-of-faith/enhancments/EnhancementLitaniesOfFaith';
 import { Description } from './components/Description';
+import CommandReRoll from './content/core/stratagems/CommandReRoll';
 
 function App() {
   const [points, setPoints] = useState(2000);
@@ -18,19 +19,21 @@ function App() {
         <span className='text-xl italic font-semibold'>{points} / 2000</span>
       </div>
       <Description />
-      <Accordion title='Army Rule'>
+      <Accordion rootClasses='border-blue-400' title='Army Rule'>
         <SororitasArmyRule />
       </Accordion>
-      <Accordion title='Detachment Rules'>
+      <Accordion rootClasses='border-blue-400' title='Detachment Rules'>
         <DetatchmentRules />
       </Accordion>
-      <Accordion title='Enhancements'>
+      <Accordion rootClasses='border-blue-400' title='Enhancements'>
         <EnhancementBladeofSaintEllynor />
         <EnhancementDivineAspect />
         <EnhancementLitaniesOfFaith />
       </Accordion>
-      <Accordion title='Datasheets'></Accordion>
-      <Accordion title='Stratagems'></Accordion>
+      <Accordion rootClasses='border-blue-400' title='Datasheets'></Accordion>
+      <Accordion rootClasses='border-blue-400' title='Stratagems'>
+        <CommandReRoll />
+      </Accordion>
     </div>
   );
 }
