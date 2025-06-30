@@ -5,21 +5,32 @@ interface StratagemProps {
   name: string;
   cost: number;
   detatchment: 'Core' | 'Army of Faith';
-  type: 'Battle Tactic';
+  type: 'Battle Tactic' | 'Strategic Ploy' | 'Epic Deed' | 'Wargear';
   timing: 'any' | 'you' | 'enemy';
   when: string;
   target: string;
   effect: string;
+  restrictions?: string;
 }
 
 export default function Stratagem(props: StratagemProps) {
-  const { name, cost, detatchment, type, timing, when, target, effect } = props;
+  const {
+    name,
+    cost,
+    detatchment,
+    type,
+    timing,
+    when,
+    target,
+    effect,
+    restrictions,
+  } = props;
   return (
     <Accordion
       rootClasses={clsx({
         'border-emerald-900 bg-emerald-800': timing === 'any',
-        'border-blue-700 bg-blue-600': timing === 'you',
-        'border-red-700 bg-red-600': timing === 'enemy',
+        'border-blue-900 bg-blue-800': timing === 'you',
+        'border-red-900 bg-red-800': timing === 'enemy',
       })}
       titleClasses='text-2xl font-bold'
       title={`${cost} CP - ${name}`}
@@ -64,6 +75,20 @@ export default function Stratagem(props: StratagemProps) {
           </span>
           {effect}
         </p>
+        {!!restrictions ?? (
+          <p className='flex gap-2'>
+            <span
+              className={clsx({
+                'text-emerald-200': timing === 'any',
+                'text-blue-200': timing === 'you',
+                'text-red-200': timing === 'enemy',
+              })}
+            >
+              Restrictions:
+            </span>
+            {restrictions}
+          </p>
+        )}
       </div>
     </Accordion>
   );
