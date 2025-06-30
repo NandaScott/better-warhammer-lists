@@ -46,7 +46,7 @@ export default function Accordion(props: AccordionProps) {
           open ? 'duration-300' : 'duration-150'
         )}
       >
-        <div className='pt-4' ref={contentRef}>
+        <div className='pt-4 flex flex-col gap-4' ref={contentRef}>
           {children}
         </div>
       </div>
