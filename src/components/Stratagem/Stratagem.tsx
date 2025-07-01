@@ -3,6 +3,7 @@ import { Accordion } from '../Accordion';
 
 interface StratagemProps {
   name: string;
+  subtitle?: string;
   cost: number;
   detatchment: 'Core' | 'Army of Faith';
   type: 'Battle Tactic' | 'Strategic Ploy' | 'Epic Deed' | 'Wargear';
@@ -16,6 +17,7 @@ interface StratagemProps {
 export default function Stratagem(props: StratagemProps) {
   const {
     name,
+    subtitle,
     cost,
     detatchment,
     type,
@@ -34,6 +36,7 @@ export default function Stratagem(props: StratagemProps) {
       })}
       titleClasses='text-2xl font-bold'
       title={`${cost} CP - ${name}`}
+      subtitle={subtitle}
     >
       <div className='font-medium flex flex-col gap-4'>
         <p className='text-xl font-semibold'>

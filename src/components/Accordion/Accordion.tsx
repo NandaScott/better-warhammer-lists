@@ -4,15 +4,16 @@ import clsx from 'clsx';
 
 interface AccordionProps extends PropsWithChildren {
   title: string;
+  subtitle?: string;
   rootClasses?: string;
   titleClasses?: string;
 }
 
 export default function Accordion(props: AccordionProps) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentHeight = useRef<number>(0);
-  const { title, children, rootClasses, titleClasses } = props;
+  const { title, subtitle, children, rootClasses, titleClasses } = props;
 
   useEffect(() => {
     if (contentRef.current) {
@@ -36,6 +37,7 @@ export default function Accordion(props: AccordionProps) {
       <div className='flex justify-between w-full items-center'>
         <div className={clsx(!!titleClasses ? titleClasses : 'text-xl')}>
           {title}
+          {subtitle && <div className='text-base'>{subtitle}</div>}
         </div>
         <div
           className={clsx('transition-transform duration-150', {
