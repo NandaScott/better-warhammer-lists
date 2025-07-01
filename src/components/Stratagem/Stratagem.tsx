@@ -75,7 +75,11 @@ export default function Stratagem(props: StratagemProps) {
           </span>
           {effect}
         </p>
+<<<<<<< HEAD
         {!!restrictions && (
+=======
+        {!!restrictions ?? (
+>>>>>>> 34e5ac14129380ebc27b24d0ac008da61dacf557
           <p className='flex gap-2'>
             <span
               className={clsx({
