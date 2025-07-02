@@ -10,6 +10,10 @@ strong {
   @apply font-bold;
 }
 
+em {
+  @apply italic;
+}
+
 aside {
   @apply flex before:content-[''] before:rounded before:bg-red-800 before:block before:w-1 before:mr-4;
 }
