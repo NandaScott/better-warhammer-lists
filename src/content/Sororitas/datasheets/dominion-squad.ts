@@ -1,14 +1,18 @@
 import type { DatasheetProps } from '../../../components/Datasheet';
 
 export const DominionSquad: DatasheetProps = {
-  name: 'Dominion Squad',
-  movement: 6,
-  toughness: 3,
-  save: 3,
-  invuln: 6,
-  wounds: 1,
-  leadership: 7,
-  objective: 1,
+  stats: [
+    {
+      name: 'Dominion Squad',
+      movement: 6,
+      toughness: 3,
+      save: 3,
+      invuln: 6,
+      wounds: 1,
+      leadership: 7,
+      objective: 1,
+    },
+  ],
   rangedWeapons: [
     {
       type: 'ranged',

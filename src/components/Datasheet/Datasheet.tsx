@@ -77,7 +77,7 @@ type MeleeWeapon = {
   damage: number | 'D6' | 'D3';
 };
 
-export interface DatasheetProps {
+type Stat = {
   name: string;
   movement: number;
   toughness: number;
@@ -86,6 +86,10 @@ export interface DatasheetProps {
   wounds: number;
   leadership: number;
   objective: number;
+};
+
+export interface DatasheetProps {
+  stats: Stat[];
   rangedWeapons: RangedWeapon[];
   meleeWeapons: MeleeWeapon[];
   abilities: {
@@ -108,14 +112,7 @@ export interface DatasheetProps {
 
 export default function Datasheet(props: DatasheetProps) {
   const {
-    name,
-    movement,
-    toughness,
-    save,
-    invuln,
-    wounds,
-    leadership,
-    objective,
+    stats,
     rangedWeapons,
     meleeWeapons,
     abilities,
@@ -150,21 +147,38 @@ export default function Datasheet(props: DatasheetProps) {
         onClick={handleClick}
         className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full font-bold text-center align-middle bg-red-950'
       >
-        <div className='p-2 px-4 text-xl uppercase flex gap-8 items-center'>
-          {name}
+        <div className='flex flex-col'>
+          {stats.map(
+            ({
+              name,
+              movement,
+              toughness,
+              save,
+              invuln,
+              wounds,
+              leadership,
+              objective,
+            }) => (
+              <div className='p-2 px-4 text-xl uppercase flex gap-8 items-center'>
+                {name}
 
-          <div className='flex text-center align-middle text-sm gap-2'>
-            <LabelledBox label='M'>{movement}"</LabelledBox>
-            <LabelledBox label='T'>{toughness}</LabelledBox>
-            <LabelledBox label='SV'>{save}+</LabelledBox>
-            <LabelledBox label='INV'>{invuln}+</LabelledBox>
-            <LabelledBox label='W'>{wounds}</LabelledBox>
-            <LabelledBox label='LD'>{leadership}+</LabelledBox>
-            <LabelledBox label='OC'>{objective}</LabelledBox>
-          </div>
+                <div className='flex text-center align-middle text-sm gap-2'>
+                  <LabelledBox label='M'>{movement}"</LabelledBox>
+                  <LabelledBox label='T'>{toughness}</LabelledBox>
+                  <LabelledBox label='SV'>{save}+</LabelledBox>
+                  <LabelledBox label='INV'>{invuln}+</LabelledBox>
+                  <LabelledBox label='W'>{wounds}</LabelledBox>
+                  <LabelledBox label='LD'>{leadership}+</LabelledBox>
+                  <LabelledBox label='OC'>{objective}</LabelledBox>
+                </div>
+              </div>
+            )
+          )}
         </div>
         <div
-          className={clsx('transition-transform duration-150 p-2 px-4', {
+          className={clsx('transition-transform duration-150', {
+            'p-2 px-8': stats.length === 1,
+            'p-8': stats.length > 1,
             'rotate-180': contentHeight.current > 0,
           })}
         >

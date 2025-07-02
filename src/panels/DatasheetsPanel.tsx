@@ -8,7 +8,10 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
   const {} = props;
   return (
     <TabPanel>
-      <Datasheet {...DominionSquad} />
+      <div className='flex flex-col gap-4'>
+        <Datasheet {...DominionSquad} />
+        <Datasheet {...DominionSquad} />
+      </div>
     </TabPanel>
   );
 }
