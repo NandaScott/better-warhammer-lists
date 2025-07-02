@@ -3,6 +3,7 @@ import { Tab, TabGroup, TabList, TabPanels } from '@headlessui/react';
 import clsx from 'clsx';
 import RulesPanel from './panels/RulesPanel';
 import StratagemsPanel from './panels/StratagemsPanel';
+import DatasheetsPanel from './panels/DatasheetsPanel';
 
 function App() {
   const [points, setPoints] = useState(2000);
@@ -37,6 +38,7 @@ function App() {
         <TabPanels>
           <RulesPanel />
           <StratagemsPanel />
+          <DatasheetsPanel />
         </TabPanels>
       </TabGroup>
     </div>

@@ -7,7 +7,7 @@ body,
 }
 
 strong {
-  @apply uppercase font-bold;
+  @apply font-bold;
 }
 
 aside {
