@@ -10,14 +10,17 @@ interface AccordionProps extends PropsWithChildren {
 }
 
 export default function Accordion(props: AccordionProps) {
-  const [open, setOpen] = useState(false);
+  // I don't know how or why, but defaulting this to true makes the component more responsive on initial load.
+  const [open, setOpen] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentHeight = useRef<number>(0);
   const { title, subtitle, children, rootClasses, titleClasses } = props;
 
   useEffect(() => {
     if (contentRef.current) {
-      contentHeight.current = open ? contentRef.current.scrollHeight : 0;
+      contentHeight.current = open
+        ? contentRef.current.getBoundingClientRect().height
+        : 0;
     }
   }, [open]);
 
@@ -41,7 +44,7 @@ export default function Accordion(props: AccordionProps) {
         </div>
         <div
           className={clsx('transition-transform duration-150', {
-            'rotate-180': open,
+            'rotate-180': contentHeight.current > 0,
           })}
         >
           <ChevronDown />
