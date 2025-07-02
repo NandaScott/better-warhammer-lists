@@ -100,11 +100,12 @@ export interface DatasheetProps {
   wargearAbilities?: Ability[];
   setupAbilities?: Ability[];
   wargearOptions?: WargearOption[];
+  leaderAbility?: string[];
   unitComposition: {
     models: string[];
     defaultWeapons: string[];
     points: { quantity: string; total: number }[];
-    baseSize: number;
+    baseSizes: { model: string; size: number }[];
   };
   keywords: string[];
   factionKeywords: string[];
@@ -119,6 +120,7 @@ export default function Datasheet(props: DatasheetProps) {
     wargearAbilities,
     setupAbilities,
     wargearOptions,
+    leaderAbility,
     unitComposition,
     keywords,
     factionKeywords,
@@ -147,7 +149,7 @@ export default function Datasheet(props: DatasheetProps) {
         onClick={handleClick}
         className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full font-bold text-center align-middle bg-red-950'
       >
-        <div className='flex flex-col'>
+        <div className='flex flex-col min-w-3xl'>
           {stats.map(
             ({
               name,
@@ -159,7 +161,7 @@ export default function Datasheet(props: DatasheetProps) {
               leadership,
               objective,
             }) => (
-              <div className='p-2 px-4 text-xl uppercase flex gap-8 items-center'>
+              <div className='p-2 px-4 text-xl uppercase flex gap-8 items-center justify-between'>
                 {name}
 
                 <div className='flex text-center align-middle text-sm gap-2'>
@@ -198,7 +200,7 @@ export default function Datasheet(props: DatasheetProps) {
           className='grid grid-cols-4 bg-stone-100 border-red-900 border-2 border-t-0'
         >
           <div className='col-span-3 border-r-2 border-red-900'>
-            <table>
+            <table className='w-full'>
               <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 h-10'>
                 <th className='col-span-1 p-1 mx-auto'>
                   <Crosshair className='fill-white w-5 h-5' />
@@ -334,23 +336,44 @@ export default function Datasheet(props: DatasheetProps) {
                 )}
               </div>
             </table>
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
-              Wargear Options
-            </div>
-            <div className='flex flex-col gap-4 text-black p-4 text-sm'>
-              <ul className='list-disc list-inside [&_ul]:list-[revert]'>
-                {wargearOptions?.map(({ entry, options }) => (
-                  <li>
-                    {entry}{' '}
-                    <ul className='pl-4 list-disc list-inside'>
-                      {options?.map((val) => (
-                        <li>{val}</li>
+            {wargearOptions && (
+              <>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                  Wargear Options
+                </div>
+                <div className='flex flex-col gap-4 text-black p-4 text-sm'>
+                  <ul className='list-disc list-inside [&_ul]:list-[revert]'>
+                    {wargearOptions?.map(({ entry, options }) => (
+                      <li>
+                        {entry}{' '}
+                        <ul className='pl-4 list-disc list-inside'>
+                          {options?.map((val) => (
+                            <li>{val}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+            {leaderAbility && (
+              <>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                  Leader
+                </div>
+                <div className='text-black p-4'>
+                  <div>This unit can be attached to the following units:</div>
+                  <div className='flex flex-col gap-4 p-4 text-sm font-bold uppercase'>
+                    <ul className='list-disc list-inside [&_ul]:list-[revert]'>
+                      {leaderAbility?.map((entry) => (
+                        <li>{entry}</li>
                       ))}
                     </ul>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
 
           <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-1'>
@@ -373,17 +396,20 @@ export default function Datasheet(props: DatasheetProps) {
                 ))}
               </div>
             </div>
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
-              Wargear Abilities
-            </div>
+
             {wargearAbilities && (
-              <div className='p-2 flex flex-col gap-2'>
-                {wargearAbilities.map(({ name, effect }) => (
-                  <div>
-                    <strong>{name}:</strong> {effect}
-                  </div>
-                ))}
-              </div>
+              <>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                  Wargear Abilities
+                </div>
+                <div className='p-2 flex flex-col gap-2'>
+                  {wargearAbilities.map(({ name, effect }) => (
+                    <div>
+                      <strong>{name}:</strong> {effect}
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
             <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
               Unit Composition
@@ -406,8 +432,12 @@ export default function Datasheet(props: DatasheetProps) {
                   <div>{quantity}</div> <div>{total} pts</div>
                 </div>
               ))}
-              <div>
-                Base size: <strong>{unitComposition.baseSize} mm</strong>
+              <div className='flex flex-col gap-1'>
+                {unitComposition.baseSizes.map(({ model, size }) => (
+                  <div>
+                    {model}: {size}mm
+                  </div>
+                ))}
               </div>
             </div>
             {setupAbilities?.map(({ name, effect }) => (

@@ -265,7 +265,12 @@ export const DominionSquad: DatasheetProps = {
         total: 115,
       },
     ],
-    baseSize: 32,
+    baseSizes: [
+      {
+        model: 'All models',
+        size: 32,
+      },
+    ],
   },
   keywords: ['Infantry', 'Grenades', 'Imperium', 'Dominion Squad'],
   factionKeywords: ['Adepta Sororitas'],
