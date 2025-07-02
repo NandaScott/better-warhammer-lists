@@ -267,7 +267,7 @@ export const DominionSquad: DatasheetProps = {
     ],
     baseSizes: [
       {
-        model: 'All models',
+        model: 'Dominions',
         size: 32,
       },
     ],
