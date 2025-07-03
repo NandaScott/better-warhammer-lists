@@ -11,7 +11,7 @@ interface InsaneBraveryProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function InsaneBravery(props: InsaneBraveryProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn !== 'Your Turn' && phase !== 'Command Phase') return null;
+  if (turn !== 'Your Turn' && phase !== 'Command') return null;
 
   if (simplified) {
     return (

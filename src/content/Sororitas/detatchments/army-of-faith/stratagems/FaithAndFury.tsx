@@ -9,7 +9,7 @@ interface FaithAndFuryProps extends Simplified, PhaseOnly {}
 export default function FaithAndFury(props: FaithAndFuryProps) {
   const { simplified, phase } = props;
 
-  if (phase !== 'Fight Phase') return null;
+  if (phase !== 'Fight') return null;
 
   if (simplified) {
     return (

@@ -10,7 +10,7 @@ interface RapidIngressProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function GoToGround(props: RapidIngressProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === 'Your Turn' && phase !== 'Shooting Phase') return null;
+  if (turn === 'Your Turn' && phase !== 'Shooting') return null;
 
   if (simplified) {
     return (

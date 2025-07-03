@@ -1,9 +1,4 @@
-export type Phases =
-  | 'Command Phase'
-  | 'Movement Phase'
-  | 'Shooting Phase'
-  | 'Charge Phase'
-  | 'Fight Phase';
+export type Phases = 'Command' | 'Movement' | 'Shooting' | 'Charge' | 'Fight';
 
 export type Turn = 'Your Turn' | "Opponent's Turn";
 

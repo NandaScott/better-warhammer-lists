@@ -10,7 +10,7 @@ interface AngelicDescentProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function AngelicDescent(props: AngelicDescentProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === 'Your Turn' && phase !== 'Fight Phase') return null;
+  if (turn === 'Your Turn' && phase !== 'Fight') return null;
 
   if (simplified) {
     return (

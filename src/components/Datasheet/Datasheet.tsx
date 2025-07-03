@@ -154,7 +154,7 @@ export default function Datasheet(props: DatasheetProps) {
         onClick={handleClick}
         className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full font-bold text-center align-middle bg-red-950'
       >
-        <div className='flex flex-col min-w-3xl'>
+        <div className='flex flex-col lg:min-w-3xl'>
           {stats.map(
             ({
               name,
@@ -166,10 +166,10 @@ export default function Datasheet(props: DatasheetProps) {
               leadership,
               objective,
             }) => (
-              <div className='p-2 px-4 text-xl uppercase flex gap-8 items-center justify-between'>
+              <div className='px-2 p-2 lg:px-4 text-sm uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between'>
                 {name}
 
-                <div className='flex text-center align-middle text-sm gap-2'>
+                <div className='flex text-center align-middle gap-2'>
                   <LabelledBox label='M'>{movement}"</LabelledBox>
                   <LabelledBox label='T'>{toughness}</LabelledBox>
                   <LabelledBox label='SV'>{save}+</LabelledBox>
@@ -184,8 +184,8 @@ export default function Datasheet(props: DatasheetProps) {
         </div>
         <div
           className={clsx('transition-transform duration-150', {
-            'p-2 px-8': stats.length === 1,
-            'p-8': stats.length > 1,
+            'mr-4 lg:p-2 lg:px-8': stats.length === 1,
+            'mr-4 lg:p-8': stats.length > 1,
             'rotate-180': contentHeight.current > 0,
           })}
         >
@@ -213,21 +213,21 @@ export default function Datasheet(props: DatasheetProps) {
                 <div className='text-black p-4'>{effect}</div>
               </div>
             ))}
-          <div className='col-span-3 border-r-2 border-red-900'>
+          <div className='col-span-4 md:col-span-3 border-r-2 border-red-900'>
             <table className='w-full'>
-              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 h-10'>
+              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
                 <th className='col-span-1 p-1 mx-auto'>
-                  <Crosshair className='fill-white w-5 h-5' />
+                  <Crosshair className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
                 </th>
                 <th className='col-span-5 text-left'>Ranged Weapons</th>
-                <th className='col-span-1'>Range</th>
+                <th className='col-span-1'>RNG</th>
                 <th className='col-span-1'>A</th>
                 <th className='col-span-1'>BS</th>
                 <th className='col-span-1'>S</th>
                 <th className='col-span-1'>AP</th>
                 <th className='col-span-1'>D</th>
               </tr>
-              <div className='divide-y divide-dotted'>
+              <div className='divide-y divide-dotted text-sm'>
                 {rangedWeapons.map(
                   (
                     {
@@ -262,7 +262,7 @@ export default function Datasheet(props: DatasheetProps) {
                       >
                         {profiled && <span className='text-red-900'>➤</span>}{' '}
                         {name}{' '}
-                        <strong className='text-red-900 text-sm'>
+                        <strong className='text-red-900 text-xs lg:text-sm'>
                           [{keywords.join(', ')}]
                         </strong>
                       </td>
@@ -290,19 +290,19 @@ export default function Datasheet(props: DatasheetProps) {
                   )
                 )}
               </div>
-              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950'>
+              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
                 <th className='col-span-1 p-1 mx-auto'>
-                  <CrossedSwords className='fill-white w-5 h-5' />
+                  <CrossedSwords className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
                 </th>
                 <th className='col-span-5 text-left'>Ranged Weapons</th>
-                <th className='col-span-1'>Range</th>
+                <th className='col-span-1'>RNG</th>
                 <th className='col-span-1'>A</th>
                 <th className='col-span-1'>WS</th>
                 <th className='col-span-1'>S</th>
                 <th className='col-span-1'>AP</th>
                 <th className='col-span-1'>D</th>
               </tr>
-              <div className='divide-y divide-dotted'>
+              <div className='divide-y divide-dotted text-sm'>
                 {meleeWeapons.map(
                   (
                     {
@@ -357,7 +357,7 @@ export default function Datasheet(props: DatasheetProps) {
             </table>
             {wargearOptions && (
               <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
                   Wargear Options
                 </div>
                 <div className='flex flex-col gap-4 text-black p-4 text-sm'>
@@ -378,7 +378,7 @@ export default function Datasheet(props: DatasheetProps) {
             )}
             {leaderAbility && (
               <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
                   Leader
                 </div>
                 <div className='text-black p-4'>
@@ -395,8 +395,8 @@ export default function Datasheet(props: DatasheetProps) {
             )}
           </div>
 
-          <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-1'>
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+          <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-4 md:col-span-1 text-sm'>
+            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
               Abilities
             </div>
             <div className='divide-dotted divide-y'>
@@ -418,7 +418,7 @@ export default function Datasheet(props: DatasheetProps) {
 
             {wargearAbilities && (
               <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
                   Wargear Abilities
                 </div>
                 <div className='p-2 flex flex-col gap-2'>
@@ -430,7 +430,7 @@ export default function Datasheet(props: DatasheetProps) {
                 </div>
               </>
             )}
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
+            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
               Unit Composition
             </div>
             <div className='p-2 flex flex-col gap-2 divide-y divide-gray-300'>
@@ -468,11 +468,11 @@ export default function Datasheet(props: DatasheetProps) {
               </>
             ))}
           </div>
-          <div className='border-red-900 border-r-2 col-span-3 border-t-2 text-black text-base bg-stone-300 flex items-center gap-2 py-1 p-2'>
-            <span className='uppercase'>Keywords:</span>{' '}
+          <div className='border-red-900 border-r-2 col-span-4 md:col-span-3 border-t-2 text-black text-base bg-stone-300 flex flex-col lg:flex-row lg:items-center lg:gap-2 lg:py-1 p-2'>
+            <span className='uppercase text-xs lg:text-base'>Keywords:</span>{' '}
             <strong>{keywords.join(', ')}</strong>
           </div>
-          <div className='border-t-2 border-red-900 col-span-1 p-3 text-base text-white bg-zinc-900 flex flex-col gap-1'>
+          <div className='border-t-2 border-red-900 col-span-4 md:col-span-1 p-3 text-base text-white bg-zinc-900 flex flex-col gap-1'>
             <span className='uppercase text-xs'>Faction Keywords:</span>
             <strong>{factionKeywords.join(', ')}</strong>
           </div>

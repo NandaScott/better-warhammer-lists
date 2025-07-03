@@ -6,7 +6,7 @@ interface CounterOffensiveProps extends Simplified, PhaseOnly {}
 export default function CounterOffensive(props: CounterOffensiveProps) {
   const { simplified, phase } = props;
 
-  if (phase !== 'Fight Phase') return null;
+  if (phase !== 'Fight') return null;
 
   if (simplified) {
     return (

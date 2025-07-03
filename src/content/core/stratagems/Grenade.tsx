@@ -10,7 +10,7 @@ interface GrenadeProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function Grenade(props: GrenadeProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === "Opponent's Turn" && phase !== 'Shooting Phase') return null;
+  if (turn === "Opponent's Turn" && phase !== 'Shooting') return null;
 
   if (simplified) {
     return (

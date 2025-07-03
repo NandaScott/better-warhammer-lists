@@ -12,7 +12,7 @@ export default function DivineGuidance(props: DivineGuidanceProps) {
 
   if (turn === 'Your Turn') return null;
 
-  if (phase !== 'Shooting Phase' && phase !== 'Fight Phase') return null;
+  if (phase !== 'Shooting' && phase !== 'Fight') return null;
 
   if (simplified) {
     return (

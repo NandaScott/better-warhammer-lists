@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className='p-8 flex flex-col gap-6'>
-      <h2 className='text-5xl font-bold'>Miracle Points</h2>
+      <h2 className='text-3xl font-bold'>Miracle Points</h2>
       <div className='flex gap-4 items-baseline'>
         <div className='text-3xl font-semibold'>Army of Faith</div>
         <span className='text-xl italic font-semibold'>{points} / 2000</span>

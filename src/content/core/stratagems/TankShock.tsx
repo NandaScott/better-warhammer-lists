@@ -10,7 +10,7 @@ interface TankShockProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function TankShock(props: TankShockProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === "Opponent's Turn" && phase !== 'Charge Phase') return null;
+  if (turn === "Opponent's Turn" && phase !== 'Charge') return null;
 
   if (simplified) {
     return (

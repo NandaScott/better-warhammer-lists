@@ -10,7 +10,7 @@ interface HeroicInterventionProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function HeroicIntervention(props: HeroicInterventionProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === 'Your Turn' && phase !== 'Charge Phase') return null;
+  if (turn === 'Your Turn' && phase !== 'Charge') return null;
 
   if (simplified) {
     return (

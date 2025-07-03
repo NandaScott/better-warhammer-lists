@@ -10,7 +10,7 @@ interface RapidIngressProps extends Simplified, PhaseOnly, TurnOnly {}
 export default function RapidIngress(props: RapidIngressProps) {
   const { simplified, phase, turn } = props;
 
-  if (turn === "Opponent's Turn" && phase !== 'Movement Phase') return null;
+  if (turn === "Opponent's Turn" && phase !== 'Movement') return null;
 
   if (simplified) {
     return (

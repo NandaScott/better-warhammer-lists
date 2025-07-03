@@ -12,11 +12,7 @@ export default function FireOverwatch(props: FireOverwatchProps) {
 
   if (turn === 'Your Turn') return null;
 
-  if (
-    phase === 'Command Phase' ||
-    phase === 'Fight Phase' ||
-    phase === 'Shooting Phase'
-  )
+  if (phase === 'Command' || phase === 'Fight' || phase === 'Shooting')
     return null;
 
   if (simplified) {

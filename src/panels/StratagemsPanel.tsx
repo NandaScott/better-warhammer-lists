@@ -24,13 +24,7 @@ import {
   AngelicDescent,
 } from '../content/Sororitas/detatchments/army-of-faith';
 
-const phases: Phases[] = [
-  'Command Phase',
-  'Movement Phase',
-  'Shooting Phase',
-  'Charge Phase',
-  'Fight Phase',
-];
+const phases: Phases[] = ['Command', 'Movement', 'Shooting', 'Charge', 'Fight'];
 
 export default function RulesPanel() {
   const [simplified, setSimplified] = useState(true);
@@ -48,7 +42,7 @@ export default function RulesPanel() {
         value={currentPlayer}
         onChange={setCurrentPlayer}
         aria-label='Current Phase'
-        className='flex gap-4'
+        className='flex flex-col md:flex-row gap-4'
       >
         <Field className='flex justify-between items-center gap-2 grow p-4 rounded bg-green-700'>
           <Label className='font-semibold grow text-2xl'>Your Turn</Label>
@@ -57,7 +51,7 @@ export default function RulesPanel() {
             className='group flex size-5 items-center justify-center rounded-full border-4 bg-white data-checked:bg-green-400'
           />
         </Field>
-        <Field className='flex justify-between items-center gap-2 grow p-2 px-4 rounded bg-red-700'>
+        <Field className='flex justify-between items-center gap-2 grow p-4 rounded bg-red-700'>
           <Label className='font-semibold grow text-2xl'>Opponent's Turn</Label>
           <Radio
             value="Opponent's Turn"
@@ -69,7 +63,7 @@ export default function RulesPanel() {
         value={currentPhase}
         onChange={setCurrentPhase}
         aria-label='Current Phase'
-        className='flex gap-4'
+        className='flex flex-col md:flex-row gap-4'
       >
         {phases.map((phase) => (
           <Field

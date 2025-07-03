@@ -9,7 +9,7 @@ interface LightOfTheEmperorProps extends Simplified, PhaseOnly {}
 export default function LightOfTheEmperor(props: LightOfTheEmperorProps) {
   const { simplified, phase } = props;
 
-  if (phase !== 'Command Phase') return null;
+  if (phase !== 'Command') return null;
 
   if (simplified) {
     return (

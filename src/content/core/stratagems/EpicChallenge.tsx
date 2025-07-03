@@ -6,7 +6,7 @@ interface EpicChallengeProps extends Simplified, PhaseOnly {}
 export default function EpicChallenge(props: EpicChallengeProps) {
   const { simplified, phase } = props;
 
-  if (phase !== 'Fight Phase') return null;
+  if (phase !== 'Fight') return null;
 
   if (simplified) {
     return (
