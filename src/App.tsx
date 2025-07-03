@@ -7,6 +7,7 @@ import DatasheetsPanel from './panels/DatasheetsPanel';
 
 function App() {
   const [points, setPoints] = useState(2000);
+  console.log(setPoints);
 
   return (
     <div className='p-8 flex flex-col gap-6'>
