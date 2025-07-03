@@ -90,6 +90,10 @@ type Stat = {
 
 export interface DatasheetProps {
   stats: Stat[];
+  enhancements: {
+    name: string;
+    effect: string;
+  }[];
   rangedWeapons: RangedWeapon[];
   meleeWeapons: MeleeWeapon[];
   abilities: {
@@ -114,6 +118,7 @@ export interface DatasheetProps {
 export default function Datasheet(props: DatasheetProps) {
   const {
     stats,
+    enhancements,
     rangedWeapons,
     meleeWeapons,
     abilities,
@@ -199,6 +204,15 @@ export default function Datasheet(props: DatasheetProps) {
           ref={contentRef}
           className='grid grid-cols-4 bg-stone-100 border-red-900 border-2 border-t-0'
         >
+          {enhancements &&
+            enhancements.map(({ name, effect }) => (
+              <div className='col-span-4 flex flex-col'>
+                <div className='uppercase p-4 text-white font-bold text-lg items-center bg-red-950'>
+                  {name}
+                </div>
+                <div className='text-black p-4'>{effect}</div>
+              </div>
+            ))}
           <div className='col-span-3 border-r-2 border-red-900'>
             <table className='w-full'>
               <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 h-10'>
@@ -218,6 +232,7 @@ export default function Datasheet(props: DatasheetProps) {
                   (
                     {
                       quantity,
+                      profiled,
                       name,
                       keywords,
                       range,
@@ -241,9 +256,13 @@ export default function Datasheet(props: DatasheetProps) {
                       <td colSpan={1} className='text-right mr-4 col-span-1'>
                         {quantity > 0 ? `${quantity}x` : ''}
                       </td>
-                      <td colSpan={4} className='text-left col-span-5'>
+                      <td
+                        colSpan={4}
+                        className='text-left col-span-5 warp-break-word'
+                      >
+                        {profiled && <span className='text-red-900'>➤</span>}{' '}
                         {name}{' '}
-                        <strong className='text-red-900'>
+                        <strong className='text-red-900 text-sm'>
                           [{keywords.join(', ')}]
                         </strong>
                       </td>
@@ -382,7 +401,7 @@ export default function Datasheet(props: DatasheetProps) {
             </div>
             <div className='divide-dotted divide-y'>
               <div className='p-2'>
-                CORE: <strong>{abilities.core}</strong>
+                CORE: <strong>{abilities.core.join(', ')}</strong>
               </div>
               <div className='p-2'>
                 FACTION: <strong>{abilities.faction}</strong>

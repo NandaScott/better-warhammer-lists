@@ -23,6 +23,13 @@ export const AestredThurgaAndAgathaeDolan: DatasheetProps = {
       objective: 1,
     },
   ],
+  enhancements: [
+    {
+      name: 'Blade of Saint Ellynor',
+      effect:
+        "ADEPTA SORORITAS model only. Improve the Strength and Armor Penetration characteristics of the bearer's melee weapons by 1, and those weapons have the [PRECISION] ability. In addition, each time the bearer fights, if one or more enemy models are destroyed by those attacks, you gain 1 Miracle dice.",
+    },
+  ],
   rangedWeapons: [
     {
       type: 'ranged',

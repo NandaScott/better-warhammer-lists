@@ -1,13 +1,40 @@
 import type { DatasheetProps } from './Datasheet';
 
+function combineArraysUniquely(arr1: any[], arr2: any[]) {
+  const arr1String = arr1.map((val) => JSON.stringify(val));
+  const arr2String = arr2.map((val) => JSON.stringify(val));
+  const combined = [...arr1String, ...arr2String];
+  const combinedSet = new Set(combined);
+  return Array.from(combinedSet).map((val) => JSON.parse(val));
+}
+
+function alphabetize(arr1: any[], key: string): any[] {
+  return arr1.sort((a, b) => {
+    if (a[key] < b[key]) {
+      return -1;
+    }
+    if (a[key] > b[key]) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
 export default function datasheetCombiner(
   sheet1: DatasheetProps,
   sheet2: DatasheetProps
 ): DatasheetProps {
   return {
     stats: [...sheet1.stats, ...sheet2.stats],
-    rangedWeapons: [...sheet1.rangedWeapons, ...sheet2.rangedWeapons],
-    meleeWeapons: [...sheet1.meleeWeapons, ...sheet2.meleeWeapons],
+    enhancements: [...sheet1.enhancements, ...sheet2.enhancements],
+    rangedWeapons: alphabetize(
+      combineArraysUniquely(sheet1.rangedWeapons, sheet2.rangedWeapons),
+      'name'
+    ),
+    meleeWeapons: alphabetize(
+      combineArraysUniquely(sheet1.meleeWeapons, sheet2.meleeWeapons),
+      'name'
+    ),
     abilities: {
       core: [...sheet1.abilities.core, ...sheet2.abilities.core],
       faction: sheet2.abilities.faction,
@@ -39,9 +66,10 @@ export default function datasheetCombiner(
         ...sheet2.unitComposition.baseSizes,
       ],
     },
-    keywords: Array.from(new Set([...sheet1.keywords, ...sheet2.keywords])),
-    factionKeywords: Array.from(
-      new Set([...sheet1.factionKeywords, ...sheet2.factionKeywords])
+    keywords: combineArraysUniquely(sheet1.keywords, sheet2.keywords),
+    factionKeywords: combineArraysUniquely(
+      sheet1.factionKeywords,
+      sheet2.factionKeywords
     ),
   };
 }

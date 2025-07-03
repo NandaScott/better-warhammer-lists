@@ -13,6 +13,7 @@ export const DominionSquad: DatasheetProps = {
       objective: 1,
     },
   ],
+  enhancements: [],
   rangedWeapons: [
     {
       type: 'ranged',
