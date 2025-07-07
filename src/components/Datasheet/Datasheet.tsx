@@ -9,6 +9,8 @@ import DatasheetTable, {
   type MeleeWeapon,
   type RangedWeapon,
 } from './DatasheetTable';
+import type { WargearOptionsProps } from './WeargearOptions';
+import WargearOptions from './WeargearOptions';
 
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -29,11 +31,6 @@ type Ability = {
   note?: string;
 };
 
-type WargearOption = {
-  entry: string;
-  options?: string[];
-};
-
 export interface DatasheetProps {
   stats: Stat[];
   enhancements: EnhancementsBannerProps['enhancements'];
@@ -46,7 +43,7 @@ export interface DatasheetProps {
   };
   wargearAbilities?: Ability[];
   setupAbilities?: Ability[];
-  wargearOptions?: WargearOption[];
+  wargearOptions: WargearOptionsProps['wargearOptions'];
   leaderAbility?: string[];
   unitComposition: {
     models: string[];
@@ -114,27 +111,7 @@ export default function Datasheet(props: DatasheetProps) {
           <div className='col-span-4 md:col-span-3 border-r-2 border-red-900'>
             <DatasheetTable icon={Crosshair} weapons={rangedWeapons} />
             <DatasheetTable icon={CrossedSwords} weapons={meleeWeapons} />
-            {wargearOptions && (
-              <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-                  Wargear Options
-                </div>
-                <div className='flex flex-col gap-4 text-black p-4 text-sm'>
-                  <ul className='list-disc list-inside [&_ul]:list-[revert]'>
-                    {wargearOptions?.map(({ entry, options }) => (
-                      <li>
-                        {entry}{' '}
-                        <ul className='pl-4 list-disc list-inside'>
-                          {options?.map((val) => (
-                            <li>{val}</li>
-                          ))}
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            )}
+            <WargearOptions wargearOptions={wargearOptions} />
             {leaderAbility && (
               <>
                 <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>

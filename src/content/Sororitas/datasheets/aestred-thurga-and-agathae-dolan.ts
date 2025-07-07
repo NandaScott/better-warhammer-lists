@@ -126,4 +126,5 @@ export const AestredThurgaAndAgathaeDolan: DatasheetProps = {
     'Agathae Dolan',
   ],
   factionKeywords: ['Adepta Sororitas'],
+  wargearOptions: [],
 };
