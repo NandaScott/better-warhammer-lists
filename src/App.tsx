@@ -4,15 +4,21 @@ import clsx from 'clsx';
 import RulesPanel from './panels/RulesPanel';
 import StratagemsPanel from './panels/StratagemsPanel';
 import DatasheetsPanel from './panels/DatasheetsPanel';
+import { list } from './content/lists/miracle-dice';
 
 function App() {
+  const { name, faction, detatchment, description, points } = list;
   return (
     <div className='p-8 flex flex-col gap-6'>
-      <h2 className='text-3xl font-bold'>Miracle Points</h2>
-      <div className='flex gap-4 items-baseline'>
-        <div className='text-3xl font-semibold'>Army of Faith</div>
-        <span className='text-xl italic font-semibold'>2000 / 2000</span>
-      </div>
+      <h1 className='text-6xl font-bold'>{name}</h1>
+      <h2 className='flex gap-4 items-baseline text-lg font-semibold'>
+        <div className='p-2 px-4 bg-green-700 rounded'>{faction.name}</div>
+        <div className='p-2 px-4 bg-blue-700 rounded'>{detatchment.name}</div>
+        <span className='text-lg'>
+          {points.used} / {points.total}
+        </span>
+      </h2>
+      <div className='text-sm max-w-2xl'>{description}</div>
       <TabGroup className='w-full'>
         <TabList className='flex mb-4'>
           {['Rules', 'Stratagems', 'Datasheets'].map((tab) => (

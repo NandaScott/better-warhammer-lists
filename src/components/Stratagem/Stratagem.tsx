@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Accordion } from '../Accordion';
 
-interface StratagemProps {
+export interface StratagemProps {
   name: string;
   subtitle?: string;
   cost: number;
