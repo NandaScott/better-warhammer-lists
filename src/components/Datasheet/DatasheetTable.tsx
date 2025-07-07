@@ -22,7 +22,8 @@ type WeaponAbilities =
   | 'Devastating Wounds'
   | `Sustained Hits ${OneToSix}`
   | 'Extra Attacks'
-  | `Anti-${Keyword} ${OneToSix}+`;
+  | `Anti-${Keyword} ${OneToSix}+`
+  | 'One Shot';
 
 type Weapon = {
   quantity: number;

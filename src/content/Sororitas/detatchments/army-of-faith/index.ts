@@ -1,4 +1,8 @@
-import type { DetatchmentData, StratagemData } from '../../../core/types';
+import type {
+  DetatchmentData,
+  Enhancement,
+  StratagemData,
+} from '../../../core/types';
 
 const AngelicDescent: StratagemData = {
   name: 'Angelic Descent',
@@ -118,8 +122,50 @@ const ShieldOfFaith: StratagemData = {
   },
 };
 
+const LitaniesOfFaith: Enhancement = {
+  name: 'Litanies of Faith',
+  points: 10,
+  effect: {
+    oracle:
+      'CANONESS or PALATINE model only. At the start of your Command phase, if the bearer is on the battlefield, take a Leadership test for the bearer. If that test is passed, you gain 1 Miracle dice.',
+  },
+};
+
+const BladeOfSaintEllynor: Enhancement = {
+  name: 'Blade of Saint Ellynor',
+  points: 15,
+  effect: {
+    oracle:
+      "ADEPTA SORORITAS model only. Improve the Strength and Armour Penetration characteristics of the bearer's melee weapons by 1, and those weapons have the [PRECISION] ability. In addition, each time the bearer fights, if one or more enemy models are destroyed by those attacks, you gain 1 Miracle dice.",
+  },
+};
+
+const DivineAspect: Enhancement = {
+  name: 'Divine Aspect',
+  points: 5,
+  effect: {
+    oracle:
+      'ADEPTA SORORITAS model only. In your Movement phase, you can select one enemy unit within 12" of the bearer; that unit must take a Battle-shock test. If that test is failed, you gain 1 Miracle dice.',
+  },
+};
+
+const TriptychOfTheMacharianCrusade: Enhancement = {
+  name: 'Triptych of the Macharian Crusade',
+  points: 20,
+  effect: {
+    oracle:
+      'ADEPTA SORORITAS model only. Each time the bearer uses an Act of Faith to substitute a saving throw, that saving throw is successful, irrespective of the value of the Miracle dice used.',
+  },
+};
+
 const ArmyOfFaithDetatchment: DetatchmentData = {
   name: 'Army of Faith',
+  enhancements: {
+    'Litanies of Faith': LitaniesOfFaith,
+    'Blade of Saint Ellynor': BladeOfSaintEllynor,
+    'Divine Aspect': DivineAspect,
+    'Triptych of the Macharian Crusade': TriptychOfTheMacharianCrusade,
+  },
   stratagems: [
     AngelicDescent,
     BlindingRadiance,
