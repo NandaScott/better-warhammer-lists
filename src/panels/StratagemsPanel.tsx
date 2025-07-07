@@ -2,31 +2,18 @@ import { useState } from 'react';
 import { TabPanel, Field, Label, Radio, RadioGroup } from '@headlessui/react';
 import { Toggle } from '../components/Toggle';
 import type { Phases, Turn } from '../interfaces/game-concepts';
-import {
-  CommandReRoll,
-  CounterOffensive,
-  EpicChallenge,
-  InsaneBravery,
-  Grenade,
-  TankShock,
-  RapidIngress,
-  FireOverwatch,
-  GoToGround,
-  Smokescreen,
-  HeroicIntervention,
-} from '../content/core';
-import {
-  ShieldOfFaith,
-  LightOfTheEmperor,
-  FaithAndFury,
-  BlindingRadiance,
-  DivineGuidance,
-  AngelicDescent,
-} from '../content/Sororitas/detatchments/army-of-faith';
+import type { DetatchmentData } from '../content/core/types';
+import { Stratagem } from '../components/Stratagem';
+import CoreStratagems from '../content/core/stratagems';
 
 const phases: Phases[] = ['Command', 'Movement', 'Shooting', 'Charge', 'Fight'];
 
-export default function RulesPanel() {
+interface StratagemsPanelProps {
+  detatchmentStratagems: DetatchmentData['stratagems'];
+}
+
+export default function StratagemsPanel(props: StratagemsPanelProps) {
+  const { detatchmentStratagems } = props;
   const [simplified, setSimplified] = useState(true);
   const [currentPhase, setCurrentPhase] = useState<Phases>(phases[0]);
   const [currentPlayer, setCurrentPlayer] = useState<Turn>('Your Turn');
@@ -80,26 +67,29 @@ export default function RulesPanel() {
       </RadioGroup>
       <div className='flex flex-col gap-4'>
         <div className='flex flex-col gap-8'>
-          <CommandReRoll simplified={simplified} />
-          <CounterOffensive phase={currentPhase} />
-          <EpicChallenge phase={currentPhase} />
-          <InsaneBravery phase={currentPhase} turn={currentPlayer} />
-          <Grenade phase={currentPhase} turn={currentPlayer} />
-          <TankShock phase={currentPhase} turn={currentPlayer} />
-          <RapidIngress phase={currentPhase} turn={currentPlayer} />
-          <FireOverwatch phase={currentPhase} turn={currentPlayer} />
-          <GoToGround phase={currentPhase} turn={currentPlayer} />
-          <Smokescreen phase={currentPhase} turn={currentPlayer} />
-          <HeroicIntervention phase={currentPhase} turn={currentPlayer} />
+          {CoreStratagems.map(({ name, ...rest }) => (
+            <Stratagem
+              key={name}
+              name={name}
+              currentPhase={currentPhase}
+              currentTurn={currentPlayer}
+              simple={simplified}
+              {...rest}
+            />
+          ))}
         </div>
         <div className='block h-1 w-full bg-blue-950' />
         <div className='flex flex-col gap-8'>
-          <ShieldOfFaith />
-          <LightOfTheEmperor phase={currentPhase} />
-          <FaithAndFury phase={currentPhase} />
-          <BlindingRadiance phase={currentPhase} turn={currentPlayer} />
-          <DivineGuidance phase={currentPhase} turn={currentPlayer} />
-          <AngelicDescent phase={currentPhase} turn={currentPlayer} />
+          {detatchmentStratagems.map(({ name, ...rest }) => (
+            <Stratagem
+              key={name}
+              name={name}
+              currentPhase={currentPhase}
+              currentTurn={currentPlayer}
+              simple={simplified}
+              {...rest}
+            />
+          ))}
         </div>
       </div>
     </TabPanel>

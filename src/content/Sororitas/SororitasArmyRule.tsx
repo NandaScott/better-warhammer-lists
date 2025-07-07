@@ -1,4 +1,4 @@
-interface SororitasArmyRule {
+export interface SororitasArmyRuleProps {
   simplified?: boolean;
 }
 
@@ -49,7 +49,7 @@ function ArmyRuleOracle() {
   );
 }
 
-export default function SororitasArmyRule(props: SororitasArmyRule) {
+export default function SororitasArmyRule(props: SororitasArmyRuleProps) {
   const { simplified } = props;
 
   if (simplified) {

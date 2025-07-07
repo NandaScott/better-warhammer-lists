@@ -40,8 +40,11 @@ function App() {
           ))}
         </TabList>
         <TabPanels>
-          <RulesPanel />
-          <StratagemsPanel />
+          <RulesPanel
+            armyRules={faction.armyRules}
+            detatchmentRules={detatchment.rules}
+          />
+          <StratagemsPanel detatchmentStratagems={detatchment.stratagems} />
           <DatasheetsPanel />
         </TabPanels>
       </TabGroup>
