@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import ChevronDown from '../../assets/chevron-down.svg?react';
 import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
-import { LabelledBox } from '../LabelledBox';
 import { useEffect, useRef, useState } from 'react';
+import HeaderButton, { type Stat } from './HeaderButton';
 
 type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 type Keyword = 'Vehicle' | 'Psyker' | 'Infantry';
@@ -77,17 +76,6 @@ type MeleeWeapon = {
   damage: number | 'D6' | 'D3';
 };
 
-type Stat = {
-  name: string;
-  movement: number;
-  toughness: number;
-  save: number;
-  invuln: number;
-  wounds: number;
-  leadership: number;
-  objective: number;
-};
-
 export interface DatasheetProps {
   stats: Stat[];
   enhancements: {
@@ -150,48 +138,11 @@ export default function Datasheet(props: DatasheetProps) {
 
   return (
     <div className='w-full'>
-      <button
-        onClick={handleClick}
-        className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full font-bold text-center align-middle bg-red-950'
-      >
-        <div className='flex flex-col lg:min-w-3xl'>
-          {stats.map(
-            ({
-              name,
-              movement,
-              toughness,
-              save,
-              invuln,
-              wounds,
-              leadership,
-              objective,
-            }) => (
-              <div className='px-2 p-2 lg:px-4 text-sm uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between'>
-                {name}
-
-                <div className='flex text-center align-middle gap-2'>
-                  <LabelledBox label='M'>{movement}"</LabelledBox>
-                  <LabelledBox label='T'>{toughness}</LabelledBox>
-                  <LabelledBox label='SV'>{save}+</LabelledBox>
-                  <LabelledBox label='INV'>{invuln}+</LabelledBox>
-                  <LabelledBox label='W'>{wounds}</LabelledBox>
-                  <LabelledBox label='LD'>{leadership}+</LabelledBox>
-                  <LabelledBox label='OC'>{objective}</LabelledBox>
-                </div>
-              </div>
-            )
-          )}
-        </div>
-        <div
-          className={clsx('transition-transform duration-150', {
-            'mr-4 lg:p-2 lg:px-8': stats.length === 1,
-            'mr-4 lg:p-8': stats.length > 1,
-            'rotate-180': contentHeight.current > 0,
-          })}
-        >
-          <ChevronDown />
-        </div>
-      </button>
+      <HeaderButton
+        contentHeight={contentHeight.current}
+        handleClick={handleClick}
+        stats={stats}
+      />
 
       <div
         style={{ maxHeight: `${contentHeight.current}px` }}
