@@ -12,7 +12,6 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
     DominionSquad,
     AestredThurgaAndAgathaeDolan
   );
-  console.log(combined);
   return (
     <TabPanel>
       <div className='flex flex-col gap-4'>

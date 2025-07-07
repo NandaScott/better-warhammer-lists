@@ -38,7 +38,10 @@ export default function HeaderButton(props: HeaderButtonProps) {
             leadership,
             objective,
           }) => (
-            <div className='px-2 p-2 lg:px-4 text-sm uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between'>
+            <div
+              key={name}
+              className='px-2 p-2 lg:px-4 text-sm uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between'
+            >
               {name}
 
               <div className='flex text-center align-middle gap-2'>

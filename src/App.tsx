@@ -19,7 +19,7 @@ function App() {
       <TabGroup className='w-full'>
         <TabList className='flex mb-4'>
           {['Rules', 'Stratagems', 'Datasheets'].map((tab) => (
-            <Tab as={Fragment}>
+            <Tab key={tab} as={Fragment}>
               {({ selected }) => (
                 <button
                   className={clsx(
