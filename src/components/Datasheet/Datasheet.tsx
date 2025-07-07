@@ -3,6 +3,8 @@ import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
 import { useEffect, useRef, useState } from 'react';
 import HeaderButton, { type Stat } from './HeaderButton';
+import type { EnhancementsBannerProps } from './EnhancementsBanner';
+import EnhancementsBanner from './EnhancementsBanner';
 
 type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 type Keyword = 'Vehicle' | 'Psyker' | 'Infantry';
@@ -78,10 +80,7 @@ type MeleeWeapon = {
 
 export interface DatasheetProps {
   stats: Stat[];
-  enhancements: {
-    name: string;
-    effect: string;
-  }[];
+  enhancements: EnhancementsBannerProps['enhancements'];
   rangedWeapons: RangedWeapon[];
   meleeWeapons: MeleeWeapon[];
   abilities: {
@@ -155,15 +154,7 @@ export default function Datasheet(props: DatasheetProps) {
           ref={contentRef}
           className='grid grid-cols-4 bg-stone-100 border-red-900 border-2 border-t-0'
         >
-          {enhancements &&
-            enhancements.map(({ name, effect }) => (
-              <div className='col-span-4 flex flex-col'>
-                <div className='uppercase p-4 text-white font-bold text-lg items-center bg-red-950'>
-                  {name}
-                </div>
-                <div className='text-black p-4'>{effect}</div>
-              </div>
-            ))}
+          <EnhancementsBanner enhancements={enhancements} />
           <div className='col-span-4 md:col-span-3 border-r-2 border-red-900'>
             <table className='w-full'>
               <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
