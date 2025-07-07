@@ -11,6 +11,8 @@ import DatasheetTable, {
 } from './DatasheetTable';
 import type { WargearOptionsProps } from './WeargearOptions';
 import WargearOptions from './WeargearOptions';
+import type { LeaderAbilityProps } from './LeaderAbility';
+import LeaderAbility from './LeaderAbility';
 
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -44,7 +46,7 @@ export interface DatasheetProps {
   wargearAbilities?: Ability[];
   setupAbilities?: Ability[];
   wargearOptions: WargearOptionsProps['wargearOptions'];
-  leaderAbility?: string[];
+  leaderAbility: LeaderAbilityProps['leaderAbility'];
   unitComposition: {
     models: string[];
     defaultWeapons: string[];
@@ -112,23 +114,7 @@ export default function Datasheet(props: DatasheetProps) {
             <DatasheetTable icon={Crosshair} weapons={rangedWeapons} />
             <DatasheetTable icon={CrossedSwords} weapons={meleeWeapons} />
             <WargearOptions wargearOptions={wargearOptions} />
-            {leaderAbility && (
-              <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-                  Leader
-                </div>
-                <div className='text-black p-4'>
-                  <div>This unit can be attached to the following units:</div>
-                  <div className='flex flex-col gap-4 p-4 text-sm font-bold uppercase'>
-                    <ul className='list-disc list-inside [&_ul]:list-[revert]'>
-                      {leaderAbility?.map((entry) => (
-                        <li>{entry}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </>
-            )}
+            <LeaderAbility leaderAbility={leaderAbility} />
           </div>
 
           <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-4 md:col-span-1 text-sm'>
