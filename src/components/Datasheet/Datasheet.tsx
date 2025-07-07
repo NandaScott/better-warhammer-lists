@@ -5,29 +5,12 @@ import { useEffect, useRef, useState } from 'react';
 import HeaderButton, { type Stat } from './HeaderButton';
 import type { EnhancementsBannerProps } from './EnhancementsBanner';
 import EnhancementsBanner from './EnhancementsBanner';
+import DatasheetTable, {
+  type MeleeWeapon,
+  type RangedWeapon,
+} from './DatasheetTable';
 
-type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
-type Keyword = 'Vehicle' | 'Psyker' | 'Infantry';
-
-type WeaponAbilities =
-  | 'Assault'
-  | `Rapid Fire ${OneToSix}`
-  | 'Ignores Cover'
-  | 'Twin-linked'
-  | 'Pistol'
-  | 'Torrent'
-  | 'Lethal Hits'
-  | 'Lance'
-  | 'Indirect Fire'
-  | 'Precision'
-  | 'Blast'
-  | `Melta ${OneToSix}`
-  | 'Heavy'
-  | 'Hazardous'
-  | 'Devastating Wounds'
-  | `Sustained Hits ${OneToSix}`
-  | 'Extra Attacks'
-  | `Anti-${Keyword} ${OneToSix}+`;
+export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
 type CoreAbilities =
   | 'Deep Strike'
@@ -49,33 +32,6 @@ type Ability = {
 type WargearOption = {
   entry: string;
   options?: string[];
-};
-
-type RangedWeapon = {
-  type: 'ranged';
-  quantity: number;
-  profiled?: boolean;
-  name: string;
-  keywords: WeaponAbilities[];
-  range: number;
-  attacks: number | 'D6' | 'D3';
-  ballisticSkill: number | 'N/A';
-  strength: number;
-  armorPen: number;
-  damage: number | 'D6' | 'D3';
-};
-
-type MeleeWeapon = {
-  type: 'melee';
-  quantity: number;
-  name: string;
-  keywords: WeaponAbilities[];
-  range: 'Melee';
-  attacks: number | 'D6' | 'D3';
-  weaponSkill: number;
-  strength: number;
-  armorPen: number;
-  damage: number | 'D6' | 'D3';
 };
 
 export interface DatasheetProps {
@@ -156,147 +112,8 @@ export default function Datasheet(props: DatasheetProps) {
         >
           <EnhancementsBanner enhancements={enhancements} />
           <div className='col-span-4 md:col-span-3 border-r-2 border-red-900'>
-            <table className='w-full'>
-              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
-                <th className='col-span-1 p-1 mx-auto'>
-                  <Crosshair className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
-                </th>
-                <th className='col-span-5 text-left'>Ranged Weapons</th>
-                <th className='col-span-1'>RNG</th>
-                <th className='col-span-1'>A</th>
-                <th className='col-span-1'>BS</th>
-                <th className='col-span-1'>S</th>
-                <th className='col-span-1'>AP</th>
-                <th className='col-span-1'>D</th>
-              </tr>
-              <div className='divide-y divide-dotted text-sm'>
-                {rangedWeapons.map(
-                  (
-                    {
-                      quantity,
-                      profiled,
-                      name,
-                      keywords,
-                      range,
-                      attacks,
-                      ballisticSkill,
-                      strength,
-                      armorPen,
-                      damage,
-                    },
-                    i
-                  ) => (
-                    <tr
-                      className={clsx(
-                        'grid grid-cols-12 w-full py-1 text-black',
-                        {
-                          'bg-stone-100': i % 2 === 0,
-                          'bg-stone-200': i % 2 !== 0,
-                        }
-                      )}
-                    >
-                      <td colSpan={1} className='text-right mr-4 col-span-1'>
-                        {quantity > 0 ? `${quantity}x` : ''}
-                      </td>
-                      <td
-                        colSpan={4}
-                        className='text-left col-span-5 warp-break-word'
-                      >
-                        {profiled && <span className='text-red-900'>➤</span>}{' '}
-                        {name}{' '}
-                        <strong className='text-red-900 text-xs lg:text-sm'>
-                          [{keywords.join(', ')}]
-                        </strong>
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {range}"
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {attacks}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {`${ballisticSkill}${
-                          ballisticSkill !== 'N/A' ? '+' : ''
-                        }`}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {strength}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {`${armorPen > 0 ? '-' : ''}${armorPen}`}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {damage}
-                      </td>
-                    </tr>
-                  )
-                )}
-              </div>
-              <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
-                <th className='col-span-1 p-1 mx-auto'>
-                  <CrossedSwords className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
-                </th>
-                <th className='col-span-5 text-left'>Ranged Weapons</th>
-                <th className='col-span-1'>RNG</th>
-                <th className='col-span-1'>A</th>
-                <th className='col-span-1'>WS</th>
-                <th className='col-span-1'>S</th>
-                <th className='col-span-1'>AP</th>
-                <th className='col-span-1'>D</th>
-              </tr>
-              <div className='divide-y divide-dotted text-sm'>
-                {meleeWeapons.map(
-                  (
-                    {
-                      quantity,
-                      name,
-                      range,
-                      attacks,
-                      weaponSkill,
-                      strength,
-                      armorPen,
-                      damage,
-                    },
-                    i
-                  ) => (
-                    <tr
-                      className={clsx(
-                        'grid grid-cols-12 w-full py-1 text-black',
-                        {
-                          'bg-stone-100': i % 2 === 0,
-                          'bg-stone-200': i % 2 !== 0,
-                        }
-                      )}
-                    >
-                      <td colSpan={1} className='text-right mr-4 col-span-1'>
-                        {quantity > 0 ? `${quantity}x` : ''}
-                      </td>
-                      <td colSpan={4} className='text-left col-span-5'>
-                        {name}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {range}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {attacks}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {weaponSkill}+
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {strength}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {armorPen}
-                      </td>
-                      <td colSpan={1} className='text-center col-span-1'>
-                        {damage}
-                      </td>
-                    </tr>
-                  )
-                )}
-              </div>
-            </table>
+            <DatasheetTable icon={Crosshair} weapons={rangedWeapons} />
+            <DatasheetTable icon={CrossedSwords} weapons={meleeWeapons} />
             {wargearOptions && (
               <>
                 <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
