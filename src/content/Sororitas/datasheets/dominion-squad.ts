@@ -274,5 +274,6 @@ export const DominionSquad: DatasheetProps = {
     ],
   },
   keywords: ['Infantry', 'Grenades', 'Imperium', 'Dominion Squad'],
+  leaderAbility: [],
   factionKeywords: ['Adepta Sororitas'],
 };

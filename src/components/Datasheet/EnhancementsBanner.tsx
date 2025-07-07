@@ -13,7 +13,7 @@ export default function EnhancementsBanner(props: EnhancementsBannerProps) {
   return (
     <>
       {enhancements.map(({ name, effect }) => (
-        <div className='col-span-4 flex flex-col'>
+        <div key={name} className='col-span-4 flex flex-col'>
           <div className='uppercase p-4 text-white font-bold text-lg items-center bg-red-950'>
             {name}
           </div>

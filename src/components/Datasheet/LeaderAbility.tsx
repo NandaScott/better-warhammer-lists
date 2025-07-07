@@ -17,7 +17,7 @@ export default function LeaderAbility(props: LeaderAbilityProps) {
         <div className='flex flex-col gap-4 p-4 text-sm font-bold uppercase'>
           <ul className='list-disc list-inside [&_ul]:list-[revert]'>
             {leaderAbility?.map((entry) => (
-              <li>{entry}</li>
+              <li key={entry}>{entry}</li>
             ))}
           </ul>
         </div>

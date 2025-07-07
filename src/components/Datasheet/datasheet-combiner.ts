@@ -71,5 +71,6 @@ export default function datasheetCombiner(
       sheet1.factionKeywords,
       sheet2.factionKeywords
     ),
+    leaderAbility: [...sheet1.leaderAbility, ...sheet2.leaderAbility],
   };
 }

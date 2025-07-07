@@ -29,8 +29,6 @@ type Weapon = {
   name: string;
   keywords: WeaponAbilities[];
   attacks: number | 'D6' | 'D3';
-  weaponSkill: number;
-  ballisticSkill: number | 'N/A';
   strength: number;
   armorPen: number;
   damage: number | 'D6' | 'D3';
@@ -60,12 +58,14 @@ interface DatasheetTableCommonProps {
   >;
 }
 
-interface DatasheetTableRangedProps extends DatasheetTableCommonProps {
+export interface DatasheetTableRangedProps extends DatasheetTableCommonProps {
   weapons: RangedWeapon[];
 }
-interface DatasheetTableMeleeProps extends DatasheetTableCommonProps {
+export interface DatasheetTableMeleeProps extends DatasheetTableCommonProps {
   weapons: MeleeWeapon[];
 }
+
+type DatasheetTableProps = DatasheetTableRangedProps | DatasheetTableMeleeProps;
 
 const skill = (arg: 'N/A' | number) => `${arg}${arg !== 'N/A' ? '+' : ''}`;
 
@@ -76,43 +76,92 @@ export default function DatasheetTable(
   props: DatasheetTableMeleeProps
 ): JSX.Element;
 export default function DatasheetTable(
-  props: DatasheetTableRangedProps | DatasheetTableMeleeProps
+  props: DatasheetTableProps
 ): JSX.Element {
   const { icon: Icon, weapons } = props;
 
   return (
     <table className='w-full'>
-      <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
-        <th className='col-span-1 p-1 mx-auto'>
-          <Icon className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
-        </th>
-        <th className='col-span-5 text-left'>Ranged Weapons</th>
-        <th className='col-span-1'>RNG</th>
-        <th className='col-span-1'>A</th>
-        <th className='col-span-1'>BS</th>
-        <th className='col-span-1'>S</th>
-        <th className='col-span-1'>AP</th>
-        <th className='col-span-1'>D</th>
-      </tr>
-      <div className='divide-y divide-dotted text-sm'>
-        {weapons.map(
-          (
-            {
-              quantity,
-              profiled,
-              name,
-              keywords,
-              range,
-              attacks,
-              ballisticSkill,
-              weaponSkill,
-              strength,
-              armorPen,
-              damage,
-            },
-            i
-          ) => (
+      <thead>
+        <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
+          <th className='col-span-1 p-1 mx-auto'>
+            <Icon className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
+          </th>
+          <th className='col-span-5 text-left'>Ranged Weapons</th>
+          <th className='col-span-1'>RNG</th>
+          <th className='col-span-1'>A</th>
+          <th className='col-span-1'>BS</th>
+          <th className='col-span-1'>S</th>
+          <th className='col-span-1'>AP</th>
+          <th className='col-span-1'>D</th>
+        </tr>
+      </thead>
+      <tbody className='divide-y divide-dotted text-sm'>
+        {weapons.map((profile, i) => {
+          const {
+            name,
+            quantity,
+            profiled,
+            keywords,
+            range,
+            attacks,
+            strength,
+            armorPen,
+            damage,
+          } = profile;
+
+          if (profile.type === 'ranged') {
+            const { ballisticSkill } = profile;
+            return (
+              <tr
+                key={name}
+                className={clsx('grid grid-cols-12 w-full py-1 text-black', {
+                  'bg-stone-100': i % 2 === 0,
+                  'bg-stone-200': i % 2 !== 0,
+                })}
+              >
+                <td colSpan={1} className='text-right mr-4 col-span-1'>
+                  {quantity > 0 ? `${quantity}x` : ''}
+                </td>
+                <td
+                  colSpan={4}
+                  className='text-left col-span-5 warp-break-word'
+                >
+                  {profiled && <span className='text-red-900'>➤</span>} {name}{' '}
+                  {keywords.length > 0 && (
+                    <strong className='text-red-900 text-xs lg:text-sm'>
+                      [{keywords.join(', ')}]
+                    </strong>
+                  )}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {`${range}${range === 'Melee' ? '' : '"'}`}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {attacks}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {ballisticSkill}
+                  {ballisticSkill === 'N/A' ? '' : '+'}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {strength}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {`${armorPen > 0 ? '-' : ''}${armorPen}`}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {damage}
+                </td>
+              </tr>
+            );
+          }
+
+          const { weaponSkill } = profile;
+
+          return (
             <tr
+              key={name}
               className={clsx('grid grid-cols-12 w-full py-1 text-black', {
                 'bg-stone-100': i % 2 === 0,
                 'bg-stone-200': i % 2 !== 0,
@@ -136,7 +185,7 @@ export default function DatasheetTable(
                 {attacks}
               </td>
               <td colSpan={1} className='text-center col-span-1'>
-                {skill(ballisticSkill ?? weaponSkill)}
+                {weaponSkill}+
               </td>
               <td colSpan={1} className='text-center col-span-1'>
                 {strength}
@@ -148,9 +197,9 @@ export default function DatasheetTable(
                 {damage}
               </td>
             </tr>
-          )
-        )}
-      </div>
+          );
+        })}
+      </tbody>
     </table>
   );
 }

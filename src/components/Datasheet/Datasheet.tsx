@@ -1,18 +1,18 @@
 import clsx from 'clsx';
 import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
-import { useEffect, useRef, useState } from 'react';
-import HeaderButton, { type Stat } from './HeaderButton';
-import type { EnhancementsBannerProps } from './EnhancementsBanner';
-import EnhancementsBanner from './EnhancementsBanner';
+import { Fragment, useEffect, useRef, useState } from 'react';
+
+import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
+import EnhancementsBanner, {
+  type EnhancementsBannerProps,
+} from './EnhancementsBanner';
 import DatasheetTable, {
-  type MeleeWeapon,
-  type RangedWeapon,
+  type DatasheetTableMeleeProps,
+  type DatasheetTableRangedProps,
 } from './DatasheetTable';
-import type { WargearOptionsProps } from './WeargearOptions';
-import WargearOptions from './WeargearOptions';
-import type { LeaderAbilityProps } from './LeaderAbility';
-import LeaderAbility from './LeaderAbility';
+import WargearOptions, { type WargearOptionsProps } from './WeargearOptions';
+import LeaderAbility, { type LeaderAbilityProps } from './LeaderAbility';
 
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -34,10 +34,10 @@ type Ability = {
 };
 
 export interface DatasheetProps {
-  stats: Stat[];
+  stats: HeaderButtonProps['stats'];
   enhancements: EnhancementsBannerProps['enhancements'];
-  rangedWeapons: RangedWeapon[];
-  meleeWeapons: MeleeWeapon[];
+  rangedWeapons: DatasheetTableRangedProps['weapons'];
+  meleeWeapons: DatasheetTableMeleeProps['weapons'];
   abilities: {
     core: CoreAbilities[];
     faction: 'Acts of Faith';
@@ -130,7 +130,7 @@ export default function Datasheet(props: DatasheetProps) {
               </div>
               <div className='p-2 flex flex-col gap-2'>
                 {abilities.datasheetAbilities.map(({ name, effect, note }) => (
-                  <div>
+                  <div key={name}>
                     <strong>{name}:</strong> {effect} <br />
                     <span className='italic'>{note}</span>
                   </div>
@@ -145,7 +145,7 @@ export default function Datasheet(props: DatasheetProps) {
                 </div>
                 <div className='p-2 flex flex-col gap-2'>
                   {wargearAbilities.map(({ name, effect }) => (
-                    <div>
+                    <div key={name}>
                       <strong>{name}:</strong> {effect}
                     </div>
                   ))}
@@ -159,35 +159,38 @@ export default function Datasheet(props: DatasheetProps) {
               <div className='pb-2'>
                 <ul className='list-disc list-inside'>
                   {unitComposition.models.map((item) => (
-                    <li>{item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
                 <ul>
                   {unitComposition.defaultWeapons.map((item) => (
-                    <li>{item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
               {unitComposition.points.map(({ quantity, total }) => (
-                <div className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'>
+                <div
+                  key={total}
+                  className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'
+                >
                   <div>{quantity}</div> <div>{total} pts</div>
                 </div>
               ))}
               <div className='flex flex-col gap-1'>
                 {unitComposition.baseSizes.map(({ model, size }) => (
-                  <div>
+                  <div key={model}>
                     {model}: {size}mm
                   </div>
                 ))}
               </div>
             </div>
             {setupAbilities?.map(({ name, effect }) => (
-              <>
+              <Fragment key={name}>
                 <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
                   {name}
                 </div>
                 <div className='p-2 flex flex-col gap-2'>{effect}</div>
-              </>
+              </Fragment>
             ))}
           </div>
           <div className='border-red-900 border-r-2 col-span-4 md:col-span-3 border-t-2 text-black text-base bg-stone-300 flex flex-col lg:flex-row lg:items-center lg:gap-2 lg:py-1 p-2'>

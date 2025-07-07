@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import LabelledBox from './LabelledBox';
 import ChevronDown from '../../assets/chevron-down.svg?react';
 
-export type Stat = {
+type Stat = {
   name: string;
   movement: number;
   toughness: number;
@@ -13,7 +13,7 @@ export type Stat = {
   objective: number;
 };
 
-interface HeaderButtonProps {
+export interface HeaderButtonProps {
   handleClick: React.MouseEventHandler<HTMLButtonElement>;
   stats: Stat[];
   contentHeight: number;
