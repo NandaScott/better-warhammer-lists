@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
 import EnhancementsBanner, {
@@ -13,46 +13,21 @@ import DatasheetTable, {
 } from './DatasheetTable';
 import WargearOptions, { type WargearOptionsProps } from './WeargearOptions';
 import LeaderAbility, { type LeaderAbilityProps } from './LeaderAbility';
+import AbilitiesBlock, { type AbilitiesBlockProps } from './AbilitiesBlock';
 
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
-
-type CoreAbilities =
-  | 'Deep Strike'
-  | `Deadly Demise ${OneToSix}`
-  | 'Fights First'
-  | 'Firing Deck'
-  | 'Infiltrators'
-  | 'Leader'
-  | 'Lone Operative'
-  | `Scouts ${OneToSix}"`
-  | 'Stealth';
-
-type Ability = {
-  name: string;
-  effect: string;
-  note?: string;
-};
 
 export interface DatasheetProps {
   stats: HeaderButtonProps['stats'];
   enhancements: EnhancementsBannerProps['enhancements'];
   rangedWeapons: DatasheetTableRangedProps['weapons'];
   meleeWeapons: DatasheetTableMeleeProps['weapons'];
-  abilities: {
-    core: CoreAbilities[];
-    faction: 'Acts of Faith';
-    datasheetAbilities: Ability[];
-  };
-  wargearAbilities?: Ability[];
-  setupAbilities?: Ability[];
   wargearOptions: WargearOptionsProps['wargearOptions'];
   leaderAbility: LeaderAbilityProps['leaderAbility'];
-  unitComposition: {
-    models: string[];
-    defaultWeapons: string[];
-    points: { quantity: string; total: number }[];
-    baseSizes: { model: string; size: number }[];
-  };
+  abilities: AbilitiesBlockProps['abilities'];
+  wargearAbilities: AbilitiesBlockProps['wargearAbilities'];
+  setupAbilities: AbilitiesBlockProps['setupAbilities'];
+  unitComposition: AbilitiesBlockProps['unitComposition'];
   keywords: string[];
   factionKeywords: string[];
 }
@@ -117,82 +92,12 @@ export default function Datasheet(props: DatasheetProps) {
             <LeaderAbility leaderAbility={leaderAbility} />
           </div>
 
-          <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-4 md:col-span-1 text-sm'>
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-              Abilities
-            </div>
-            <div className='divide-dotted divide-y'>
-              <div className='p-2'>
-                CORE: <strong>{abilities.core.join(', ')}</strong>
-              </div>
-              <div className='p-2'>
-                FACTION: <strong>{abilities.faction}</strong>
-              </div>
-              <div className='p-2 flex flex-col gap-2'>
-                {abilities.datasheetAbilities.map(({ name, effect, note }) => (
-                  <div key={name}>
-                    <strong>{name}:</strong> {effect} <br />
-                    <span className='italic'>{note}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {wargearAbilities && (
-              <>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-                  Wargear Abilities
-                </div>
-                <div className='p-2 flex flex-col gap-2'>
-                  {wargearAbilities.map(({ name, effect }) => (
-                    <div key={name}>
-                      <strong>{name}:</strong> {effect}
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-              Unit Composition
-            </div>
-            <div className='p-2 flex flex-col gap-2 divide-y divide-gray-300'>
-              <div className='pb-2'>
-                <ul className='list-disc list-inside'>
-                  {unitComposition.models.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <ul>
-                  {unitComposition.defaultWeapons.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              {unitComposition.points.map(({ quantity, total }) => (
-                <div
-                  key={total}
-                  className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'
-                >
-                  <div>{quantity}</div> <div>{total} pts</div>
-                </div>
-              ))}
-              <div className='flex flex-col gap-1'>
-                {unitComposition.baseSizes.map(({ model, size }) => (
-                  <div key={model}>
-                    {model}: {size}mm
-                  </div>
-                ))}
-              </div>
-            </div>
-            {setupAbilities?.map(({ name, effect }) => (
-              <Fragment key={name}>
-                <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white h-10'>
-                  {name}
-                </div>
-                <div className='p-2 flex flex-col gap-2'>{effect}</div>
-              </Fragment>
-            ))}
-          </div>
+          <AbilitiesBlock
+            abilities={abilities}
+            unitComposition={unitComposition}
+            setupAbilities={setupAbilities}
+            wargearAbilities={wargearAbilities}
+          />
           <div className='border-red-900 border-r-2 col-span-4 md:col-span-3 border-t-2 text-black text-base bg-stone-300 flex flex-col lg:flex-row lg:items-center lg:gap-2 lg:py-1 p-2'>
             <span className='uppercase text-xs lg:text-base'>Keywords:</span>{' '}
             <strong>{keywords.join(', ')}</strong>
