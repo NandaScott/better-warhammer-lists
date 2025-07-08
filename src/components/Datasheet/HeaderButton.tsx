@@ -16,11 +16,11 @@ type Stat = {
 export interface HeaderButtonProps {
   handleClick: React.MouseEventHandler<HTMLButtonElement>;
   stats: Stat[];
-  contentHeight: number;
+  open: boolean;
 }
 
 export default function HeaderButton(props: HeaderButtonProps) {
-  const { handleClick, stats, contentHeight } = props;
+  const { handleClick, stats, open } = props;
   return (
     <button
       onClick={handleClick}
@@ -61,7 +61,7 @@ export default function HeaderButton(props: HeaderButtonProps) {
         className={clsx('transition-transform duration-150', {
           'mr-4 lg:p-2 lg:px-8': stats.length === 1,
           'mr-4 lg:p-8': stats.length > 1,
-          'rotate-180': contentHeight > 0,
+          'rotate-180': open,
         })}
       >
         <ChevronDown />

@@ -14,7 +14,7 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
   const [simplified, setSimplified] = useState(true);
   const [datasheetOpen, setDatasheetOpen] = useState(
     units
-      .map((val) => ({ [val.id]: true }))
+      .map((val) => ({ [val.id]: false }))
       .reduce((p, c) => ({ ...p, ...c }), {})
   );
 

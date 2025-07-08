@@ -1,7 +1,6 @@
-import clsx from 'clsx';
 import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
 import EnhancementsBanner, {
@@ -14,6 +13,8 @@ import DatasheetTable, {
 import WargearOptions, { type WargearOptionsProps } from './WeargearOptions';
 import LeaderAbility, { type LeaderAbilityProps } from './LeaderAbility';
 import AbilitiesBlock, { type AbilitiesBlockProps } from './AbilitiesBlock';
+
+const defaultTimerDuration = 300;
 
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -53,35 +54,74 @@ export default function Datasheet(props: DatasheetProps) {
     keywords,
     factionKeywords,
   } = props;
-
-  const contentRef = useRef<HTMLDivElement>(null);
-  const contentHeight = useRef<number>(0);
+  const wrappingRef = useRef<HTMLDivElement | null>(null);
+  const parentRef = useRef<HTMLDivElement | null>(null);
+  const firstRender = useRef<boolean>(true);
 
   useEffect(() => {
-    if (contentRef.current) {
-      contentHeight.current = open
-        ? contentRef.current.getBoundingClientRect().height
-        : 0;
+    const parent = parentRef.current;
+    const childHeight = wrappingRef.current?.getBoundingClientRect().height;
+    if (!parent || !childHeight) return () => null;
+
+    // handle closed to open
+    if (open) {
+      firstRender.current = false;
+      parent.classList.remove('collapse-hidden');
+      parent.style.height = `${childHeight.toString()}px`;
+      const timer = setTimeout(() => {
+        parent.classList.add('collapse-entered');
+      }, defaultTimerDuration);
+
+      const timer2 = setTimeout(() => {
+        parent.style.height = 'auto';
+      }, defaultTimerDuration + 100);
+
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
     }
+
+    if (!open) {
+      // Prevents the collapse from opening early
+      if (firstRender.current) {
+        firstRender.current = false;
+        return () => null;
+      }
+
+      parent.style.height = `${childHeight.toString()}px`; // switching from 'auto' to height size
+      parent.classList.remove('collapse-entered');
+
+      const timer = setTimeout(() => {
+        parent.style.height = '0px';
+      }, 1);
+
+      const timer2 = setTimeout(() => {
+        parent.classList.add('collapse-hidden');
+      }, defaultTimerDuration + 100);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
+    }
+
+    return () => null;
   }, [open]);
 
   return (
     <div className='w-full'>
-      <HeaderButton
-        contentHeight={contentHeight.current}
-        handleClick={onClick}
-        stats={stats}
-      />
+      <HeaderButton stats={stats} open={open} handleClick={onClick} />
 
       <div
-        style={{ maxHeight: `${contentHeight.current}px` }}
-        className={clsx(
-          'transition-all ease-in-out overflow-hidden w-full',
-          open ? 'duration-300' : 'duration-150'
-        )}
+        ref={parentRef}
+        style={{
+          height: '0px',
+          transitionDuration: `${defaultTimerDuration}ms`,
+        }}
+        className='collapse-container collapse-hidden'
       >
         <div
-          ref={contentRef}
+          ref={wrappingRef}
           className='grid grid-cols-4 bg-stone-100 border-red-900 border-2 border-t-0'
         >
           <EnhancementsBanner enhancements={enhancements} />

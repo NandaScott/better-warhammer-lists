@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type PropsWithChildren } from 'react';
 import ChevronDown from '../../assets/chevron-down.svg?react';
 import clsx from 'clsx';
 
+const defaultTimerDuration = 300;
+
 interface AccordionProps extends PropsWithChildren {
   title: string;
   subtitle?: string;
@@ -10,18 +12,60 @@ interface AccordionProps extends PropsWithChildren {
 }
 
 export default function Accordion(props: AccordionProps) {
-  // I don't know how or why, but defaulting this to true makes the component more responsive on initial load.
-  const [open, setOpen] = useState(true);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const contentHeight = useRef<number>(0);
   const { title, subtitle, children, rootClasses, titleClasses } = props;
+  const [open, setOpen] = useState(false);
+  const wrappingRef = useRef<HTMLDivElement | null>(null);
+  const parentRef = useRef<HTMLDivElement | null>(null);
+  const firstRender = useRef<boolean>(true);
 
   useEffect(() => {
-    if (contentRef.current) {
-      contentHeight.current = open
-        ? contentRef.current.getBoundingClientRect().height
-        : 0;
+    const parent = parentRef.current;
+    const childHeight = wrappingRef.current?.getBoundingClientRect().height;
+    if (!parent || !childHeight) return () => null;
+
+    // handle closed to open
+    if (open) {
+      firstRender.current = false;
+      parent.classList.remove('collapse-hidden');
+      parent.style.height = `${childHeight.toString()}px`;
+      const timer = setTimeout(() => {
+        parent.classList.add('collapse-entered');
+      }, defaultTimerDuration);
+
+      const timer2 = setTimeout(() => {
+        parent.style.height = 'auto';
+      }, defaultTimerDuration + 100);
+
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
     }
+
+    if (!open) {
+      // Prevents the collapse from opening early
+      if (firstRender.current) {
+        firstRender.current = false;
+        return () => null;
+      }
+
+      parent.style.height = `${childHeight.toString()}px`; // switching from 'auto' to height size
+      parent.classList.remove('collapse-entered');
+
+      const timer = setTimeout(() => {
+        parent.style.height = '0px';
+      }, 1);
+
+      const timer2 = setTimeout(() => {
+        parent.classList.add('collapse-hidden');
+      }, defaultTimerDuration + 100);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
+    }
+
+    return () => null;
   }, [open]);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -44,20 +88,21 @@ export default function Accordion(props: AccordionProps) {
         </div>
         <div
           className={clsx('transition-transform duration-150', {
-            'rotate-180': contentHeight.current > 0,
+            'rotate-180': open,
           })}
         >
           <ChevronDown />
         </div>
       </div>
       <div
-        style={{ maxHeight: `${contentHeight.current}px` }}
-        className={clsx(
-          'transition-all ease-in-out overflow-hidden w-full',
-          open ? 'duration-300' : 'duration-150'
-        )}
+        ref={parentRef}
+        style={{
+          height: '0px',
+          transitionDuration: `${defaultTimerDuration}ms`,
+        }}
+        className='collapse-container collapse-hidden'
       >
-        <div className='pt-4 flex flex-col gap-4' ref={contentRef}>
+        <div className='pt-4 flex flex-col gap-4' ref={wrappingRef}>
           {children}
         </div>
       </div>
