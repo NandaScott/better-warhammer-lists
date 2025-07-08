@@ -4,13 +4,15 @@ type WargearOption = {
 };
 
 export interface WargearOptionsProps {
+  simplify: boolean;
   wargearOptions: WargearOption[];
 }
 
 export default function WargearOptions(props: WargearOptionsProps) {
-  const { wargearOptions } = props;
+  const { simplify, wargearOptions } = props;
 
   if (wargearOptions.length === 0) return null;
+  if (simplify) return null;
 
   return (
     <>

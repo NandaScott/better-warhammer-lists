@@ -18,6 +18,9 @@ import AbilitiesBlock, { type AbilitiesBlockProps } from './AbilitiesBlock';
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface DatasheetProps {
+  simplify: boolean;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  open: boolean;
   stats: HeaderButtonProps['stats'];
   enhancements: EnhancementsBannerProps['enhancements'];
   rangedWeapons: DatasheetTableRangedProps['weapons'];
@@ -34,6 +37,9 @@ export interface DatasheetProps {
 
 export default function Datasheet(props: DatasheetProps) {
   const {
+    simplify,
+    onClick,
+    open,
     stats,
     enhancements,
     rangedWeapons,
@@ -48,8 +54,6 @@ export default function Datasheet(props: DatasheetProps) {
     factionKeywords,
   } = props;
 
-  // I don't know how or why, but defaulting this to true makes the component more responsive on initial load.
-  const [open, setOpen] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentHeight = useRef<number>(0);
 
@@ -61,15 +65,11 @@ export default function Datasheet(props: DatasheetProps) {
     }
   }, [open]);
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setOpen((prev) => !prev);
-  };
-
   return (
     <div className='w-full'>
       <HeaderButton
         contentHeight={contentHeight.current}
-        handleClick={handleClick}
+        handleClick={onClick}
         stats={stats}
       />
 
@@ -86,13 +86,25 @@ export default function Datasheet(props: DatasheetProps) {
         >
           <EnhancementsBanner enhancements={enhancements} />
           <div className='col-span-4 md:col-span-3 border-r-2 border-red-900'>
-            <DatasheetTable icon={Crosshair} weapons={rangedWeapons} />
-            <DatasheetTable icon={CrossedSwords} weapons={meleeWeapons} />
-            <WargearOptions wargearOptions={wargearOptions} />
-            <LeaderAbility leaderAbility={leaderAbility} />
+            <DatasheetTable
+              simplify={simplify}
+              icon={Crosshair}
+              weapons={rangedWeapons}
+            />
+            <DatasheetTable
+              simplify={simplify}
+              icon={CrossedSwords}
+              weapons={meleeWeapons}
+            />
+            <WargearOptions
+              simplify={simplify}
+              wargearOptions={wargearOptions}
+            />
+            <LeaderAbility simplify={simplify} leaderAbility={leaderAbility} />
           </div>
 
           <AbilitiesBlock
+            simplify={simplify}
             abilities={abilities}
             unitComposition={unitComposition}
             setupAbilities={setupAbilities}

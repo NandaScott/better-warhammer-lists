@@ -1,5 +1,5 @@
 import type { SororitasArmyRuleKeys } from '../../panels/RulesPanel';
-import type { DetatchmentData } from '../core/types';
+import type { Datasheet, DetatchmentData } from '../core/types';
 import ArmyOfFaithDetatchment from '../Sororitas/detatchments/army-of-faith';
 import type { DatasheetProps } from '../../components/Datasheet';
 
@@ -19,7 +19,7 @@ export type ListDatasheets = DatasheetProps & {
 
 export interface Unit {
   id: string;
-  datasheets: DatasheetProps[];
+  datasheets: Datasheet[];
 }
 
 interface ArmyList {
@@ -478,13 +478,13 @@ export const list: ArmyList = {
           },
           wargearAbilities: [
             {
-              equipped: false,
+              equipped: true,
               name: 'Null Rod',
               effect:
                 "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
             },
             {
-              equipped: true,
+              equipped: false,
               name: 'Rod of Office',
               effect:
                 "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",

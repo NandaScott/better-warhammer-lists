@@ -1,11 +1,13 @@
 export interface LeaderAbilityProps {
+  simplify: boolean;
   leaderAbility: string[];
 }
 
 export default function LeaderAbility(props: LeaderAbilityProps) {
-  const { leaderAbility } = props;
+  const { simplify, leaderAbility } = props;
 
   if (leaderAbility.length === 0) return null;
+  if (simplify) return null;
 
   return (
     <>

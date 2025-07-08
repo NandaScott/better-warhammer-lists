@@ -1,6 +1,6 @@
-import type { DatasheetProps } from '../../../components/Datasheet';
+import type { Datasheet } from '../../core/types';
 
-export const DominionSquad: DatasheetProps = {
+export const DominionSquad: Datasheet = {
   stats: [
     {
       name: 'Dominion Squad',

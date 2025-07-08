@@ -23,6 +23,7 @@ type WargearAbility = Ability & {
 };
 
 export interface AbilitiesBlockProps {
+  simplify: boolean;
   abilities: {
     core: CoreAbilities[];
     faction: 'Acts of Faith';
@@ -39,8 +40,19 @@ export interface AbilitiesBlockProps {
 }
 
 export default function AbilitiesBlock(props: AbilitiesBlockProps) {
-  const { abilities, wargearAbilities, setupAbilities, unitComposition } =
-    props;
+  const {
+    simplify,
+    abilities,
+    wargearAbilities,
+    setupAbilities,
+    unitComposition,
+  } = props;
+
+  const wargear = wargearAbilities.filter((val) => {
+    if (!simplify) return true;
+    if (!val.equipped) return false;
+    return true;
+  });
 
   return (
     <div className='bg-stone-100 border-red-900 divide-stone-900 text-black col-span-4 md:col-span-1 text-sm'>
@@ -64,13 +76,13 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
         </div>
       </div>
 
-      {wargearAbilities.length > 0 && (
+      {wargear.length > 0 && (
         <>
           <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
             Wargear Abilities
           </div>
           <div className='p-2 flex flex-col gap-2'>
-            {wargearAbilities.map(({ name, effect }) => (
+            {wargear.map(({ name, effect }) => (
               <div key={name}>
                 <strong>{name}:</strong> {effect}
               </div>
@@ -78,38 +90,42 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
           </div>
         </>
       )}
-      <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
-        Unit Composition
-      </div>
-      <div className='p-2 flex flex-col gap-2 divide-y divide-gray-300'>
-        <div className='pb-2'>
-          <ul className='list-disc list-inside'>
-            {unitComposition.models.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <ul>
-            {unitComposition.defaultWeapons.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        {unitComposition.points.map(({ quantity, total }) => (
-          <div
-            key={total}
-            className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'
-          >
-            <div>{quantity}</div> <div>{total} pts</div>
+      {!simplify && (
+        <>
+          <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
+            Unit Composition
           </div>
-        ))}
-        <div className='flex flex-col gap-1'>
-          {unitComposition.baseSizes.map(({ model, size }) => (
-            <div key={model}>
-              {model}: {size}mm
+          <div className='p-2 flex flex-col gap-2 divide-y divide-gray-300'>
+            <div className='pb-2'>
+              <ul className='list-disc list-inside'>
+                {unitComposition.models.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <ul>
+                {unitComposition.defaultWeapons.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-      </div>
+            {unitComposition.points.map(({ quantity, total }) => (
+              <div
+                key={total}
+                className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'
+              >
+                <div>{quantity}</div> <div>{total} pts</div>
+              </div>
+            ))}
+            <div className='flex flex-col gap-1'>
+              {unitComposition.baseSizes.map(({ model, size }) => (
+                <div key={model}>
+                  {model}: {size}mm
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
       {setupAbilities.length > 1 &&
         setupAbilities.map(({ name, effect }) => (
           <Fragment key={name}>

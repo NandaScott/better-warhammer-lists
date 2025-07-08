@@ -1,6 +1,6 @@
-import type { DatasheetProps } from '../../../components/Datasheet';
+import type { Datasheet } from '../../core/types';
 
-export const AestredThurgaAndAgathaeDolan: DatasheetProps = {
+export const AestredThurgaAndAgathaeDolan: Datasheet = {
   stats: [
     {
       name: 'Aestred Thurga',

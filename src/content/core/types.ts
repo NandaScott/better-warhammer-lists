@@ -1,9 +1,12 @@
+import type { DatasheetProps } from '../../components/Datasheet';
 import type { StratagemProps } from '../../components/Stratagem';
 
 export type StratagemData = Omit<
   StratagemProps,
   'simple' | 'currentPhase' | 'currentTurn'
 >;
+
+export type Datasheet = Omit<DatasheetProps, 'onClick' | 'open' | 'simplify'>;
 
 export type DetatchmentRulesData = {
   name: string;

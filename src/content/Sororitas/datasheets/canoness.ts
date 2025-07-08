@@ -1,6 +1,6 @@
-import type { DatasheetProps } from '../../../components/Datasheet';
+import type { Datasheet } from '../../core/types';
 
-export const Canoness: DatasheetProps = {
+export const Canoness: Datasheet = {
   stats: [
     {
       name: 'Canoness',

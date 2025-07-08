@@ -50,6 +50,7 @@ export type MeleeWeapon = Weapon & {
 };
 
 interface DatasheetTableCommonProps {
+  simplify?: boolean;
   icon: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
@@ -100,7 +101,7 @@ export default function DatasheetTable(
 export default function DatasheetTable(
   props: DatasheetTableProps
 ): JSX.Element {
-  const { icon: Icon, weapons } = props;
+  const { simplify, icon: Icon, weapons } = props;
 
   return (
     <table className='w-full'>
@@ -119,61 +120,69 @@ export default function DatasheetTable(
         </tr>
       </thead>
       <tbody className='divide-y divide-dotted text-sm'>
-        {weapons.map((profile, i) => {
-          const {
-            name,
-            quantity,
-            profiled,
-            keywords,
-            range,
-            attacks,
-            strength,
-            armorPen,
-            damage,
-          } = profile;
+        {weapons
+          .filter((profile) => {
+            if (!simplify) return profile;
+            if (profile.quantity > 0) return profile;
+          })
+          .map((profile, i) => {
+            const {
+              name,
+              quantity,
+              profiled,
+              keywords,
+              range,
+              attacks,
+              strength,
+              armorPen,
+              damage,
+            } = profile;
 
-          return (
-            <tr
-              key={`${name}-${uuidv4()}`}
-              className={clsx('grid grid-cols-12 w-full py-1 text-black', {
-                'bg-stone-100': i % 2 === 0,
-                'bg-stone-200': i % 2 !== 0,
-              })}
-            >
-              <td colSpan={1} className='text-right mr-4 col-span-1'>
-                {quantity > 0 ? `${quantity}x` : ''}
-              </td>
-              <td colSpan={4} className='text-left col-span-5 warp-break-word'>
-                {profiled && <span className='text-red-900'>➤</span>} {name}{' '}
-                {keywords.length > 0 && (
-                  <strong className='text-red-900 text-xs lg:text-sm'>
-                    [{keywords.join(', ')}]
-                  </strong>
-                )}
-              </td>
-              <td colSpan={1} className='text-center col-span-1'>
-                {`${range}${range === 'Melee' ? '' : '"'}`}
-              </td>
-              <td colSpan={1} className='text-center col-span-1'>
-                {attacks}
-              </td>
-              <SkillCell
-                profile={profile}
-                colSpan={1}
-                className='text-center col-span-1'
-              />
-              <td colSpan={1} className='text-center col-span-1'>
-                {strength}
-              </td>
-              <td colSpan={1} className='text-center col-span-1'>
-                {`${armorPen > 0 ? '-' : ''}${armorPen}`}
-              </td>
-              <td colSpan={1} className='text-center col-span-1'>
-                {damage}
-              </td>
-            </tr>
-          );
-        })}
+            return (
+              <tr
+                key={`${name}-${uuidv4()}`}
+                className={clsx('grid grid-cols-12 w-full py-1 text-black', {
+                  'bg-stone-100': i % 2 === 0,
+                  'bg-stone-200': i % 2 !== 0,
+                })}
+              >
+                <td colSpan={1} className='text-right mr-4 col-span-1'>
+                  {quantity > 0 ? `${quantity}x` : ''}
+                </td>
+                <td
+                  colSpan={4}
+                  className='text-left col-span-5 warp-break-word'
+                >
+                  {profiled && <span className='text-red-900'>➤</span>} {name}{' '}
+                  {keywords.length > 0 && (
+                    <strong className='text-red-900 text-xs lg:text-sm'>
+                      [{keywords.join(', ')}]
+                    </strong>
+                  )}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {`${range}${range === 'Melee' ? '' : '"'}`}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {attacks}
+                </td>
+                <SkillCell
+                  profile={profile}
+                  colSpan={1}
+                  className='text-center col-span-1'
+                />
+                <td colSpan={1} className='text-center col-span-1'>
+                  {strength}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {`${armorPen > 0 ? '-' : ''}${armorPen}`}
+                </td>
+                <td colSpan={1} className='text-center col-span-1'>
+                  {damage}
+                </td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );
