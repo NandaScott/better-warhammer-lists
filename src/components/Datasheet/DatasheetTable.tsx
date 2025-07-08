@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { v4 as uuidv4 } from 'uuid';
 import type { JSX } from 'react';
 import type { OneToSix } from './Datasheet';
 
@@ -133,7 +134,7 @@ export default function DatasheetTable(
 
           return (
             <tr
-              key={name}
+              key={`${name}-${uuidv4()}`}
               className={clsx('grid grid-cols-12 w-full py-1 text-black', {
                 'bg-stone-100': i % 2 === 0,
                 'bg-stone-200': i % 2 !== 0,

@@ -18,13 +18,17 @@ export type Ability = {
   note?: string;
 };
 
+type WargearAbility = Ability & {
+  equipped: boolean;
+};
+
 export interface AbilitiesBlockProps {
   abilities: {
     core: CoreAbilities[];
     faction: 'Acts of Faith';
     datasheetAbilities: Ability[];
   };
-  wargearAbilities: Ability[];
+  wargearAbilities: WargearAbility[];
   setupAbilities: Ability[];
   unitComposition: {
     models: string[];

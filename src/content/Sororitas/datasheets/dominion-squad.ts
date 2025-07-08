@@ -212,6 +212,7 @@ export const DominionSquad: DatasheetProps = {
   },
   wargearAbilities: [
     {
+      equipped: false,
       name: 'Simulacrum Imperialis',
       effect:
         'At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.',

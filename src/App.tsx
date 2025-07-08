@@ -7,7 +7,7 @@ import DatasheetsPanel from './panels/DatasheetsPanel';
 import { list } from './content/lists/miracle-dice';
 
 function App() {
-  const { name, faction, detatchment, description, points } = list;
+  const { name, faction, detatchment, description, points, units } = list;
   return (
     <div className='p-8 flex flex-col gap-6'>
       <h1 className='text-6xl font-bold'>{name}</h1>
@@ -45,7 +45,7 @@ function App() {
             detatchmentRules={detatchment.rules}
           />
           <StratagemsPanel detatchmentStratagems={detatchment.stratagems} />
-          <DatasheetsPanel />
+          <DatasheetsPanel units={units} />
         </TabPanels>
       </TabGroup>
     </div>

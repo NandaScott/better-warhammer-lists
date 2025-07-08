@@ -151,11 +151,13 @@ export const Canoness: DatasheetProps = {
   },
   wargearAbilities: [
     {
+      equipped: false,
       name: 'Null Rod',
       effect:
         "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
     },
     {
+      equipped: false,
       name: 'Rod of Office',
       effect:
         "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",
