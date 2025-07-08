@@ -1,12 +1,12 @@
+import type { Enhancement } from '../../content/core/types';
+
 export interface EnhancementsBannerProps {
-  enhancements: {
-    name: string;
-    effect: string;
-  }[];
+  simple?: boolean;
+  enhancements: Enhancement[];
 }
 
 export default function EnhancementsBanner(props: EnhancementsBannerProps) {
-  const { enhancements } = props;
+  const { simple, enhancements } = props;
 
   if (enhancements.length === 0) return null;
 
@@ -17,7 +17,9 @@ export default function EnhancementsBanner(props: EnhancementsBannerProps) {
           <div className='uppercase p-4 text-white font-bold text-lg items-center bg-red-950'>
             {name}
           </div>
-          <div className='text-black p-4'>{effect}</div>
+          <div className='text-black p-4'>
+            {simple ? effect.simple ?? effect.oracle : effect.oracle}
+          </div>
         </div>
       ))}
     </>
