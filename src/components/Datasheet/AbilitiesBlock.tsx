@@ -69,7 +69,8 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
         <div className='p-2 flex flex-col gap-2'>
           {abilities.datasheetAbilities.map(({ name, effect, note }) => (
             <div key={name}>
-              <strong>{name}:</strong> {effect} <br />
+              <strong className='underline underline-offset-2'>{name}</strong>{' '}
+              <br /> {effect} <br />
               <span className='italic'>{note}</span>
             </div>
           ))}
@@ -84,7 +85,9 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
           <div className='p-2 flex flex-col gap-2'>
             {wargear.map(({ name, effect }) => (
               <div key={name}>
-                <strong>{name}:</strong> {effect}
+                <strong className='underline underline-offset-2'>{name}</strong>
+                <br />
+                {effect}
               </div>
             ))}
           </div>
