@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { v4 as uuidv4 } from 'uuid';
 import type { JSX } from 'react';
 import type { OneToSix } from './Datasheet';
+import { Badge } from '../Badge';
 
 type Keyword = 'Vehicle' | 'Psyker' | 'Infantry';
 
@@ -51,6 +52,7 @@ export type MeleeWeapon = Weapon & {
 
 interface DatasheetTableCommonProps {
   simplify?: boolean;
+  title: 'Ranged Weapons' | 'Melee Weapons';
   icon: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
@@ -101,17 +103,17 @@ export default function DatasheetTable(
 export default function DatasheetTable(
   props: DatasheetTableProps
 ): JSX.Element {
-  const { simplify, icon: Icon, weapons } = props;
+  const { simplify, icon: Icon, weapons, title } = props;
 
   return (
-    <table className='w-full'>
-      <thead>
-        <tr className='uppercase grid grid-cols-12 w-full py-1 items-center bg-red-950 lg:h-10 text-xs lg:text-base'>
+    <table className='w-full text-sm'>
+      <thead className='uppercase bg-red-950 text-white'>
+        <tr className='grid grid-cols-11 gap-2 items-center py-1 lg:h-10'>
           <th className='col-span-1 p-1 mx-auto'>
             <Icon className='fill-white w-4 h-4 lg:w-5 lg:h-5' />
           </th>
-          <th className='col-span-5 text-left'>Ranged Weapons</th>
-          <th className='col-span-1'>RNG</th>
+          <th className='col-span-4 text-left'>{title}</th>
+          <th className='col-span-1'> {title === 'Ranged Weapons' && 'R'}</th>
           <th className='col-span-1'>A</th>
           <th className='col-span-1'>BS</th>
           <th className='col-span-1'>S</th>
@@ -119,7 +121,7 @@ export default function DatasheetTable(
           <th className='col-span-1'>D</th>
         </tr>
       </thead>
-      <tbody className='divide-y divide-dotted text-sm'>
+      <tbody className='divide-y divide-dotted'>
         {weapons
           .filter((profile) => {
             if (!simplify) return profile;
@@ -141,27 +143,28 @@ export default function DatasheetTable(
             return (
               <tr
                 key={`${name}-${uuidv4()}`}
-                className={clsx('grid grid-cols-12 w-full py-1 text-black', {
+                className={clsx('grid grid-cols-11 w-full py-1 gap-2', {
                   'bg-stone-100': i % 2 === 0,
                   'bg-stone-200': i % 2 !== 0,
                 })}
               >
-                <td colSpan={1} className='text-right mr-4 col-span-1'>
+                <td colSpan={1} className='text-right col-span-1'>
                   {quantity > 0 ? `${quantity}x` : ''}
                 </td>
                 <td
                   colSpan={4}
-                  className='text-left col-span-5 warp-break-word'
+                  className='text-left col-span-4 flex flex-col gap-1'
                 >
-                  {profiled && <span className='text-red-900'>➤</span>} {name}{' '}
-                  {keywords.length > 0 && (
-                    <strong className='text-red-900 text-xs lg:text-sm'>
-                      [{keywords.join(', ')}]
-                    </strong>
-                  )}
+                  <div>
+                    {profiled && <span className='text-red-900'>➤</span>} {name}{' '}
+                  </div>
+                  <div className='flex gap-2'>
+                    {keywords.length > 0 &&
+                      keywords.map((text) => <Badge text={text} />)}
+                  </div>
                 </td>
                 <td colSpan={1} className='text-center col-span-1'>
-                  {`${range}${range === 'Melee' ? '' : '"'}`}
+                  {title === 'Ranged Weapons' ? `${range}"` : ''}
                 </td>
                 <td colSpan={1} className='text-center col-span-1'>
                   {attacks}

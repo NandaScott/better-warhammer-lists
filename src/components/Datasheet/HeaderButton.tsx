@@ -24,7 +24,7 @@ export default function HeaderButton(props: HeaderButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full font-bold text-center align-middle bg-red-950'
+      className='cursor-pointer border-2 border-red-900 flex items-center justify-between w-full text-center align-middle bg-red-950 text-white'
     >
       <div className='flex flex-col lg:min-w-3xl'>
         {stats.map(
@@ -40,7 +40,7 @@ export default function HeaderButton(props: HeaderButtonProps) {
           }) => (
             <div
               key={name}
-              className='px-2 p-2 lg:px-4 text-sm uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between'
+              className='px-2 p-2 lg:px-4 uppercase flex flex-col md:flex-row gap-2 items-start md:items-center justify-between font-bold text-xl'
             >
               {name}
 

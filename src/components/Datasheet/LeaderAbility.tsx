@@ -11,12 +11,12 @@ export default function LeaderAbility(props: LeaderAbilityProps) {
 
   return (
     <>
-      <div className='bg-red-950 py-1 flex items-center p-2 uppercase text-base font-bold text-white lg:h-10'>
+      <div className='bg-red-950 py-1 flex items-center p-2 uppercase lg:h-10'>
         Leader
       </div>
-      <div className='text-black p-4'>
+      <div className='p-4'>
         <div>This unit can be attached to the following units:</div>
-        <div className='flex flex-col gap-4 p-4 text-sm font-bold uppercase'>
+        <div className='flex flex-col gap-4 p-4 uppercase'>
           <ul className='list-disc list-inside [&_ul]:list-[revert]'>
             {leaderAbility?.map((entry) => (
               <li key={entry}>{entry}</li>

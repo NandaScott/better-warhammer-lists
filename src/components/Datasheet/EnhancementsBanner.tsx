@@ -14,10 +14,10 @@ export default function EnhancementsBanner(props: EnhancementsBannerProps) {
     <>
       {enhancements.map(({ name, effect }) => (
         <div key={name} className='col-span-4 flex flex-col'>
-          <div className='uppercase p-4 text-white font-bold text-lg items-center bg-red-950'>
+          <div className='uppercase p-4 items-center bg-red-950 text-white font-bold'>
             {name}
           </div>
-          <div className='text-black p-4'>
+          <div className='p-4'>
             {simple ? effect.simple ?? effect.oracle : effect.oracle}
           </div>
         </div>

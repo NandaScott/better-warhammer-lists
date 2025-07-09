@@ -9,7 +9,7 @@ import { list } from './content/lists/miracle-dice';
 function App() {
   const { name, faction, detatchment, description, points, units } = list;
   return (
-    <div className='p-8 flex flex-col gap-6'>
+    <div className='p-8 px-4 flex flex-col gap-6'>
       <h1 className='text-6xl font-bold'>{name}</h1>
       <h2 className='flex gap-4 items-baseline text-lg font-semibold'>
         <div className='p-2 px-4 bg-green-700 rounded'>{faction.name}</div>
