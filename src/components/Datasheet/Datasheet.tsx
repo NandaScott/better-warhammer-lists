@@ -126,18 +126,20 @@ export default function Datasheet(props: DatasheetProps) {
         >
           <EnhancementsBanner enhancements={enhancements} />
           <div className='col-span-4 md:col-span-3 md:border-r-2 border-red-900'>
-            <DatasheetTable
-              title='Ranged Weapons'
-              simplify={simplify}
-              icon={Crosshair}
-              weapons={rangedWeapons}
-            />
-            <DatasheetTable
-              title='Melee Weapons'
-              simplify={simplify}
-              icon={CrossedSwords}
-              weapons={meleeWeapons}
-            />
+            <div className='overflow-x-auto'>
+              <DatasheetTable
+                title='Ranged Weapons'
+                simplify={simplify}
+                icon={Crosshair}
+                weapons={rangedWeapons}
+              />
+              <DatasheetTable
+                title='Melee Weapons'
+                simplify={simplify}
+                icon={CrossedSwords}
+                weapons={meleeWeapons}
+              />
+            </div>
             <WargearOptions
               simplify={simplify}
               wargearOptions={wargearOptions}

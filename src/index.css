@@ -3,7 +3,7 @@
 html,
 body,
 #root {
-  @apply h-full w-full text-white bg-gray-900;
+  @apply h-full w-full bg-gray-900 text-white;
 }
 
 strong {
@@ -15,7 +15,15 @@ em {
 }
 
 aside {
-  @apply flex before:content-[''] before:rounded before:bg-red-800 before:block before:w-1 before:mr-4;
+  @apply flex before:mr-4 before:block before:w-1 before:rounded before:bg-red-800 before:content-[''];
+}
+
+tr {
+  @apply grid grid-cols-12;
+}
+
+td {
+  @apply text-center;
 }
 
 .collapse-container {
