@@ -31,6 +31,7 @@ type WeaponAbilities =
 type Weapon = {
   quantity: number;
   name: string;
+  subtitle: string;
   keywords: WeaponAbilities[];
   attacks: number | 'D6' | 'D3';
   strength: number;
@@ -86,14 +87,14 @@ export default function DatasheetTable(
 
   return (
     <div role="region" aria-labelledby={title} tabIndex={0}>
-      <table id={title} className="min-w-xl text-sm">
+      <table id={title} className="min-w-xl overflow-x-clip text-sm">
         <caption id={title} className="sr-only">
           {title}
         </caption>
         <thead>
           <tr>
             <th id="quantity" scope="col">
-              <Icon className="mx-auto h-4 w-4 fill-white" />
+              <Icon className="h-4 w-4 fill-white" />
             </th>
             <th id="title" scope="col">
               {title}
@@ -116,7 +117,7 @@ export default function DatasheetTable(
             <th id="damage" scope="col">
               D
             </th>
-            <th id="keywords" scope="col" className="sr-only">
+            <th id="keywords" scope="col">
               Keywords
             </th>
           </tr>
@@ -132,14 +133,18 @@ export default function DatasheetTable(
                 <td headers="quantity">
                   {profile.quantity > 0 ? `${profile.quantity}x` : ''}
                 </td>
-                <td
-                  headers="title"
-                  className={clsx({
-                    'before:mr-1 before:text-red-900 before:content-["➤"]':
-                      profile.profiled,
-                  })}
-                >
-                  {profile.name}
+                <td headers="title">
+                  <div
+                    className={clsx({
+                      'before:mr-2 before:text-red-900 before:content-["➤"]':
+                        profile.profiled,
+                    })}
+                  >
+                    {profile.name}
+                  </div>
+                  <div className="pl-6 text-sm text-gray-500">
+                    {profile.subtitle}
+                  </div>
                 </td>
                 <td
                   headers="range"

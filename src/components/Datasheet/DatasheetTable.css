@@ -20,14 +20,14 @@ td {
 td:first-child,
 th:first-child {
   z-index: 1;
-  @apply sticky left-0 col-span-1 bg-inherit text-center;
+  @apply sticky left-0 col-span-1 row-span-2 bg-inherit text-center;
 }
 
 /* Second column */
 td:nth-child(2),
 th:nth-child(2) {
   z-index: 1;
-  @apply sticky left-12 col-span-3 border-r-2 border-stone-300 bg-inherit pr-4 text-left;
+  @apply sticky left-12 col-span-3 row-span-2 border-r-2 border-stone-300 bg-inherit pr-4 text-left;
 }
 
 td:nth-child(2) {
@@ -49,11 +49,19 @@ th:nth-child(1n + 3) {
 }
 
 td:last-child {
-  @apply col-span-12 col-start-2 flex gap-1;
+  @apply col-span-12 col-start-5 flex gap-1 pl-2;
+}
+
+th:last-child {
+  @apply sr-only;
 }
 
 tr {
   @apply grid grid-cols-10;
+}
+
+tbody tr {
+  @apply grid-rows-2;
 }
 
 tr:nth-child(even) {
