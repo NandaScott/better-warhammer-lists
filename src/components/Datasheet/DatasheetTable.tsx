@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import type { OneToSix } from './Datasheet';
 import { Badge } from '../Badge';
-import { useEffect, useRef, type JSX } from 'react';
+import { type JSX } from 'react';
 import './DatasheetTable.css';
 import clsx from 'clsx';
 
