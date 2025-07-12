@@ -132,16 +132,38 @@ export default function DatasheetTable(
                 <td headers="quantity">
                   {profile.quantity > 0 ? `${profile.quantity}x` : ''}
                 </td>
-                <td headers="title">{profile.name}</td>
-                <td headers="range">{profile.range}</td>
+                <td
+                  headers="title"
+                  className={clsx({
+                    'before:mr-1 before:text-red-900 before:content-["➤"]':
+                      profile.profiled,
+                  })}
+                >
+                  {profile.name}
+                </td>
+                <td
+                  headers="range"
+                  className={clsx({
+                    'after:content-["“"]': profile.range !== 'Melee',
+                  })}
+                >
+                  {profile.range}
+                </td>
                 <td headers="attacks">{profile.attacks}</td>
-                <td headers="weapon-skill">
+                <td headers="weapon-skill" className='after:content-["+"]'>
                   {profile.type === 'ranged'
                     ? profile.ballisticSkill
                     : profile.weaponSkill}
                 </td>
                 <td headers="strength">{profile.strength}</td>
-                <td headers="armor-penetration">{profile.armorPen}</td>
+                <td
+                  headers="armor-penetration"
+                  className={clsx({
+                    'before:content-["-"]': profile.armorPen > 0,
+                  })}
+                >
+                  {profile.armorPen}
+                </td>
                 <td headers="damage">{profile.damage}</td>
                 <td
                   headers="keywords"
