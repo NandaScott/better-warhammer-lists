@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+table th {
+  z-index: 2;
+}
+
+th {
+  @apply bg-red-950 p-2 text-white;
+}
+
+th:first-child {
+  @apply flex items-center justify-center;
+}
+
+td {
+  @apply py-1 align-middle;
+}
+
+/* First column */
+td:first-child,
+th:first-child {
+  z-index: 1;
+  @apply sticky left-0 col-span-1 bg-inherit text-center;
+}
+
+/* Second column */
+td:nth-child(2),
+th:nth-child(2) {
+  z-index: 1;
+  @apply sticky left-12 col-span-3 border-r-2 border-stone-300 bg-inherit pr-4 text-left;
+}
+
+td:nth-child(2) {
+  padding: 0.25em 0.5em 0.25em 1em;
+  text-indent: -0.5em;
+}
+
+/* First and second column headers */
+th:first-child,
+th:nth-child(2) {
+  z-index: 3;
+  @apply border-red-900 bg-red-950;
+}
+
+/* All other columns */
+td:nth-child(1n + 3),
+th:nth-child(1n + 3) {
+  @apply col-span-1 text-center;
+}
+
+td:last-child {
+  @apply col-span-12 col-start-2 flex gap-1;
+}
+
+tr {
+  @apply grid grid-cols-10;
+}
+
+tr:nth-child(even) {
+  @apply bg-stone-200;
+}
+
+tr:nth-child(odd) {
+  @apply bg-stone-100;
+}

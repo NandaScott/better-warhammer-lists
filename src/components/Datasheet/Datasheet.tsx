@@ -109,7 +109,7 @@ export default function Datasheet(props: DatasheetProps) {
   }, [open]);
 
   return (
-    <div className='w-full text-black'>
+    <div className="w-full text-black">
       <HeaderButton stats={stats} open={open} handleClick={onClick} />
 
       <div
@@ -118,23 +118,23 @@ export default function Datasheet(props: DatasheetProps) {
           height: '0px',
           transitionDuration: `${defaultTimerDuration}ms`,
         }}
-        className='collapse-container collapse-hidden'
+        className="collapse-container collapse-hidden"
       >
         <div
           ref={wrappingRef}
-          className='grid grid-cols-4 bg-stone-100 border-red-900 border-2 border-t-0'
+          className="grid grid-cols-4 border-2 border-t-0 border-red-900 bg-stone-100"
         >
           <EnhancementsBanner enhancements={enhancements} />
-          <div className='col-span-4 md:col-span-3 md:border-r-2 border-red-900'>
-            <div className='overflow-x-auto'>
+          <div className="col-span-4 border-red-900 md:col-span-3 md:border-r-2">
+            <div className="overflow-x-auto">
               <DatasheetTable
-                title='Ranged Weapons'
+                title="Ranged Weapons"
                 simplify={simplify}
                 icon={Crosshair}
                 weapons={rangedWeapons}
               />
               <DatasheetTable
-                title='Melee Weapons'
+                title="Melee Weapons"
                 simplify={simplify}
                 icon={CrossedSwords}
                 weapons={meleeWeapons}
@@ -154,12 +154,12 @@ export default function Datasheet(props: DatasheetProps) {
             setupAbilities={setupAbilities}
             wargearAbilities={wargearAbilities}
           />
-          <div className='border-red-900 border-r-2 col-span-4 md:col-span-3 border-t-2 bg-stone-300 flex flex-col lg:flex-row lg:items-center lg:gap-2 lg:py-1 p-2'>
-            <span className='uppercase'>Keywords:</span>{' '}
+          <div className="col-span-4 flex flex-col border-t-2 border-r-2 border-red-900 bg-stone-300 p-2 md:col-span-3 lg:flex-row lg:items-center lg:gap-2 lg:py-1">
+            <span className="uppercase">Keywords:</span>{' '}
             <span>{keywords.join(', ')}</span>
           </div>
-          <div className='border-t-2 border-red-900 col-span-4 md:col-span-1 p-3 bg-zinc-900 flex flex-col gap-1'>
-            <span className='uppercase'>Faction Keywords:</span>
+          <div className="col-span-4 flex flex-col gap-1 border-t-2 border-red-900 bg-zinc-900 p-3 md:col-span-1">
+            <span className="uppercase">Faction Keywords:</span>
             <span>{factionKeywords.join(', ')}</span>
           </div>
         </div>
