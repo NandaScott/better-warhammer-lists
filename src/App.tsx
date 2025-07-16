@@ -11,10 +11,14 @@ function App() {
   return (
     <div className="flex flex-col gap-6 p-8 px-4 xl:px-8">
       <h1 className="text-6xl font-bold">{name}</h1>
-      <h2 className="flex items-baseline gap-4 text-lg font-semibold">
-        <div className="rounded bg-green-700 p-2 px-4">{faction.name}</div>
-        <div className="rounded bg-blue-700 p-2 px-4">{detatchment.name}</div>
-        <span className="text-lg">
+      <h2 className="flex flex-col items-baseline gap-4 text-lg font-semibold md:flex-row">
+        <div className="w-full rounded bg-green-700 p-2 px-4">
+          {faction.name}
+        </div>
+        <div className="w-full rounded bg-blue-700 p-2 px-4">
+          {detatchment.name}
+        </div>
+        <span className="w-full text-right text-lg md:text-left">
           {points.used} / {points.total}
         </span>
       </h2>
