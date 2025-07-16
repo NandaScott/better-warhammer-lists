@@ -5,7 +5,7 @@ table th {
 }
 
 th {
-  @apply bg-red-950 p-2 text-white;
+  @apply bg-red-950 p-2 text-white lg:h-10 lg:text-base lg:font-bold;
 }
 
 th:first-child {

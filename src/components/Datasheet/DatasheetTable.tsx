@@ -87,7 +87,10 @@ export default function DatasheetTable(
 
   return (
     <div role="region" aria-labelledby={title} tabIndex={0}>
-      <table id={title} className="min-w-xl overflow-x-clip text-sm md:w-full">
+      <table
+        id={title}
+        className="min-w-xl overflow-x-clip text-sm md:w-full lg:border-b-2 lg:border-stone-300"
+      >
         <caption id={title} className="sr-only">
           {title}
         </caption>

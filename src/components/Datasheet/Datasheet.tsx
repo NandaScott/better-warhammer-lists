@@ -126,7 +126,7 @@ export default function Datasheet(props: DatasheetProps) {
           className="grid grid-cols-4 border-2 border-t-0 border-red-900 bg-stone-100"
         >
           <EnhancementsBanner enhancements={enhancements} />
-          <div className="col-span-4 border-red-900">
+          <div className="col-span-4 border-red-900 lg:col-span-3 lg:border-r-2">
             <div className="overflow-x-auto">
               <DatasheetTable
                 title="Ranged Weapons"
@@ -155,7 +155,7 @@ export default function Datasheet(props: DatasheetProps) {
             setupAbilities={setupAbilities}
             wargearAbilities={wargearAbilities}
           />
-          <div className="col-span-4 flex flex-col gap-2 border-t-2 border-red-900 bg-stone-300 p-2 md:col-span-2 lg:flex-row lg:items-center lg:gap-2 lg:py-1">
+          <div className="col-span-4 flex flex-col gap-2 border-t-2 border-red-900 bg-stone-300 p-2 md:col-span-2 lg:col-span-3 lg:items-start lg:gap-2 lg:border-r-2 lg:p-4">
             <span className="font-semibold underline underline-offset-2">
               Keywords
             </span>{' '}
@@ -165,7 +165,7 @@ export default function Datasheet(props: DatasheetProps) {
               ))}
             </div>
           </div>
-          <div className="col-span-4 flex flex-col gap-2 border-t-2 border-red-900 bg-zinc-900 p-3 md:col-span-2">
+          <div className="col-span-4 flex flex-col gap-2 border-t-2 border-red-900 bg-zinc-900 p-3 md:col-span-2 lg:col-span-1">
             <span className="font-semibold text-white underline underline-offset-2">
               Faction Keywords
             </span>
