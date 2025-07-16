@@ -55,7 +55,7 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
   });
 
   return (
-    <div className="col-span-4 divide-stone-900 border-red-900 bg-stone-100 md:col-span-1">
+    <div className="col-span-4 divide-stone-900 border-red-900 bg-stone-100">
       <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
         Abilities
       </div>
