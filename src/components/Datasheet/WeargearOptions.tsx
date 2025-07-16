@@ -16,15 +16,15 @@ export default function WargearOptions(props: WargearOptionsProps) {
 
   return (
     <>
-      <div className='bg-red-950 py-1 flex items-center p-2 uppercase lg:h-10'>
+      <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
         Wargear Options
       </div>
-      <div className='flex flex-col gap-4 p-4'>
-        <ul className='list-disc list-inside [&_ul]:list-[revert]'>
+      <div className="flex flex-col gap-4 p-4">
+        <ul className="list-inside list-disc [&_ul]:list-[revert]">
           {wargearOptions?.map(({ entry, options }) => (
             <li key={entry}>
               {entry}{' '}
-              <ul className='pl-4 list-disc list-inside'>
+              <ul className="list-inside list-disc pl-4">
                 {options?.map((val) => (
                   <li key={val}>{val}</li>
                 ))}

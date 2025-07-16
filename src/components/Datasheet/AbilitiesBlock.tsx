@@ -55,23 +55,25 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
   });
 
   return (
-    <div className='bg-stone-100 border-red-900 divide-stone-900 col-span-4 md:col-span-1 '>
-      <div className='bg-red-950 py-1 flex items-center p-2 uppercase lg:h-10'>
+    <div className="col-span-4 divide-stone-900 border-red-900 bg-stone-100 md:col-span-1">
+      <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
         Abilities
       </div>
-      <div className='divide-dotted divide-y'>
-        <div className='p-2'>
+      <div className="divide-y divide-dotted">
+        <div className="p-2">
           CORE: <span>{abilities.core.join(', ')}</span>
         </div>
-        <div className='p-2'>
+        <div className="p-2">
           FACTION: <span>{abilities.faction}</span>
         </div>
-        <div className='p-2 flex flex-col gap-2'>
+        <div className="flex flex-col gap-2 p-2">
           {abilities.datasheetAbilities.map(({ name, effect, note }) => (
             <div key={name}>
-              <span className='underline underline-offset-2'>{name}</span>{' '}
+              <span className="font-semibold underline underline-offset-2">
+                {name}
+              </span>{' '}
               <br /> {effect} <br />
-              <span className='italic'>{note}</span>
+              <span className="italic">{note}</span>
             </div>
           ))}
         </div>
@@ -79,13 +81,15 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
 
       {wargear.length > 0 && (
         <>
-          <div className='bg-red-950 py-1 flex items-center p-2 uppercase lg:h-10'>
+          <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
             Wargear Abilities
           </div>
-          <div className='p-2 flex flex-col gap-2'>
+          <div className="flex flex-col gap-2 p-2">
             {wargear.map(({ name, effect }) => (
               <div key={name}>
-                <span className='underline underline-offset-2'>{name}</span>
+                <span className="font-semibold underline underline-offset-2">
+                  {name}
+                </span>
                 <br />
                 {effect}
               </div>
@@ -95,12 +99,12 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
       )}
       {!simplify && (
         <>
-          <div className='bg-red-950 py-1 flex items-center p-2 uppercase font-bold lg:h-10'>
+          <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
             Unit Composition
           </div>
-          <div className='p-2 flex flex-col gap-2 divide-y divide-gray-300'>
-            <div className='pb-2'>
-              <ul className='list-disc list-inside'>
+          <div className="flex flex-col gap-2 divide-y divide-gray-300 p-2">
+            <div className="pb-2">
+              <ul className="list-inside list-disc">
                 {unitComposition.models.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -114,12 +118,12 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
             {unitComposition.points.map(({ quantity, total }) => (
               <div
                 key={total}
-                className='flex justify-between items-baseline w-full border-b-2 border-dotted border-black'
+                className="flex w-full items-baseline justify-between border-b-2 border-dotted border-black"
               >
                 <div>{quantity}</div> <div>{total} pts</div>
               </div>
             ))}
-            <div className='flex flex-col gap-1'>
+            <div className="flex flex-col gap-1">
               {unitComposition.baseSizes.map(({ model, size }) => (
                 <div key={model}>
                   {model}: {size}mm
@@ -132,10 +136,10 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
       {setupAbilities.length > 1 &&
         setupAbilities.map(({ name, effect }) => (
           <Fragment key={name}>
-            <div className='bg-red-950 py-1 flex items-center p-2 uppercase font-bold h-10'>
+            <div className="flex items-center bg-red-950 p-2 py-3 font-bold text-white uppercase lg:h-10">
               {name}
             </div>
-            <div className='p-2 flex flex-col gap-2'>{effect}</div>
+            <div className="flex flex-col gap-2 p-2">{effect}</div>
           </Fragment>
         ))}
     </div>
