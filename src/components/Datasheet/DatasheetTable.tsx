@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import type { OneToSix } from './Datasheet';
+import type { DiceType, OneToSix } from './Datasheet';
 import { Badge } from '../Badge';
 import { type JSX } from 'react';
 import './DatasheetTable.css';
@@ -33,10 +33,10 @@ type Weapon = {
   name: string;
   subtitle: string;
   keywords: WeaponAbilities[];
-  attacks: number | 'D6' | 'D3';
+  attacks: number | DiceType | `${DiceType}+${OneToSix}`;
   strength: number;
   armorPen: number;
-  damage: number | 'D6' | 'D3';
+  damage: number | DiceType;
   profiled?: boolean;
 };
 

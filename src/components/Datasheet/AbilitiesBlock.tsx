@@ -1,9 +1,10 @@
 import { Fragment } from 'react/jsx-runtime';
-import type { OneToSix } from './Datasheet';
+import type { DiceType, OneToSix } from './Datasheet';
+import SkullIcon from '../../assets/skull-icon.svg?react';
 
 type CoreAbilities =
   | 'Deep Strike'
-  | `Deadly Demise ${OneToSix}`
+  | `Deadly Demise ${OneToSix | DiceType}`
   | `Feel No Pain ${OneToSix}+`
   | 'Fights First'
   | 'Firing Deck'
@@ -36,8 +37,9 @@ export interface AbilitiesBlockProps {
     models: string[];
     defaultWeapons: string[];
     points: { quantity: string; total: number }[];
-    baseSizes: { model: string; size: number }[];
+    baseSizes: { model: string; size: number | 'Hull' }[];
   };
+  damaged?: { title: string; text: string };
 }
 
 export default function AbilitiesBlock(props: AbilitiesBlockProps) {
@@ -47,6 +49,7 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
     wargearAbilities,
     setupAbilities,
     unitComposition,
+    damaged,
   } = props;
 
   const wargear = wargearAbilities.filter((val) => {
@@ -79,6 +82,15 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
           ))}
         </div>
       </div>
+      {damaged && (
+        <>
+          <div className="flex items-center gap-2 bg-red-950 p-2 py-3 font-bold text-white uppercase md:gap-4 lg:h-10">
+            <SkullIcon className="h-6 w-6 fill-white" />
+            {damaged.title}
+          </div>
+          <div className="p-2">{damaged.text}</div>
+        </>
+      )}
 
       {wargear.length > 0 && (
         <>

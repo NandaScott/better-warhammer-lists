@@ -17,6 +17,7 @@ import { Badge } from '../Badge';
 
 const defaultTimerDuration = 300;
 
+export type DiceType = 'D3' | 'D6';
 export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface DatasheetProps {
@@ -33,6 +34,7 @@ export interface DatasheetProps {
   wargearAbilities: AbilitiesBlockProps['wargearAbilities'];
   setupAbilities: AbilitiesBlockProps['setupAbilities'];
   unitComposition: AbilitiesBlockProps['unitComposition'];
+  damaged?: AbilitiesBlockProps['damaged'];
   keywords: string[];
   factionKeywords: string[];
 }
@@ -54,6 +56,7 @@ export default function Datasheet(props: DatasheetProps) {
     unitComposition,
     keywords,
     factionKeywords,
+    damaged,
   } = props;
   const wrappingRef = useRef<HTMLDivElement | null>(null);
   const parentRef = useRef<HTMLDivElement | null>(null);
@@ -154,6 +157,7 @@ export default function Datasheet(props: DatasheetProps) {
             unitComposition={unitComposition}
             setupAbilities={setupAbilities}
             wargearAbilities={wargearAbilities}
+            damaged={damaged}
           />
           <div className="col-span-4 flex flex-col gap-2 border-t-2 border-red-900 bg-stone-300 p-2 md:col-span-2 lg:col-span-3 lg:items-start lg:gap-2 lg:border-r-2 lg:p-4">
             <span className="font-semibold underline underline-offset-2">
