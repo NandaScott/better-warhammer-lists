@@ -82,8 +82,10 @@ export default function DatasheetTable(
 ): JSX.Element;
 export default function DatasheetTable(
   props: DatasheetTableProps
-): JSX.Element {
+): JSX.Element | null {
   const { simplify, icon: Icon, weapons, title } = props;
+
+  if (weapons.length === 0) return null;
 
   return (
     <div role="region" aria-labelledby={title} tabIndex={0}>

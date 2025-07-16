@@ -4,6 +4,7 @@ import type { OneToSix } from './Datasheet';
 type CoreAbilities =
   | 'Deep Strike'
   | `Deadly Demise ${OneToSix}`
+  | `Feel No Pain ${OneToSix}+`
   | 'Fights First'
   | 'Firing Deck'
   | 'Infiltrators'

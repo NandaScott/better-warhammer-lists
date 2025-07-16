@@ -2,6 +2,7 @@ import type { SororitasArmyRuleKeys } from '../../panels/RulesPanel';
 import type { Datasheet, DetatchmentData } from '../core/types';
 import ArmyOfFaithDetatchment from '../Sororitas/detatchments/army-of-faith';
 import type { DatasheetProps } from '../../components/Datasheet';
+import { v4 as uuidV4 } from 'uuid';
 
 interface Points {
   used: number;
@@ -40,7 +41,7 @@ export const list: ArmyList = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla tortor eu mauris vestibulum imperdiet. Maecenas imperdiet sapien in elit luctus vehicula. Proin lectus urna, aliquet et fringilla nec, vulputate nec enim. Phasellus quis quam fringilla urna mattis interdum sit amet ut lectus. Donec convallis orci nec quam dictum, ornare ullamcorper justo posuere. Morbi in pharetra mauris, sit amet blandit tortor. Etiam odio odio, dignissim at nisi euismod, rutrum pharetra mauris. Nullam dignissim sagittis pretium. Nunc sed rutrum erat.',
   units: [
     {
-      id: '23f94252-dcf1-4514-a1c7-ebefaa8c1722',
+      id: uuidV4(),
       datasheets: [
         {
           stats: [
@@ -572,6 +573,82 @@ export const list: ArmyList = {
             'Canoness',
           ],
           factionKeywords: ['Adepta Sororitas'],
+          setupAbilities: [],
+        },
+      ],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [
+        {
+          stats: [
+            {
+              name: 'Arco-Flagellants',
+              movement: 7,
+              toughness: 3,
+              save: 7,
+              invuln: 6,
+              wounds: 2,
+              leadership: 8,
+              objective: 1,
+            },
+          ],
+          enhancements: [],
+          rangedWeapons: [],
+          meleeWeapons: [
+            {
+              armorPen: 0,
+              attacks: 4,
+              damage: 1,
+              keywords: ['Sustained Hits 1'],
+              name: 'Arco-flails',
+              quantity: 10,
+              range: 'Melee',
+              strength: 5,
+              subtitle: '',
+              type: 'melee',
+              weaponSkill: 4,
+              profiled: false,
+            },
+          ],
+          abilities: {
+            core: ['Feel No Pain 5+'],
+            faction: 'Acts of Faith',
+            datasheetAbilities: [
+              {
+                name: 'Extremis Trigger Word',
+                effect:
+                  'Each time this unit is selected to fight, you can choose to invoke its extremis trigger word. If you do, until the end of the phase, arco-flails equipped by models in this unit have an Attacks characteristic of 6 and the [HAZARDOUS] ability.',
+              },
+            ],
+          },
+          leaderAbility: [],
+          unitComposition: {
+            baseSizes: [
+              {
+                model: 'Arco-flagellant',
+                size: 25,
+              },
+            ],
+            defaultWeapons: [
+              'Arco-flagellants are equipped with: arco-flails.',
+            ],
+            models: ['3-10 Arco-flagellants'],
+            points: [
+              {
+                quantity: '3 Arco-flagellants',
+                total: 45,
+              },
+              {
+                quantity: '4-10 Arco-flagellants',
+                total: 140,
+              },
+            ],
+          },
+          keywords: ['Infantry', 'Imperium', 'Penitent', 'Arco-Flagellants'],
+          factionKeywords: ['Adepta Sororitas'],
+          wargearOptions: [],
+          wargearAbilities: [],
           setupAbilities: [],
         },
       ],
