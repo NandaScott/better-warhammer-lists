@@ -1,9 +1,9 @@
 import type { Datasheet } from '../../core/types';
 
-export const Canoness: Datasheet = {
+export const CanonessWithJumpPack: Datasheet = {
   stats: [
     {
-      name: 'Canoness',
+      name: 'Canoness with Jump Pack',
       movement: 12,
       toughness: 3,
       save: 3,
@@ -87,20 +87,7 @@ export const Canoness: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
-      equipped: false,
-      name: 'Null Rod',
-      effect:
-        "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
-    },
-    {
-      equipped: false,
-      name: 'Rod of Office',
-      effect:
-        "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",
-    },
-  ],
+  wargearAbilities: [],
   leaderAbility: ['Seraphim Squad', 'Zephyrim Squad'],
   wargearOptions: [
     {
@@ -119,7 +106,7 @@ export const Canoness: Datasheet = {
     ],
     points: [
       {
-        quantity: '1 model',
+        quantity: '1 Canoness with Jump Pack',
         total: 75,
       },
     ],
