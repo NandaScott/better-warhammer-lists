@@ -4,6 +4,7 @@ import datasheetCombiner from '../components/Datasheet/datasheet-combiner';
 import type { Unit } from '../content/lists/miracle-dice';
 import { useState } from 'react';
 import { Toggle } from '../components/Toggle';
+import datasheetUpdater from '../content/lists/datasheet-updater';
 
 interface DatasheetsPanelProps {
   units: Unit[];
@@ -25,15 +26,15 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
   return (
     <TabPanel>
       <Toggle
-        label='Simplified'
+        label="Simplified"
         checked={simplified}
         onChange={setSimplified}
       />
-      <div className='flex flex-col gap-4'>
+      <div className="flex flex-col gap-4">
         {units.map(({ id, datasheets }) => {
-          const combined = datasheets.reduce((prev, curr) =>
-            datasheetCombiner(prev, curr)
-          );
+          const combined = datasheets
+            .map(([datasheet, updates]) => datasheetUpdater(datasheet, updates))
+            .reduce((prev, curr) => datasheetCombiner(prev, curr));
           return (
             <Datasheet
               {...combined}
