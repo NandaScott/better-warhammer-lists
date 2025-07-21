@@ -14,23 +14,22 @@ function traverseAndUpdate(
 ) {
   const [nextNode, ...rest] = path.split('.');
   const restOfPath = rest.join('.');
-  let target = obj[nextNode];
 
-  if (target === undefined) {
+  if (obj[nextNode] === undefined) {
     throw new Error('Target ends with undefined');
   }
 
   if (restOfPath.length !== 0) {
-    target = traverseAndUpdate(target, restOfPath, update);
+    obj[nextNode] = traverseAndUpdate(obj[nextNode], restOfPath, update);
     return obj;
   }
 
-  if (Array.isArray(target)) {
-    target = [...target, update];
+  if (Array.isArray(obj[nextNode])) {
+    obj[nextNode] = [...obj[nextNode], update];
     return obj;
   }
 
-  target = update;
+  obj[nextNode] = update;
 
   return obj;
 }
@@ -41,12 +40,13 @@ function parseDatasheetUpdates(
   return update
     .map((chunks) => chunks.split(':'))
     .map(([path, update]) => {
-      if (Number.isNaN(update)) {
+      if (Number.isNaN(Number(update))) {
         return [path, update];
       }
       if (update === 'true' || update === 'false') {
         return [path, Boolean(update)];
       }
+
       return [path, parseInt(update)];
     });
 }

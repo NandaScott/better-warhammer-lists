@@ -161,10 +161,10 @@ const TriptychOfTheMacharianCrusade: Enhancement = {
 const ArmyOfFaithDetatchment: DetatchmentData = {
   name: 'Army of Faith',
   enhancements: {
-    'Litanies of Faith': LitaniesOfFaith,
-    'Blade of Saint Ellynor': BladeOfSaintEllynor,
-    'Divine Aspect': DivineAspect,
-    'Triptych of the Macharian Crusade': TriptychOfTheMacharianCrusade,
+    LitaniesOfFaith,
+    BladeOfSaintEllynor,
+    DivineAspect,
+    TriptychOfTheMacharianCrusade,
   },
   stratagems: [
     AngelicDescent,

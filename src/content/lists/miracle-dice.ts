@@ -66,6 +66,7 @@ export const list: ArmyList = {
             'rangedWeapons.5.quantity:1',
             'meleeWeapons.2.quantity:1',
             'wargearAbilities.0.equipped:true',
+            'enhancements:BladeOfSaintEllynor',
           ],
         ],
       ],
