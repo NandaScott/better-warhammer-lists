@@ -1,3 +1,5 @@
+import { v4 as uuidV4 } from 'uuid';
+
 type WargearOption = {
   entry: string;
   options?: string[];
@@ -22,7 +24,7 @@ export default function WargearOptions(props: WargearOptionsProps) {
       <div className="flex flex-col gap-4 p-4">
         <ul className="list-inside list-disc [&_ul]:list-[revert]">
           {wargearOptions?.map(({ entry, options }) => (
-            <li key={entry}>
+            <li key={uuidV4()}>
               {entry}{' '}
               <ul className="list-inside list-disc pl-4">
                 {options?.map((val) => (

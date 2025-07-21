@@ -3,7 +3,7 @@ import type { Datasheet } from '../../core/types';
 export const Dialogus: Datasheet = {
   stats: [
     {
-      name: 'Palatine',
+      name: 'Dialogus',
       movement: 6,
       toughness: 3,
       save: 3,

@@ -35,7 +35,6 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
           const combined = datasheets
             .map(([datasheet, updates]) => datasheetUpdater(datasheet, updates))
             .reduce((prev, curr) => datasheetCombiner(prev, curr));
-          console.log(combined);
           return (
             <Datasheet
               {...combined}

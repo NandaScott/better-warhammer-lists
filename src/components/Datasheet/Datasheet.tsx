@@ -170,7 +170,7 @@ export default function Datasheet(props: DatasheetProps) {
             </span>{' '}
             <div className="flex flex-wrap gap-2">
               {keywords.map((text) => (
-                <Badge size="medium" text={text} />
+                <Badge key={text} size="medium" text={text} />
               ))}
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function Datasheet(props: DatasheetProps) {
             </span>
             <div className="flex flex-wrap gap-2">
               {factionKeywords.map((text) => (
-                <Badge size="medium" text={text} />
+                <Badge key={text} size="medium" text={text} />
               ))}
             </div>
           </div>

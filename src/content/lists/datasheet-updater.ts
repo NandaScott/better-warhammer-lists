@@ -57,6 +57,8 @@ export default function datasheetUpdater(
 ): Datasheet {
   const parsedUpdates = parseDatasheetUpdates(updates);
 
+  if (parsedUpdates.length === 0) return datasheet;
+
   let newDatasheet = datasheet;
   for (let i = 0; i < parsedUpdates.length; i++) {
     const [location, value] = parsedUpdates[i];

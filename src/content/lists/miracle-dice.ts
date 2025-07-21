@@ -8,6 +8,15 @@ import { Canoness } from '../Sororitas/datasheets/canoness';
 import { CanonessWithJumpPack } from '../Sororitas/datasheets/canoness-with-jump-pack';
 import { SeraphimSquad } from '../Sororitas/datasheets/seraphim-squad';
 import { TriumphOfSaintKatherine } from '../Sororitas/datasheets/triumph-of-saint-katherine';
+import { Palatine } from '../Sororitas/datasheets/palatine';
+import { Dialogus } from '../Sororitas/datasheets/dialogus';
+import { BattleSistersSquad } from '../Sororitas/datasheets/battle-sisters-squad';
+import { JunithEruita } from '../Sororitas/datasheets/junith-eruita';
+import { MorvennVahl } from '../Sororitas/datasheets/morven-vahl';
+import { ParagonWarsuits } from '../Sororitas/datasheets/paragon-warsuits';
+import { SistersNovitiateSquad } from '../Sororitas/datasheets/sisters-novitiate-squad';
+import { Exorcist } from '../Sororitas/datasheets/exorcist';
+import { ZehpyrimSquad } from '../Sororitas/datasheets/zephyrim-squad';
 
 interface Points {
   used: number;
@@ -74,13 +83,51 @@ export const list: ArmyList = {
     {
       id: uuidV4(),
       datasheets: [
-        [CanonessWithJumpPack, []],
+        [CanonessWithJumpPack, ['enhancements:DivineAspect']],
         [SeraphimSquad, []],
       ],
     },
     {
       id: uuidV4(),
+      datasheets: [
+        [Palatine, ['enhancements:LitaniesOfFaith']],
+        [Dialogus, []],
+        [BattleSistersSquad, []],
+      ],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [
+        [JunithEruita, []],
+        [BattleSistersSquad, []],
+      ],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [
+        [MorvennVahl, []],
+        [ParagonWarsuits, []],
+      ],
+    },
+    {
+      id: uuidV4(),
       datasheets: [[TriumphOfSaintKatherine, []]],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [[DominionSquad, []]],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [[SistersNovitiateSquad, []]],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [[Exorcist, []]],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [[ZehpyrimSquad, []]],
     },
   ],
 };
