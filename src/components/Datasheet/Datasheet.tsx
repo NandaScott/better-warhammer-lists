@@ -14,6 +14,7 @@ import WargearOptions, { type WargearOptionsProps } from './WeargearOptions';
 import LeaderAbility, { type LeaderAbilityProps } from './LeaderAbility';
 import AbilitiesBlock, { type AbilitiesBlockProps } from './AbilitiesBlock';
 import { Badge } from '../Badge';
+import UniqueAbilities, { type UniqueAbilitiesProps } from './UniqueAbilities';
 
 const defaultTimerDuration = 300;
 
@@ -35,6 +36,8 @@ export interface DatasheetProps {
   setupAbilities: AbilitiesBlockProps['setupAbilities'];
   unitComposition: AbilitiesBlockProps['unitComposition'];
   damaged?: AbilitiesBlockProps['damaged'];
+  supremeCommander?: AbilitiesBlockProps['supremeCommander'];
+  uniqueAbilities?: UniqueAbilitiesProps['uniqueAbilities'];
   keywords: string[];
   factionKeywords: string[];
 }
@@ -57,6 +60,7 @@ export default function Datasheet(props: DatasheetProps) {
     keywords,
     factionKeywords,
     damaged,
+    uniqueAbilities,
   } = props;
   const wrappingRef = useRef<HTMLDivElement | null>(null);
   const parentRef = useRef<HTMLDivElement | null>(null);
@@ -149,6 +153,7 @@ export default function Datasheet(props: DatasheetProps) {
               wargearOptions={wargearOptions}
             />
             <LeaderAbility simplify={simplify} leaderAbility={leaderAbility} />
+            <UniqueAbilities uniqueAbilities={uniqueAbilities} />
           </div>
 
           <AbilitiesBlock

@@ -33,7 +33,11 @@ type Weapon = {
   name: string;
   subtitle: string;
   keywords: WeaponAbilities[];
-  attacks: number | DiceType | `${DiceType}+${OneToSix}`;
+  attacks:
+    | number
+    | DiceType
+    | `${DiceType}+${OneToSix}`
+    | `${OneToSix}${DiceType}`;
   strength: number;
   armorPen: number;
   damage: number | DiceType;

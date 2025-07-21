@@ -1,0 +1,140 @@
+import type { Datasheet } from '../../core/types';
+
+export const MorvennVahl: Datasheet = {
+  stats: [
+    {
+      name: 'Morvenn Vahl',
+      movement: 8,
+      toughness: 7,
+      save: 2,
+      invuln: 4,
+      wounds: 8,
+      leadership: 6,
+      objective: 3,
+    },
+  ],
+  enhancements: [],
+  rangedWeapons: [
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Fidelis',
+      subtitle: '',
+      keywords: ['Sustained Hits 1'],
+      range: 36,
+      attacks: 3,
+      ballisticSkill: 2,
+      strength: 6,
+      armorPen: 1,
+      damage: 2,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Paragon missle launcher',
+      subtitle: 'prioris',
+      profiled: true,
+      keywords: [],
+      range: 36,
+      attacks: 3,
+      ballisticSkill: 2,
+      strength: 9,
+      armorPen: 2,
+      damage: 'D6',
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Paragon missle launcher',
+      subtitle: 'sanctorum',
+      profiled: true,
+      keywords: ['Blast'],
+      range: 36,
+      attacks: '2D6',
+      ballisticSkill: 2,
+      strength: 4,
+      armorPen: 0,
+      damage: 1,
+    },
+  ],
+  meleeWeapons: [
+    {
+      type: 'melee',
+      quantity: 0,
+      name: 'Lance of Illumination',
+      subtitle: 'strike',
+      profiled: true,
+      keywords: ['Devastating Wounds'],
+      range: 'Melee',
+      attacks: 5,
+      weaponSkill: 2,
+      strength: 8,
+      armorPen: 2,
+      damage: 3,
+    },
+    {
+      type: 'melee',
+      quantity: 0,
+      name: 'Lance of Illumination',
+      subtitle: 'sweep',
+      profiled: true,
+      keywords: ['Devastating Wounds'],
+      range: 'Melee',
+      attacks: 10,
+      weaponSkill: 2,
+      strength: 5,
+      armorPen: 1,
+      damage: 1,
+    },
+  ],
+  abilities: {
+    core: ['Deadly Demise 1', 'Leader'],
+    faction: 'Acts of Faith',
+    datasheetAbilities: [
+      {
+        name: 'Abess Sanctorum',
+        effect:
+          'While this model is leading a unit, each time a model in that unit makes an attack, you can re-roll the Hit roll and you can re-roll the Wound roll.',
+      },
+      {
+        name: 'Righteous Repugnance',
+        effect:
+          "Each time this model's unit is selected to shoot or fight, you can discard 1 Miracle dice. If you do, until the end of the phase, add 3 to the Attacks characteristics of Fidelis and the Lance of Illumination. Each time an enemy unit is destroyed by this model, you can 1 Miracle dice.",
+      },
+    ],
+  },
+  wargearAbilities: [],
+  leaderAbility: ['Paragon Warsuits'],
+  supremeCommander: {
+    text: 'If Morvennn Vahl is in your army, it must be your WARLORD.',
+  },
+  wargearOptions: [],
+  unitComposition: {
+    models: ['1 Movenn Vahl - EPIC HERO'],
+    defaultWeapons: [
+      'Morvenn Vahl is equipped with: Fidelis; Paragon missle launcher; Lance of Illumination.',
+    ],
+    points: [
+      {
+        quantity: '1 Morvenn Vahl',
+        total: 170,
+      },
+    ],
+    baseSizes: [
+      {
+        model: 'Morvenn Vahl',
+        size: 60,
+      },
+    ],
+  },
+  keywords: [
+    'Vehicle',
+    'Walker',
+    'Character',
+    'Epic Hero',
+    'Imperium',
+    'Morvenn Vahl',
+  ],
+  factionKeywords: ['Adepta Sororitas'],
+  setupAbilities: [],
+};

@@ -7,6 +7,7 @@ import { DominionSquad } from '../Sororitas/datasheets/dominion-squad';
 import { Canoness } from '../Sororitas/datasheets/canoness';
 import { CanonessWithJumpPack } from '../Sororitas/datasheets/canoness-with-jump-pack';
 import { SeraphimSquad } from '../Sororitas/datasheets/seraphim-squad';
+import { TriumphOfSaintKatherine } from '../Sororitas/datasheets/triumph-of-saint-katherine';
 
 interface Points {
   used: number;
@@ -75,6 +76,10 @@ export const list: ArmyList = {
         [CanonessWithJumpPack, []],
         [SeraphimSquad, []],
       ],
+    },
+    {
+      id: uuidV4(),
+      datasheets: [[TriumphOfSaintKatherine, []]],
     },
   ],
 };
