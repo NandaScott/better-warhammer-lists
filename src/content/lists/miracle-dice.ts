@@ -61,6 +61,7 @@ export const list: ArmyList = {
           DominionSquad,
           [
             `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:0', // Weird hack to keep Dominion Squads from bleeding equipment
             'rangedWeapons.1.quantity:10',
             'rangedWeapons.2.quantity:6',
             'rangedWeapons.6.quantity:4',
@@ -117,7 +118,21 @@ export const list: ArmyList = {
     },
     {
       id: uuidV4(),
-      datasheets: [[DominionSquad, [`id:${uuidV4()}`]]],
+      datasheets: [
+        [
+          DominionSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:4',
+            'rangedWeapons.1.quantity:10',
+            'rangedWeapons.2.quantity:6',
+            'rangedWeapons.6.quantity:0', // Weird hack to keep Dominion Squads from bleeding equipment
+            'meleeWeapons.1.quantity:9',
+            'meleeWeapons.2.quantity:1',
+            'wargearAbilities.0.equipped:true',
+          ],
+        ],
+      ],
     },
     {
       id: uuidV4(),
