@@ -8,44 +8,31 @@ import type { Datasheet } from '../core/types';
  * @returns The original object
  */
 function traverseAndUpdate(
-  obj: unknown,
+  obj: any,
   path: string,
   update: string | number | boolean
 ) {
   const [nextNode, ...rest] = path.split('.');
   const restOfPath = rest.join('.');
-  const isIndex = Number.isNaN(parseInt(nextNode));
+  let target = obj[nextNode];
 
-  let clonedObj: any;
-  if (Array.isArray(obj)) {
-    clonedObj = [...obj];
-  } else if (obj && typeof obj === 'object') {
-    clonedObj = { ...obj };
-  } else {
-    clonedObj = isIndex ? [] : {};
+  if (target === undefined) {
+    throw new Error('Target ends with undefined');
   }
 
-  if (restOfPath.length === 0) {
-    const target = clonedObj[nextNode];
-
-    if (Array.isArray(target)) {
-      clonedObj[nextNode] = [...target, update];
-    } else if (target === undefined && isIndex) {
-      const index = parseInt(nextNode, 10);
-      clonedObj[index] = update;
-    } else {
-      clonedObj[nextNode] = update;
-    }
-
-    return clonedObj;
+  if (restOfPath.length !== 0) {
+    target = traverseAndUpdate(target, restOfPath, update);
+    return obj;
   }
 
-  clonedObj[nextNode] = traverseAndUpdate(
-    clonedObj[nextNode],
-    restOfPath,
-    update
-  );
-  return clonedObj;
+  if (Array.isArray(target)) {
+    target = [...target, update];
+    return obj;
+  }
+
+  target = update;
+
+  return obj;
 }
 
 function parseDatasheetUpdates(

@@ -36,8 +36,6 @@ interface ArmyList {
   units: Unit[];
 }
 
-console.log(Canoness);
-
 export const list: ArmyList = {
   name: 'Miracle Army',
   faction: { name: 'Adepta Sororitas', armyRules: ['Miracle Dice'] },
