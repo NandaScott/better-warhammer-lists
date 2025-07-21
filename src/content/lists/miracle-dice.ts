@@ -86,35 +86,134 @@ export const list: ArmyList = {
     {
       id: uuidV4(),
       datasheets: [
-        [CanonessWithJumpPack, [`id:${uuidV4()}`, 'enhancements:DivineAspect']],
-        [SeraphimSquad, [`id:${uuidV4()}`]],
+        [
+          CanonessWithJumpPack,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:1',
+            'meleeWeapons.2.quantity:1',
+            'enhancements:DivineAspect',
+          ],
+        ],
+        [
+          SeraphimSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:12',
+            'rangedWeapons.2.quantity:8',
+            'rangedWeapons.3.quantity:1',
+            'rangedWeapons.4.quantity:1',
+            'meleeWeapons.1.quantity:10',
+            'meleeWeapons.2.quantity:1',
+          ],
+        ],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [Palatine, [`id:${uuidV4()}`, 'enhancements:LitaniesOfFaith']],
-        [Dialogus, [`id:${uuidV4()}`]],
-        [BattleSistersSquad, [`id:${uuidV4()}`]],
+        [
+          Palatine,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.1.quantity:1',
+            'rangedWeapons.2.quantity:1',
+            'meleeWeapons.0.quantity:1',
+            'enhancements:LitaniesOfFaith',
+          ],
+        ],
+        [
+          Dialogus,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:1',
+            'meleeWeapons.0.quantity:1',
+          ],
+        ],
+        [
+          BattleSistersSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.1.quantity:10', // Bolt Pistol
+            'rangedWeapons.2.quantity:7', // Bolt Gun
+            'rangedWeapons.4.quantity:1', // Condemnor
+            'rangedWeapons.7.quantity:2', // Meltagun
+            'rangedWeapons.8.quantity:0', // Flamer
+            'rangedWeapons.10.quantity:0', // Heavy Flamer
+            'meleeWeapons.1.quantity:9', // CCW
+            'meleeWeapons.2.quantity:1', // Powersword
+            'wargearAbilities.0.equipped:true',
+          ],
+        ],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [JunithEruita, [`id:${uuidV4()}`]],
-        [BattleSistersSquad, [`id:${uuidV4()}`]],
+        [
+          JunithEruita,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:1',
+            'meleeWeapons.0.quantity:1',
+          ],
+        ],
+        [
+          BattleSistersSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.1.quantity:10', // Bolt Pistol
+            'rangedWeapons.2.quantity:7', // Bolt Gun
+            'rangedWeapons.4.quantity:0', // Condemnor
+            'rangedWeapons.7.quantity:0', // Meltagun
+            'rangedWeapons.8.quantity:1', // Flamer
+            'rangedWeapons.10.quantity:1', // Heavy Flamer
+            'meleeWeapons.1.quantity:9', // CCW
+            'meleeWeapons.2.quantity:1', // Powersword
+            'wargearAbilities.0.equipped:true',
+          ],
+        ],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [MorvennVahl, [`id:${uuidV4()}`]],
-        [ParagonWarsuits, [`id:${uuidV4()}`]],
+        [
+          MorvennVahl,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:1',
+            'rangedWeapons.1.quantity:1',
+            'rangedWeapons.2.quantity:1',
+            'meleeWeapons.0.quantity:1',
+            'meleeWeapons.1.quantity:1',
+          ],
+        ],
+        [
+          ParagonWarsuits,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:3',
+            'rangedWeapons.3.quantity:3',
+            'rangedWeapons.4.quantity:3',
+            'meleeWeapons.0.quantity:1',
+            'meleeWeapons.1.quantity:2',
+          ],
+        ],
       ],
     },
     {
       id: uuidV4(),
-      datasheets: [[TriumphOfSaintKatherine, [`id:${uuidV4()}`]]],
+      datasheets: [
+        [
+          TriumphOfSaintKatherine,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:1',
+            'meleeWeapons.0.quantity:1',
+          ],
+        ],
+      ],
     },
     {
       id: uuidV4(),
@@ -136,15 +235,47 @@ export const list: ArmyList = {
     },
     {
       id: uuidV4(),
-      datasheets: [[SistersNovitiateSquad, [`id:${uuidV4()}`]]],
+      datasheets: [
+        [
+          SistersNovitiateSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:9',
+            'rangedWeapons.1.quantity:9',
+            'rangedWeapons.2.quantity:1',
+            'rangedWeapons.3.quantity:1',
+            'rangedWeapons.0.quantity:10',
+          ],
+        ],
+      ],
     },
     {
       id: uuidV4(),
-      datasheets: [[Exorcist, [`id:${uuidV4()}`]]],
+      datasheets: [
+        [
+          Exorcist,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.1.quantity:1',
+            'rangedWeapons.2.quantity:1',
+            'rangedWeapons.3.quantity:1',
+            'meleeWeapons.0.quantity:1',
+          ],
+        ],
+      ],
     },
     {
       id: uuidV4(),
-      datasheets: [[ZehpyrimSquad, [`id:${uuidV4()}`]]],
+      datasheets: [
+        [
+          ZehpyrimSquad,
+          [
+            `id:${uuidV4()}`,
+            'rangedWeapons.0.quantity:5',
+            'meleeWeapons.0.quantity:5',
+          ],
+        ],
+      ],
     },
   ],
 };
