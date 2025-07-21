@@ -20,14 +20,14 @@ td {
 td:first-child,
 th:first-child {
   z-index: 1;
-  @apply sticky left-0 col-span-1 row-span-2 bg-inherit text-center;
+  @apply col-span-1 row-span-2 bg-inherit text-center;
 }
 
 /* Second column */
 td:nth-child(2),
 th:nth-child(2) {
   z-index: 1;
-  @apply sticky left-12 col-span-3 row-span-2 border-r-2 border-stone-300 bg-inherit pr-4 text-left;
+  @apply sticky left-0 col-span-3 row-span-2 border-r-2 border-stone-300 bg-inherit pr-4 text-left;
 }
 
 td:nth-child(2) {
