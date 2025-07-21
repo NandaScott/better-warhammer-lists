@@ -74,7 +74,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
   leaderAbility: ['Battle Sisters Squad'],
   wargearOptions: [],
   damaged: {
-    title: 'Damaged: 1-6 Wounds Remaining',
+    title: '1-6 Wounds Remaining',
     text: 'While this model has 1-6 wounds remaining, the Attacks characteristics of all its weapons are halved, and you can only select one ability when using its Relics of the Matriarchs ability, instead of up to two.',
   },
   unitComposition: {

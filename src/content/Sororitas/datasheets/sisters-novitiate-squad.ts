@@ -1,0 +1,241 @@
+import type { Datasheet } from '../../core/types';
+
+export const SistersNovitiateSquad: Datasheet = {
+  stats: [
+    {
+      name: 'Novitiate Superior',
+      movement: 6,
+      toughness: 3,
+      save: 3,
+      invuln: 6,
+      wounds: 1,
+      leadership: 7,
+      objective: 2,
+    },
+    {
+      name: 'Sister Novitiate',
+      movement: 6,
+      toughness: 3,
+      save: 4,
+      invuln: 6,
+      wounds: 1,
+      leadership: 8,
+      objective: 2,
+    },
+  ],
+  enhancements: [],
+  rangedWeapons: [
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Autogun',
+      subtitle: '',
+      keywords: ['Rapid Fire 1'],
+      range: 24,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 3,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Autopistol',
+      subtitle: '',
+      keywords: ['Pistol'],
+      range: 12,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 3,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Bolt pistol',
+      subtitle: '',
+      keywords: ['Pistol'],
+      range: 12,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 4,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Boltgun',
+      subtitle: '',
+      keywords: ['Rapid Fire 1'],
+      range: 24,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 4,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Ministorum flamer',
+      subtitle: '',
+      keywords: ['Ignores Cover', 'Torrent'],
+      range: 12,
+      attacks: 'D6',
+      ballisticSkill: 'N/A',
+      strength: 5,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Plasma pistol',
+      subtitle: 'Standard',
+      profiled: true,
+      keywords: ['Pistol'],
+      range: 12,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 7,
+      armorPen: 2,
+      damage: 1,
+    },
+    {
+      type: 'ranged',
+      quantity: 0,
+      name: 'Plasma pistol',
+      subtitle: 'Supercharge',
+      profiled: true,
+      keywords: ['Hazardous', 'Pistol'],
+      range: 12,
+      attacks: 1,
+      ballisticSkill: 3,
+      strength: 8,
+      armorPen: 3,
+      damage: 2,
+    },
+  ],
+  meleeWeapons: [
+    {
+      type: 'melee',
+      quantity: 0,
+      name: 'Close combat weapon',
+      subtitle: '',
+      keywords: [],
+      range: 'Melee',
+      attacks: 4,
+      weaponSkill: 4,
+      strength: 3,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'melee',
+      quantity: 0,
+      name: 'Novitiate melee weapons',
+      subtitle: '',
+      keywords: [],
+      range: 'Melee',
+      attacks: 2,
+      weaponSkill: 4,
+      strength: 4,
+      armorPen: 0,
+      damage: 1,
+    },
+    {
+      type: 'melee',
+      quantity: 0,
+      name: 'Power weapon',
+      subtitle: '',
+      keywords: [],
+      range: 'Melee',
+      attacks: 2,
+      weaponSkill: 4,
+      strength: 4,
+      armorPen: 2,
+      damage: 1,
+    },
+  ],
+  abilities: {
+    core: ['Infiltrators'],
+    faction: 'Acts of Faith',
+    datasheetAbilities: [
+      {
+        name: 'Impetuous Fervour',
+        effect:
+          'Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Hit roll instead.',
+      },
+    ],
+  },
+  wargearAbilities: [
+    {
+      equipped: false,
+      name: 'Sacred Banner',
+      effect:
+        "You can re-roll Advance and Charge rolls made for the bearer's unit.",
+    },
+    {
+      equipped: false,
+      name: 'Simulacrum Imperialis',
+      effect:
+        'At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.',
+    },
+  ],
+  leaderAbility: [],
+  wargearOptions: [
+    {
+      entry:
+        "The Novitiate Superior's bolt pistol and boltgun can be replaced with one of the following:",
+      options: [
+        '1 bolt pistol and 1 power weapon',
+        '1 plasma pistol and 1 power weapon',
+      ],
+    },
+    {
+      entry:
+        "1 Sisters Novitiate's autogun can be replaced with 1 sacred banner.",
+    },
+    {
+      entry:
+        "1 Sisters Novitiate's autogun can be replaced with 1 simulacrum imperialis.",
+    },
+    {
+      entry:
+        'Up to 2 Sisters Novitiate can each have their autogun be replaced with 1 Ministorum flamer.',
+    },
+    {
+      entry:
+        'Any number of Sisters Novitiate can each have their autogun and close combat weapon replaced with 1 Novitiate melee weapons.',
+    },
+  ],
+  unitComposition: {
+    models: ['1 Novitiate Superior', '9 Sisters Novitiate'],
+    defaultWeapons: [
+      'The Novitiate Superior is equipped with: bolt pistol; boltgun; close combat weapon.',
+      'Each Sister Novitiate is equipped with: autopistol; autogun; close combat weapon.',
+    ],
+    points: [
+      {
+        quantity: '10 Novitiates',
+        total: 100,
+      },
+    ],
+    baseSizes: [
+      {
+        model: 'Novitiate Superior',
+        size: 32,
+      },
+      {
+        model: 'Sister Novitiate',
+        size: 28.5,
+      },
+    ],
+  },
+  keywords: ['Infantry', 'Grenades', 'Imperium', 'Sisters Novitiate Squad'],
+  factionKeywords: ['Adepta Sororitas'],
+  setupAbilities: [],
+};
