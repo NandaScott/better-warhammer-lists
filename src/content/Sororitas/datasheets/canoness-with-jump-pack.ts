@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const CanonessWithJumpPack: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Canoness with Jump Pack',

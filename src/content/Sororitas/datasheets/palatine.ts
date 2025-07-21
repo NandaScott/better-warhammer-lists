@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const Palatine: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Palatine',

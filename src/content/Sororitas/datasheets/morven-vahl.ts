@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const MorvennVahl: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Morvenn Vahl',

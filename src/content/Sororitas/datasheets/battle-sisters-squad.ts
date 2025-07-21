@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const BattleSistersSquad: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Battle Sisters Squad',

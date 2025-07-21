@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const SistersNovitiateSquad: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Novitiate Superior',

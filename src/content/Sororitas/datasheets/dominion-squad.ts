@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const DominionSquad: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Dominion Squad',

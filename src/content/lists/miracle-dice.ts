@@ -60,6 +60,7 @@ export const list: ArmyList = {
         [
           DominionSquad,
           [
+            `id:${uuidV4()}`,
             'rangedWeapons.1.quantity:10',
             'rangedWeapons.2.quantity:6',
             'rangedWeapons.6.quantity:4',
@@ -71,6 +72,7 @@ export const list: ArmyList = {
         [
           Canoness,
           [
+            `id:${uuidV4()}`,
             'rangedWeapons.4.quantity:1',
             'rangedWeapons.5.quantity:1',
             'meleeWeapons.2.quantity:1',
@@ -83,51 +85,51 @@ export const list: ArmyList = {
     {
       id: uuidV4(),
       datasheets: [
-        [CanonessWithJumpPack, ['enhancements:DivineAspect']],
-        [SeraphimSquad, []],
+        [CanonessWithJumpPack, [`id:${uuidV4()}`, 'enhancements:DivineAspect']],
+        [SeraphimSquad, [`id:${uuidV4()}`]],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [Palatine, ['enhancements:LitaniesOfFaith']],
-        [Dialogus, []],
-        [BattleSistersSquad, []],
+        [Palatine, [`id:${uuidV4()}`, 'enhancements:LitaniesOfFaith']],
+        [Dialogus, [`id:${uuidV4()}`]],
+        [BattleSistersSquad, [`id:${uuidV4()}`]],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [JunithEruita, []],
-        [BattleSistersSquad, []],
+        [JunithEruita, [`id:${uuidV4()}`]],
+        [BattleSistersSquad, [`id:${uuidV4()}`]],
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [MorvennVahl, []],
-        [ParagonWarsuits, []],
+        [MorvennVahl, [`id:${uuidV4()}`]],
+        [ParagonWarsuits, [`id:${uuidV4()}`]],
       ],
     },
     {
       id: uuidV4(),
-      datasheets: [[TriumphOfSaintKatherine, []]],
+      datasheets: [[TriumphOfSaintKatherine, [`id:${uuidV4()}`]]],
     },
     {
       id: uuidV4(),
-      datasheets: [[DominionSquad, []]],
+      datasheets: [[DominionSquad, [`id:${uuidV4()}`]]],
     },
     {
       id: uuidV4(),
-      datasheets: [[SistersNovitiateSquad, []]],
+      datasheets: [[SistersNovitiateSquad, [`id:${uuidV4()}`]]],
     },
     {
       id: uuidV4(),
-      datasheets: [[Exorcist, []]],
+      datasheets: [[Exorcist, [`id:${uuidV4()}`]]],
     },
     {
       id: uuidV4(),
-      datasheets: [[ZehpyrimSquad, []]],
+      datasheets: [[ZehpyrimSquad, [`id:${uuidV4()}`]]],
     },
   ],
 };

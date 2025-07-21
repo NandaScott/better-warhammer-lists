@@ -6,7 +6,10 @@ export type StratagemData = Omit<
   'simple' | 'currentPhase' | 'currentTurn'
 >;
 
-export type Datasheet = Omit<DatasheetProps, 'onClick' | 'open' | 'simplify'>;
+export type Datasheet = Omit<
+  DatasheetProps,
+  'onClick' | 'open' | 'simplify'
+> & { id: string };
 
 export type DetatchmentRulesData = {
   name: string;

@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const ArcoFlagellants: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Arco-Flagellants',

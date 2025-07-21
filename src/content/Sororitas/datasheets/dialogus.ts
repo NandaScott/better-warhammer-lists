@@ -1,6 +1,7 @@
 import type { Datasheet } from '../../core/types';
 
 export const Dialogus: Datasheet = {
+  id: '',
   stats: [
     {
       name: 'Dialogus',
