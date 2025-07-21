@@ -41,10 +41,6 @@ export interface AbilitiesBlockProps {
   };
   damaged?: { title: string; text: string };
   supremeCommander?: { text: string };
-  uniqueAbilities?: {
-    title: string;
-    abilities: { name: string; text: string }[];
-  };
 }
 
 export default function AbilitiesBlock(props: AbilitiesBlockProps) {
@@ -56,7 +52,6 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
     unitComposition,
     damaged,
     supremeCommander,
-    uniqueAbilities,
   } = props;
 
   const wargear = wargearAbilities.filter((val) => {
@@ -104,23 +99,6 @@ export default function AbilitiesBlock(props: AbilitiesBlockProps) {
             Supreme Commander
           </div>
           <div className="p-2">{supremeCommander.text}</div>
-        </>
-      )}
-      {uniqueAbilities && (
-        <>
-          <div className="bg-red-950 p-2 py-3 font-bold text-white uppercase md:gap-4 lg:h-10">
-            {uniqueAbilities.title}
-          </div>
-          <div className="p-2">
-            {uniqueAbilities.abilities.map(({ name, text }) => (
-              <div key={name}>
-                <span className="font-semibold underline underline-offset-2">
-                  {name}
-                </span>{' '}
-                <br /> {text}
-              </div>
-            ))}
-          </div>
         </>
       )}
 
