@@ -1,5 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
-import type { DiceType, OneToSix } from './Datasheet';
+import type { DiceType, OneToSix } from './datasheet-types';
 import SkullIcon from '../../assets/skull-icon.svg?react';
 
 type CoreAbilities =

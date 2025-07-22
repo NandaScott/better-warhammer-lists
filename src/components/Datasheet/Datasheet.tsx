@@ -1,25 +1,29 @@
+// Base
+import { Fragment } from 'react';
+import { v4 as uuidV4 } from 'uuid';
+import clsx from 'clsx';
+import type { CoreAbilities, WargearAbility } from './datasheet-types';
+import './Datasheet.css';
+
+// Internal Components
+import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
+import { DatasheetTable } from '../DatasheetTable';
+import type {
+  DatasheetTableMeleeProps,
+  DatasheetTableRangedProps,
+} from '../DatasheetTable/datasheet-table-types';
+import { Badge } from '../Badge';
+import { Collapse } from '../Collapse';
+
+// Icons
 import Crosshair from '../../assets/crosshair.svg?react';
 import CrossedSwords from '../../assets/crossed-swords.svg?react';
 import SkullIcon from '../../assets/skull-icon.svg?react';
-import { Fragment } from 'react';
-import './Datasheet.css';
-import { v4 as uuidV4 } from 'uuid';
 
-import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
-import DatasheetTable, {
-  type DatasheetTableMeleeProps,
-  type DatasheetTableRangedProps,
-} from './DatasheetTable';
-import { type AbilitiesBlockProps } from './AbilitiesBlock';
-import { Badge } from '../Badge';
-import { type UniqueAbilitiesProps } from './UniqueAbilities';
+// Content
 import ArmyOfFaithDetatchment from '../../content/Sororitas/detatchments/army-of-faith';
 import type { Enhancement } from '../../content/core/types';
-import clsx from 'clsx';
-import { Collapse } from '../Collapse';
-
-export type DiceType = 'D3' | 'D6';
-export type OneToSix = 1 | 2 | 3 | 4 | 5 | 6;
+import type { Ability } from './AbilitiesBlock';
 
 export interface DatasheetProps {
   simplify: boolean;
@@ -34,13 +38,25 @@ export interface DatasheetProps {
     options?: string[];
   }[];
   leaderAbility: string[];
-  abilities: AbilitiesBlockProps['abilities'];
-  wargearAbilities: AbilitiesBlockProps['wargearAbilities'];
-  setupAbilities: AbilitiesBlockProps['setupAbilities'];
-  unitComposition: AbilitiesBlockProps['unitComposition'];
-  damaged?: AbilitiesBlockProps['damaged'];
-  supremeCommander?: AbilitiesBlockProps['supremeCommander'];
-  uniqueAbilities?: UniqueAbilitiesProps['uniqueAbilities'];
+  abilities: {
+    core: CoreAbilities[];
+    faction: 'Acts of Faith';
+    datasheetAbilities: Ability[];
+  };
+  wargearAbilities: WargearAbility[];
+  setupAbilities: Ability[];
+  unitComposition: {
+    models: string[];
+    defaultWeapons: string[];
+    points: { quantity: string; total: number }[];
+    baseSizes: { model: string; size: number | string }[];
+  };
+  damaged?: { title: string; text: string };
+  supremeCommander?: { text: string };
+  uniqueAbilities?: {
+    title: string;
+    abilities: { name: string; text: string }[];
+  };
   keywords: string[];
   factionKeywords: string[];
 }
