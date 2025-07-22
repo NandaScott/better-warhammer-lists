@@ -190,12 +190,14 @@ export default function Datasheet(props: DatasheetProps) {
             </div>
             <div className="flex flex-col gap-2 p-2">
               {abilities.datasheetAbilities.map(({ name, effect, note }) => (
-                <div key={name}>
+                <div key={name} className="flex flex-col gap-1">
                   <span className="font-semibold underline underline-offset-2">
                     {name}
                   </span>{' '}
-                  <br /> {effect} <br />
-                  <span className="italic">{note}</span>
+                  {effect}
+                  <span className={clsx('italic', !note && 'hidden')}>
+                    {note}
+                  </span>
                 </div>
               ))}
             </div>
@@ -209,14 +211,14 @@ export default function Datasheet(props: DatasheetProps) {
             <div className="p-2">{damaged?.text}</div>
           </div>
 
-          <div className={clsx(supremeCommander && 'hidden')}>
+          <div className={clsx(!supremeCommander && 'hidden')}>
             <div className="banner p-2 py-3 md:gap-4 lg:h-10">
               Supreme Commander
             </div>
             <div className="p-2">{supremeCommander?.text}</div>
           </div>
 
-          <div className={clsx(wargear.length > 0 && 'hidden')}>
+          <div className={clsx(wargear.length === 0 && 'hidden')}>
             <div className="banner">Wargear Abilities</div>
             <div className="flex flex-col gap-2 p-2">
               {wargear.map(({ name, effect }) => (
@@ -231,11 +233,11 @@ export default function Datasheet(props: DatasheetProps) {
             </div>
           </div>
 
-          <div className={clsx(!simplify && 'hidden')}>
+          <div className={clsx(simplify && 'hidden')}>
             <div className="banner">Unit Composition</div>
             <div className="flex flex-col gap-2 divide-y divide-gray-300 p-2">
               <div className="pb-2">
-                <ul className="list-inside list-disc">
+                <ul>
                   {unitComposition.models.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
