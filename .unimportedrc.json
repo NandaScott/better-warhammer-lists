@@ -1,0 +1,60 @@
+{
+  "ignoreUnresolved": [
+    [
+      "../../assets/chevron-down.svg?react",
+      [
+        "src/components/Datasheet/HeaderButton.tsx",
+        "src/components/Accordion/Accordion.tsx"
+      ]
+    ],
+    [
+      "../../assets/crossed-swords.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
+      "../../assets/crosshair.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
+      "../../assets/skull-icon.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx",
+        "src/components/Datasheet/AbilitiesBlock.tsx"
+      ]
+    ],
+    [
+      "../DatasheetTable/datasheet-table-types",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
+      "./datasheet-table-types",
+      [
+        "src/components/DatasheetTable/DatasheetTable.tsx"
+      ]
+    ],
+    [
+      "./datasheet-types",
+      [
+        "src/components/Datasheet/Datasheet.tsx",
+        "src/components/Datasheet/AbilitiesBlock.tsx"
+      ]
+    ]
+  ],
+  "ignoreUnused": [
+    "@tailwindcss/vite",
+    "tailwindcss",
+    "vite-plugin-svgr"
+  ],
+  "ignoreUnimported": [
+    "/home/nanda/Coding/better-warhammer-lists/src/content/Sororitas/datasheets/aestred-thurga-and-agathae-dolan.ts",
+    "/home/nanda/Coding/better-warhammer-lists/src/content/Sororitas/datasheets/arco-flagellants.ts",
+    "/home/nanda/Coding/better-warhammer-lists/src/content/Sororitas/datasheets/castigator.ts",
+    "/home/nanda/Coding/better-warhammer-lists/src/content/Sororitas/datasheets/celestian-sacresancts.ts"
+  ]
+}
