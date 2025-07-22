@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PropsWithChildren } from 'react';
-import ChevronDown from '../../assets/chevron-down.svg?react';
+import ChevronDown from '../../assets/icons/chevron-down.svg?react';
 import clsx from 'clsx';
 
 const defaultTimerDuration = 300;
@@ -77,14 +77,14 @@ export default function Accordion(props: AccordionProps) {
     <button
       onClick={handleClick}
       className={clsx(
-        'text-white p-4 w-full flex flex-col cursor-pointer rounded border items-start text-start',
+        'flex w-full cursor-pointer flex-col items-start rounded border p-4 text-start text-white',
         rootClasses
       )}
     >
-      <div className='flex justify-between w-full items-center'>
+      <div className="flex w-full items-center justify-between">
         <div className={clsx(!!titleClasses ? titleClasses : 'text-xl')}>
           {title}
-          {subtitle && <div className='text-base'>{subtitle}</div>}
+          {subtitle && <div className="text-base">{subtitle}</div>}
         </div>
         <div
           className={clsx('transition-transform duration-150', {
@@ -100,9 +100,9 @@ export default function Accordion(props: AccordionProps) {
           height: '0px',
           transitionDuration: `${defaultTimerDuration}ms`,
         }}
-        className='collapse-container collapse-hidden'
+        className="collapse-container collapse-hidden"
       >
-        <div className='pt-4 flex flex-col gap-4' ref={wrappingRef}>
+        <div className="flex flex-col gap-4 pt-4" ref={wrappingRef}>
           {children}
         </div>
       </div>

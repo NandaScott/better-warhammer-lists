@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import LabelledBox from './LabelledBox';
-import ChevronDown from '../../assets/chevron-down.svg?react';
+import ChevronDown from '../../assets/icons/chevron-down.svg?react';
 
 type Stat = {
   name: string;

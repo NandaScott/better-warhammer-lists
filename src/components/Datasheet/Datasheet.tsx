@@ -2,7 +2,11 @@
 import { Fragment } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import clsx from 'clsx';
-import type { CoreAbilities, WargearAbility } from './datasheet-types';
+import type {
+  Ability,
+  CoreAbilities,
+  WargearAbility,
+} from './datasheet-types.d';
 import './Datasheet.css';
 
 // Internal Components
@@ -16,14 +20,13 @@ import { Badge } from '../Badge';
 import { Collapse } from '../Collapse';
 
 // Icons
-import Crosshair from '../../assets/crosshair.svg?react';
-import CrossedSwords from '../../assets/crossed-swords.svg?react';
-import SkullIcon from '../../assets/skull-icon.svg?react';
+import Crosshair from '../../assets/icons/crosshair.svg?react';
+import CrossedSwords from '../../assets/icons/crossed-swords.svg?react';
+import SkullIcon from '../../assets/icons/skull-icon.svg?react';
 
 // Content
 import ArmyOfFaithDetatchment from '../../content/Sororitas/detatchments/army-of-faith';
 import type { Enhancement } from '../../content/core/types';
-import type { Ability } from './AbilitiesBlock';
 
 export interface DatasheetProps {
   simplify: boolean;

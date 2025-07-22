@@ -20,6 +20,31 @@
       ]
     ],
     [
+      "../../assets/icons/chevron-down.svg?react",
+      [
+        "src/components/Datasheet/HeaderButton.tsx",
+        "src/components/Accordion/Accordion.tsx"
+      ]
+    ],
+    [
+      "../../assets/icons/crossed-swords.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
+      "../../assets/icons/crosshair.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
+      "../../assets/icons/skull-icon.svg?react",
+      [
+        "src/components/Datasheet/Datasheet.tsx"
+      ]
+    ],
+    [
       "../../assets/skull-icon.svg?react",
       [
         "src/components/Datasheet/Datasheet.tsx",
