@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+.banner {
+  @apply flex items-center gap-2 bg-red-950 p-2 py-3 font-bold text-white uppercase md:gap-4 lg:h-10;
+}
+
+.banner svg {
+  @apply h-6 w-6 fill-white;
+}
+
+ul {
+  @apply list-inside list-disc;
+}
+
+.wargear {
+  @apply [&_ul]:list-[revert];
+}
+
+.datasheet-footer {
+  @apply col-span-4 flex flex-col gap-2 border-t-2 border-red-900;
+}
+
+.keyword-title {
+  @apply font-semibold underline underline-offset-2;
+}
+
+.keyword-list {
+  @apply flex flex-wrap gap-2;
+}
