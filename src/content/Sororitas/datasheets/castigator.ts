@@ -15,8 +15,8 @@ export const Castigator: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    CastigatorAutocannons: {
       armorPen: 1,
       attacks: 4,
       ballisticSkill: 3,
@@ -30,7 +30,7 @@ export const Castigator: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    CastigatorBattleCannon: {
       armorPen: 1,
       attacks: 'D6+3',
       ballisticSkill: 3,
@@ -44,7 +44,7 @@ export const Castigator: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    HeavyBolter: {
       armorPen: 1,
       attacks: 3,
       ballisticSkill: 3,
@@ -58,7 +58,7 @@ export const Castigator: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    HunterKillerMissile: {
       armorPen: 3,
       attacks: 1,
       ballisticSkill: 2,
@@ -72,7 +72,7 @@ export const Castigator: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    StormBolter: {
       armorPen: 0,
       attacks: 2,
       ballisticSkill: 3,
@@ -86,9 +86,9 @@ export const Castigator: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    ArmouredTracks: {
       armorPen: 0,
       attacks: 3,
       damage: 1,
@@ -102,7 +102,7 @@ export const Castigator: Datasheet = {
       weaponSkill: 4,
       profiled: false,
     },
-  ],
+  },
   abilities: {
     core: ['Deadly Demise D3'],
     faction: 'Acts of Faith',

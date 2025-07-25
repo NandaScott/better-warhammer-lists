@@ -65,10 +65,10 @@ interface DatasheetTableCommonProps {
 }
 
 export interface DatasheetTableRangedProps extends DatasheetTableCommonProps {
-  weapons: RangedWeapon[];
+  weapons: Record<string, RangedWeapon>;
 }
 export interface DatasheetTableMeleeProps extends DatasheetTableCommonProps {
-  weapons: MeleeWeapon[];
+  weapons: Record<string, MeleeWeapon>;
 }
 
 type DatasheetTableProps = DatasheetTableRangedProps | DatasheetTableMeleeProps;

@@ -15,8 +15,8 @@ export const SeraphimSquad: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -30,7 +30,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: ['Pistol'],
     },
-    {
+    InfernoPistol: {
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -44,7 +44,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 'D3',
       keywords: ['Melta 2', 'Pistol'],
     },
-    {
+    MinistorumHandFlamer: {
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -58,7 +58,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: ['Ignores Cover', 'Pistol', 'Torrent'],
     },
-    {
+    PlasmaPistolStandard: {
       quantity: 0,
       type: 'ranged',
       profiled: true,
@@ -72,7 +72,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: ['Pistol'],
     },
-    {
+    PlasmaPistolSupercharge: {
       quantity: 0,
       type: 'ranged',
       profiled: true,
@@ -86,9 +86,9 @@ export const SeraphimSquad: Datasheet = {
       damage: 2,
       keywords: ['Hazardous', 'Pistol'],
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    Chainsword: {
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -102,7 +102,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: [],
     },
-    {
+    CloseCombatWeapon: {
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -116,7 +116,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: [],
     },
-    {
+    PowerWeapon: {
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -130,7 +130,7 @@ export const SeraphimSquad: Datasheet = {
       damage: 1,
       keywords: [],
     },
-  ],
+  },
   abilities: {
     core: ['Deep Strike'],
     faction: 'Acts of Faith',

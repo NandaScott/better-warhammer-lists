@@ -15,8 +15,8 @@ export const Palatine: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -29,7 +29,7 @@ export const Palatine: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    PlasmaPistolStandard: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -43,7 +43,7 @@ export const Palatine: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-    {
+    PlasmaPistolSupercharge: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -57,9 +57,9 @@ export const Palatine: Datasheet = {
       armorPen: 3,
       damage: 2,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    PalatineBlade: {
       type: 'melee',
       quantity: 0,
       name: 'Palatine Blade',
@@ -72,7 +72,7 @@ export const Palatine: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-  ],
+  },
   abilities: {
     core: ['Leader'],
     faction: 'Acts of Faith',

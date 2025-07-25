@@ -15,8 +15,8 @@ export const Canoness: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -29,7 +29,7 @@ export const Canoness: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    BrazierOfHolyFire: {
       type: 'ranged',
       quantity: 0,
       name: 'Brazier of holy fire',
@@ -42,7 +42,7 @@ export const Canoness: Datasheet = {
       armorPen: 1,
       damage: 2,
     },
-    {
+    CondemnorBoltgun: {
       type: 'ranged',
       quantity: 0,
       name: 'Condemnor boltgun',
@@ -60,7 +60,7 @@ export const Canoness: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    InfernoPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Inferno pistol',
@@ -73,7 +73,7 @@ export const Canoness: Datasheet = {
       armorPen: 4,
       damage: 'D3',
     },
-    {
+    PlasmaPistolStandard: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -87,7 +87,7 @@ export const Canoness: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-    {
+    PlasmaPistolSupercharge: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -101,9 +101,9 @@ export const Canoness: Datasheet = {
       armorPen: 3,
       damage: 2,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    BlessedBlade: {
       type: 'melee',
       quantity: 0,
       name: 'Blessed Blade',
@@ -116,7 +116,7 @@ export const Canoness: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-    {
+    HallowedChainsword: {
       type: 'melee',
       quantity: 0,
       name: 'Hallowed chainsword',
@@ -129,7 +129,7 @@ export const Canoness: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-    {
+    PowerWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -142,7 +142,7 @@ export const Canoness: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-  ],
+  },
   abilities: {
     core: ['Leader'],
     faction: 'Acts of Faith',

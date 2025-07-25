@@ -15,9 +15,9 @@ export const ArcoFlagellants: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [],
-  meleeWeapons: [
-    {
+  rangedWeapons: {},
+  meleeWeapons: {
+    ArcoFlails: {
       armorPen: 0,
       attacks: 4,
       damage: 1,
@@ -31,7 +31,7 @@ export const ArcoFlagellants: Datasheet = {
       weaponSkill: 4,
       profiled: false,
     },
-  ],
+  },
   abilities: {
     core: ['Feel No Pain 5+'],
     faction: 'Acts of Faith',

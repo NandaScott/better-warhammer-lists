@@ -15,8 +15,8 @@ export const Dialogus: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -29,9 +29,9 @@ export const Dialogus: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    DialogusStaff: {
       type: 'melee',
       quantity: 0,
       name: 'Dialogus staff',
@@ -44,7 +44,7 @@ export const Dialogus: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Leader'],
     faction: 'Acts of Faith',

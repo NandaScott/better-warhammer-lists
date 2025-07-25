@@ -15,8 +15,8 @@ export const CanonessWithJumpPack: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    MinistorumHandFlamer: {
       armorPen: 0,
       attacks: 'D6',
       ballisticSkill: 'N/A',
@@ -30,9 +30,9 @@ export const CanonessWithJumpPack: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    BlessedHalberd: {
       type: 'melee',
       quantity: 0,
       name: 'Blessed Halberd',
@@ -45,7 +45,7 @@ export const CanonessWithJumpPack: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-    {
+    HolyEviscerator: {
       type: 'melee',
       quantity: 0,
       name: 'Holy eviscerator',
@@ -58,7 +58,7 @@ export const CanonessWithJumpPack: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-    {
+    PowerWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -71,7 +71,7 @@ export const CanonessWithJumpPack: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-  ],
+  },
   abilities: {
     core: ['Deep Strike', 'Leader'],
     faction: 'Acts of Faith',

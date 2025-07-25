@@ -25,8 +25,8 @@ export const SistersNovitiateSquad: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    Autogun: {
       type: 'ranged',
       quantity: 0,
       name: 'Autogun',
@@ -39,7 +39,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    Autopistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Autopistol',
@@ -52,7 +52,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -65,7 +65,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    Boltgun: {
       type: 'ranged',
       quantity: 0,
       name: 'Boltgun',
@@ -78,7 +78,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    MinistorumFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum flamer',
@@ -91,7 +91,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    PlasmaPistolStandard: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -105,7 +105,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-    {
+    PlasmaPistolSupercharge: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -119,9 +119,9 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 3,
       damage: 2,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    CloseCombatWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Close combat weapon',
@@ -134,7 +134,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    NovitiateMeleeWeapons: {
       type: 'melee',
       quantity: 0,
       name: 'Novitiate melee weapons',
@@ -147,7 +147,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    PowerWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -160,7 +160,7 @@ export const SistersNovitiateSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Infiltrators'],
     faction: 'Acts of Faith',

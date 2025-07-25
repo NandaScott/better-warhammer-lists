@@ -15,8 +15,8 @@ export const ZehpyrimSquad: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -29,7 +29,7 @@ export const ZehpyrimSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    PlasmaPistolStandard: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -43,7 +43,7 @@ export const ZehpyrimSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-    {
+    PlasmaPistolSupercharge: {
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -57,9 +57,9 @@ export const ZehpyrimSquad: Datasheet = {
       armorPen: 3,
       damage: 2,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    PowerWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -73,7 +73,7 @@ export const ZehpyrimSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Deep Strike'],
     faction: 'Acts of Faith',

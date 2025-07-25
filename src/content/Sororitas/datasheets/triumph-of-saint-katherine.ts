@@ -15,8 +15,8 @@ export const TriumphOfSaintKatherine: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistols',
@@ -29,9 +29,9 @@ export const TriumphOfSaintKatherine: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    RelicWeapons: {
       type: 'melee',
       quantity: 0,
       name: 'Relic Weapons',
@@ -44,7 +44,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Leader'],
     faction: 'Acts of Faith',

@@ -15,8 +15,8 @@ export const CelestianSacresants: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       armorPen: 1,
       attacks: 1,
       ballisticSkill: 3,
@@ -30,7 +30,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    InfernoPistol: {
       armorPen: 4,
       attacks: 1,
       ballisticSkill: 3,
@@ -44,7 +44,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    MinistorumHandFlamer: {
       armorPen: 0,
       attacks: 'D6',
       ballisticSkill: 'N/A',
@@ -58,7 +58,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'ranged',
       profiled: false,
     },
-    {
+    PlasmaPistolStandard: {
       armorPen: 2,
       attacks: 1,
       ballisticSkill: 3,
@@ -72,7 +72,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'ranged',
       profiled: true,
     },
-    {
+    PlasmaPistolSupercharge: {
       armorPen: 3,
       attacks: 1,
       ballisticSkill: 3,
@@ -86,9 +86,9 @@ export const CelestianSacresants: Datasheet = {
       type: 'ranged',
       profiled: true,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    AnointedHalberd: {
       armorPen: 2,
       attacks: 3,
       weaponSkill: 3,
@@ -102,7 +102,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'melee',
       profiled: false,
     },
-    {
+    HallowedMace: {
       armorPen: 1,
       attacks: 3,
       weaponSkill: 3,
@@ -116,7 +116,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'melee',
       profiled: false,
     },
-    {
+    SpearOfTheFaithful: {
       armorPen: 2,
       attacks: 3,
       weaponSkill: 3,
@@ -130,7 +130,7 @@ export const CelestianSacresants: Datasheet = {
       type: 'melee',
       profiled: false,
     },
-  ],
+  },
   abilities: {
     core: [],
     faction: 'Acts of Faith',

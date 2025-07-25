@@ -15,8 +15,8 @@ export const ParagonWarsuits: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -29,7 +29,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    HeavyBolter: {
       type: 'ranged',
       quantity: 0,
       name: 'Heavy Bolter',
@@ -42,7 +42,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 1,
       damage: 2,
     },
-    {
+    MinistorumHeavyFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum heavy flamer',
@@ -55,7 +55,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-    {
+    MultiMelta: {
       type: 'ranged',
       quantity: 0,
       name: 'Multi-melta',
@@ -68,7 +68,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 4,
       damage: 'D6',
     },
-    {
+    ParagonGrenadeLaunchers: {
       type: 'ranged',
       quantity: 0,
       name: 'Paragon grenade launchers',
@@ -81,10 +81,10 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 2,
       damage: 'D3',
     },
-    {
+    ParagonStormBolters: {
       type: 'ranged',
       quantity: 0,
-      name: 'Paragon grenade launchers',
+      name: 'Paragon storm bolters',
       subtitle: '',
       keywords: ['Rapid Fire 2', 'Twin-linked'],
       range: 24,
@@ -94,9 +94,9 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    ParagonWarBlade: {
       type: 'melee',
       quantity: 0,
       name: 'Paragon war blade',
@@ -109,7 +109,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-    {
+    ParagonWarMace: {
       type: 'melee',
       quantity: 0,
       name: 'Paragon war mace',
@@ -122,7 +122,7 @@ export const ParagonWarsuits: Datasheet = {
       armorPen: 1,
       damage: 3,
     },
-  ],
+  },
   abilities: {
     core: [],
     faction: 'Acts of Faith',

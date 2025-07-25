@@ -15,8 +15,8 @@ export const MorvennVahl: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    Fidelis: {
       type: 'ranged',
       quantity: 0,
       name: 'Fidelis',
@@ -29,10 +29,10 @@ export const MorvennVahl: Datasheet = {
       armorPen: 1,
       damage: 2,
     },
-    {
+    ParagonMissileLauncherPrioris: {
       type: 'ranged',
       quantity: 0,
-      name: 'Paragon missle launcher',
+      name: 'Paragon missile launcher',
       subtitle: 'prioris',
       profiled: true,
       keywords: [],
@@ -43,7 +43,7 @@ export const MorvennVahl: Datasheet = {
       armorPen: 2,
       damage: 'D6',
     },
-    {
+    ParagonMissileLauncherSanctorum: {
       type: 'ranged',
       quantity: 0,
       name: 'Paragon missle launcher',
@@ -57,9 +57,9 @@ export const MorvennVahl: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    LanceOfIlluminationStrike: {
       type: 'melee',
       quantity: 0,
       name: 'Lance of Illumination',
@@ -73,7 +73,7 @@ export const MorvennVahl: Datasheet = {
       armorPen: 2,
       damage: 3,
     },
-    {
+    LanceOfIlluminationSweep: {
       type: 'melee',
       quantity: 0,
       name: 'Lance of Illumination',
@@ -87,7 +87,7 @@ export const MorvennVahl: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Deadly Demise 1', 'Leader'],
     faction: 'Acts of Faith',

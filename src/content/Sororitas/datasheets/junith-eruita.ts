@@ -15,8 +15,8 @@ export const JunithEruita: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    TwinMinistorumHeavyFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Twin Ministorum heavy flamer',
@@ -29,9 +29,9 @@ export const JunithEruita: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    MaceOfCastigation: {
       type: 'melee',
       quantity: 0,
       name: 'Mace of Castigation',
@@ -44,7 +44,7 @@ export const JunithEruita: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-  ],
+  },
   abilities: {
     core: ['Deadly Demise 1', 'Leader'],
     faction: 'Acts of Faith',

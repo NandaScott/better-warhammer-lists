@@ -15,8 +15,8 @@ export const Exorcist: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    ExorcistConflagrationRockets: {
       type: 'ranged',
       quantity: 0,
       name: 'Exorcist conflagration rockets',
@@ -29,7 +29,7 @@ export const Exorcist: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-    {
+    ExorcistMissileLauncher: {
       type: 'ranged',
       quantity: 0,
       name: 'Exorcist missile launcher',
@@ -42,7 +42,7 @@ export const Exorcist: Datasheet = {
       armorPen: 3,
       damage: 'D6',
     },
-    {
+    HeavyBolter: {
       type: 'ranged',
       quantity: 0,
       name: 'Heavy bolter',
@@ -55,7 +55,7 @@ export const Exorcist: Datasheet = {
       armorPen: 1,
       damage: 2,
     },
-    {
+    HunterKillerMissile: {
       type: 'ranged',
       quantity: 0,
       name: 'Hunter-killer missile',
@@ -68,9 +68,9 @@ export const Exorcist: Datasheet = {
       armorPen: 3,
       damage: 'D6',
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    ArmouredTracks: {
       type: 'melee',
       quantity: 0,
       name: 'Armoured tracks',
@@ -83,7 +83,7 @@ export const Exorcist: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Deadly Demise D3'],
     faction: 'Acts of Faith',

@@ -25,8 +25,8 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -39,9 +39,9 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    BladeOfVigil: {
       type: 'melee',
       quantity: 0,
       name: 'Blade of Vigil',
@@ -54,7 +54,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
       armorPen: 2,
       damage: 2,
     },
-    {
+    ScribesStaff: {
       type: 'melee',
       quantity: 0,
       name: "Scribe's Staff",
@@ -67,7 +67,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: ['Leader'],
     faction: 'Acts of Faith',

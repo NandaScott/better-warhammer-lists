@@ -9,6 +9,8 @@ import type {
   DatasheetTableRangedProps,
 } from './datasheet-table-types';
 
+type ValueOf<O, V extends keyof O = keyof O> = O[V];
+
 export default function DatasheetTable(
   props: DatasheetTableRangedProps
 ): JSX.Element;
@@ -18,7 +20,9 @@ export default function DatasheetTable(
 export default function DatasheetTable(
   props: DatasheetTableProps
 ): JSX.Element | null {
-  const { simplify, icon: Icon, weapons, title } = props;
+  const { simplify, icon: Icon, weapons: pWeapons, title } = props;
+
+  const weapons = Object.values(pWeapons) as ValueOf<typeof pWeapons>[];
 
   if (weapons.length === 0) return null;
 

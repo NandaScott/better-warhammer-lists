@@ -15,8 +15,8 @@ export const BattleSistersSquad: Datasheet = {
     },
   ],
   enhancements: [],
-  rangedWeapons: [
-    {
+  rangedWeapons: {
+    ArtificerCraftedStormBolter: {
       type: 'ranged',
       quantity: 0,
       name: 'Artificer-crafted storm bolter',
@@ -29,7 +29,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 2,
     },
-    {
+    BoltPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -42,7 +42,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    Boltgun: {
       type: 'ranged',
       quantity: 0,
       name: 'Boltgun',
@@ -55,7 +55,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    CombiWeapon: {
       type: 'ranged',
       quantity: 0,
       name: 'Combi-weapon',
@@ -68,7 +68,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    CondemnorBoltgun: {
       type: 'ranged',
       quantity: 0,
       name: 'Condemnor boltgun',
@@ -86,7 +86,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    HeavyBolter: {
       type: 'ranged',
       quantity: 0,
       name: 'Heavy Bolter',
@@ -99,7 +99,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 1,
       damage: 2,
     },
-    {
+    InfernoPistol: {
       type: 'ranged',
       quantity: 0,
       name: 'Inferno pistol',
@@ -112,7 +112,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 4,
       damage: 'D3',
     },
-    {
+    Meltagun: {
       type: 'ranged',
       quantity: 0,
       name: 'Meltagun',
@@ -125,7 +125,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 4,
       damage: 'D6',
     },
-    {
+    MinistorumFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum flamer',
@@ -138,7 +138,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    MinistorumHandFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum hand flamer',
@@ -151,7 +151,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    MinistorumHeavyFlamer: {
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum heavy flamer',
@@ -164,7 +164,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 1,
       damage: 1,
     },
-    {
+    MultiMelta: {
       type: 'ranged',
       quantity: 0,
       name: 'Multi-melta',
@@ -177,7 +177,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 4,
       damage: 'D6',
     },
-    {
+    PlasmaPistolStandard: {
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -191,7 +191,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-    {
+    PlasmaPistolSupercharge: {
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -205,9 +205,9 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 3,
       damage: 2,
     },
-  ],
-  meleeWeapons: [
-    {
+  },
+  meleeWeapons: {
+    Chainsword: {
       type: 'melee',
       quantity: 0,
       name: 'Chainsword',
@@ -220,7 +220,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    CloseCombatWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Close combat weapon',
@@ -233,7 +233,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 0,
       damage: 1,
     },
-    {
+    PowerWeapon: {
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -246,7 +246,7 @@ export const BattleSistersSquad: Datasheet = {
       armorPen: 2,
       damage: 1,
     },
-  ],
+  },
   abilities: {
     core: [],
     faction: 'Acts of Faith',
