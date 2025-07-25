@@ -2,20 +2,11 @@
 import { Fragment } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import clsx from 'clsx';
-import type {
-  Ability,
-  CoreAbilities,
-  WargearAbility,
-} from './datasheet-types.d';
 import './Datasheet.css';
 
 // Internal Components
-import HeaderButton, { type HeaderButtonProps } from './HeaderButton';
+import HeaderButton from './HeaderButton';
 import { DatasheetTable } from '../DatasheetTable';
-import type {
-  DatasheetTableMeleeProps,
-  DatasheetTableRangedProps,
-} from '../DatasheetTable/datasheet-table-types';
 import { Badge } from '../Badge';
 import { Collapse } from '../Collapse';
 
@@ -26,42 +17,12 @@ import SkullIcon from '../../assets/icons/skull-icon.svg?react';
 
 // Content
 import ArmyOfFaithDetatchment from '../../content/Sororitas/detatchments/army-of-faith';
-import type { Enhancement } from '../../content/core/types';
+import type { Datasheet, Enhancement } from '../../content/core/types';
 
-export interface DatasheetProps {
+export interface DatasheetProps extends Datasheet {
   simplify: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   open: boolean;
-  stats: HeaderButtonProps['stats'];
-  enhancements: string[];
-  rangedWeapons: DatasheetTableRangedProps['weapons'];
-  meleeWeapons: DatasheetTableMeleeProps['weapons'];
-  wargearOptions: {
-    entry: string;
-    options?: string[];
-  }[];
-  leaderAbility: string[];
-  abilities: {
-    core: CoreAbilities[];
-    faction: 'Acts of Faith';
-    datasheetAbilities: Ability[];
-  };
-  wargearAbilities: WargearAbility[];
-  setupAbilities: Ability[];
-  unitComposition: {
-    models: string[];
-    defaultWeapons: string[];
-    points: { quantity: string; total: number }[];
-    baseSizes: { model: string; size: number | string }[];
-  };
-  damaged?: { title: string; text: string };
-  supremeCommander?: { text: string };
-  uniqueAbilities?: {
-    title: string;
-    abilities: { name: string; text: string }[];
-  };
-  keywords: string[];
-  factionKeywords: string[];
 }
 
 export default function Datasheet(props: DatasheetProps) {
