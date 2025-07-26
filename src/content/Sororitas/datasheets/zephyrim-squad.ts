@@ -14,7 +14,7 @@ export const ZehpyrimSquad: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Zehpyrim Squad',

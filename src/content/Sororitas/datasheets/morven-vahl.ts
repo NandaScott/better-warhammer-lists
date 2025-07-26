@@ -14,7 +14,7 @@ export const MorvennVahl: Datasheet = {
       objective: 3,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     Fidelis: {
       model: 'Morvenn Vahl',

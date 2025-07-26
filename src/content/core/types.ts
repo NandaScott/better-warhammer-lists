@@ -18,7 +18,7 @@ export type StratagemData = Omit<
 export interface Datasheet {
   id: string;
   stats: HeaderButtonProps['stats'];
-  enhancements: string[];
+  enhancements: Partial<Enhancement>;
   rangedWeapons: DatasheetTableRangedProps['weapons'];
   meleeWeapons: DatasheetTableMeleeProps['weapons'];
   wargearOptions: {
@@ -64,6 +64,7 @@ export interface Enhancement<T = string> {
     oracle: string;
     simple?: string;
   };
+  updates?: string[];
 }
 
 export interface DetatchmentData {

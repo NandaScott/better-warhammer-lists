@@ -138,6 +138,11 @@ const BladeOfSaintEllynor: Enhancement = {
     oracle:
       "ADEPTA SORORITAS model only. Improve the Strength and Armour Penetration characteristics of the bearer's melee weapons by 1, and those weapons have the [PRECISION] ability. In addition, each time the bearer fights, if one or more enemy models are destroyed by those attacks, you gain 1 Miracle dice.",
   },
+  updates: [
+    'meleeWeapons.all.strength:1',
+    'meleeWeapons.all.armorPen:1',
+    'meleeWeapons.all.keywords:Precision',
+  ],
 };
 
 const DivineAspect: Enhancement = {

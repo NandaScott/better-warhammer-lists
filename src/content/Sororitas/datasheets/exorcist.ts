@@ -14,7 +14,7 @@ export const Exorcist: Datasheet = {
       objective: 3,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     ExorcistConflagrationRockets: {
       model: 'Exorcist',

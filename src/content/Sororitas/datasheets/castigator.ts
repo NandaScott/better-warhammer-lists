@@ -14,7 +14,7 @@ export const Castigator: Datasheet = {
       objective: 3,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     CastigatorAutocannons: {
       model: 'Castigator',

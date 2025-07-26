@@ -14,7 +14,7 @@ export const Palatine: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Palatine',

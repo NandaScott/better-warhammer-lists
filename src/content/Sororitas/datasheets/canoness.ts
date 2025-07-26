@@ -14,7 +14,7 @@ export const Canoness: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Canoness',

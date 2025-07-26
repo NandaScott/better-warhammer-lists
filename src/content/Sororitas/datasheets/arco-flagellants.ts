@@ -14,7 +14,7 @@ export const ArcoFlagellants: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {},
   meleeWeapons: {
     ArcoFlails: {

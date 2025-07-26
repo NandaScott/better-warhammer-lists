@@ -14,7 +14,7 @@ export const BattleSistersSquad: Datasheet = {
       objective: 2,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     ArtificerCraftedStormBolter: {
       model: 'Battle Sisters Squad',

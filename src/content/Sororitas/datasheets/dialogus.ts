@@ -14,7 +14,7 @@ export const Dialogus: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Dialogus',

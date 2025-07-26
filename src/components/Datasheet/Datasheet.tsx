@@ -16,8 +16,7 @@ import CrossedSwords from '../../assets/icons/crossed-swords.svg?react';
 import SkullIcon from '../../assets/icons/skull-icon.svg?react';
 
 // Content
-import ArmyOfFaithDetatchment from '../../content/Sororitas/detatchments/army-of-faith';
-import type { Datasheet, Enhancement } from '../../content/core/types';
+import type { Datasheet } from '../../content/core/types';
 
 export interface DatasheetProps extends Datasheet {
   simplify: boolean;
@@ -31,7 +30,7 @@ export default function Datasheet(props: DatasheetProps) {
     onClick,
     open,
     stats,
-    enhancements: pEnhancements,
+    enhancements,
     rangedWeapons,
     meleeWeapons,
     abilities,
@@ -46,10 +45,6 @@ export default function Datasheet(props: DatasheetProps) {
     uniqueAbilities,
     supremeCommander,
   } = props;
-
-  const enhancements: Enhancement[] = pEnhancements.map(
-    (name) => ArmyOfFaithDetatchment.enhancements[name]
-  );
 
   const wargearAbilities = Object.values(pWargearAbilities);
 
@@ -67,15 +62,14 @@ export default function Datasheet(props: DatasheetProps) {
         open={open}
         className="grid grid-cols-4 border-2 border-t-0 border-red-900 bg-stone-100"
       >
-        {/* Enhancements */}
-        {enhancements.map(({ name, effect }) => (
-          <div key={name} className="col-span-4 flex flex-col">
-            <div className="banner p-4">{name}</div>
-            <div className="p-4">
-              {simplify ? (effect.simple ?? effect.oracle) : effect.oracle}
-            </div>
+        <div key={enhancements.name} className="col-span-4 flex flex-col">
+          <div className="banner p-4">{enhancements.name}</div>
+          <div className="p-4">
+            {simplify
+              ? (enhancements.effect?.simple ?? enhancements.effect?.oracle)
+              : enhancements.effect?.oracle}
           </div>
-        ))}
+        </div>
 
         <div className="col-span-4 border-red-900 lg:col-span-3 lg:border-r-2">
           <div className="overflow-x-auto">

@@ -31,6 +31,7 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
         onChange={setSimplified}
       />
       <div className="flex flex-col gap-4">
+        {/* TODO: This data should be pre-processed outside of the component */}
         {units.map(({ id, datasheets }) => {
           const combined = datasheets
             .map(({ datasheet, updates }) =>

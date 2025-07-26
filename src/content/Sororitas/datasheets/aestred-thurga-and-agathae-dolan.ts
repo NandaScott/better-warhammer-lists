@@ -24,7 +24,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Aestred Thurga',

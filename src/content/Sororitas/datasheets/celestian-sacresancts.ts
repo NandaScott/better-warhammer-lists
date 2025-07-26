@@ -14,7 +14,7 @@ export const CelestianSacresants: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Celestian Sacresants',

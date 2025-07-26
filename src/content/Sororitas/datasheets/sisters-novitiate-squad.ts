@@ -24,7 +24,7 @@ export const SistersNovitiateSquad: Datasheet = {
       objective: 2,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     Autogun: {
       model: 'Sisters Novitiate Squad',

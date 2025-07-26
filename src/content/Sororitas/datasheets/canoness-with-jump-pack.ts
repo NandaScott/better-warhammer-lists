@@ -14,7 +14,7 @@ export const CanonessWithJumpPack: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     MinistorumHandFlamer: {
       model: 'Canoness with Jump Pack',

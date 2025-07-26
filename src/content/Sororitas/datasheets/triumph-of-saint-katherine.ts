@@ -14,7 +14,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
       objective: 6,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Triumph of Saint Katherine',

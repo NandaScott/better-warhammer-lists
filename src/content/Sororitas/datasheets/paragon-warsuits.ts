@@ -14,7 +14,7 @@ export const ParagonWarsuits: Datasheet = {
       objective: 2,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Paragon Warsuits',

@@ -14,7 +14,7 @@ export const JunithEruita: Datasheet = {
       objective: 2,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     TwinMinistorumHeavyFlamer: {
       model: 'Junith Eruita',

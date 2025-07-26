@@ -14,7 +14,7 @@ export const DominionSquad: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     ArtificerCraftedStormBolter: {
       model: 'Dominion Squad',

@@ -14,7 +14,7 @@ export const SeraphimSquad: Datasheet = {
       objective: 1,
     },
   ],
-  enhancements: [],
+  enhancements: {},
   rangedWeapons: {
     BoltPistol: {
       model: 'Seraphim Squad',
