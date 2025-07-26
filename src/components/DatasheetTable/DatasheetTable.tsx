@@ -78,16 +78,21 @@ export default function DatasheetTable(
                   {profile.quantity > 0 ? `${profile.quantity}x` : ''}
                 </td>
                 <td headers="title">
-                  <div
-                    className={clsx({
-                      'before:mr-2 before:text-red-900 before:content-["➤"]':
-                        profile.profiled,
-                    })}
-                  >
-                    {profile.name}
-                  </div>
-                  <div className="pl-6 text-sm text-gray-500">
-                    {profile.subtitle}
+                  <div className="flex flex-col">
+                    <div
+                      className={clsx({
+                        'before:mr-2 before:text-red-900 before:content-["➤"]':
+                          profile.profiled,
+                      })}
+                    >
+                      {profile.name}
+                    </div>
+                    <div className="text-sm text-gray-700">
+                      {profile.subtitle}
+                    </div>
+                    <div className="font-light text-gray-400 italic">
+                      ({profile.model})
+                    </div>
                   </div>
                 </td>
                 <td
