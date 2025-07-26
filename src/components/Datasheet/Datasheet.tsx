@@ -62,7 +62,13 @@ export default function Datasheet(props: DatasheetProps) {
         open={open}
         className="grid grid-cols-4 border-2 border-t-0 border-red-900 bg-stone-100"
       >
-        <div key={enhancements.name} className="col-span-4 flex flex-col">
+        <div
+          key={enhancements.name}
+          className={clsx(
+            'col-span-4 flex flex-col',
+            enhancements.name ?? 'hidden'
+          )}
+        >
           <div className="banner p-4">{enhancements.name}</div>
           <div className="p-4">
             {simplify

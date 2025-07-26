@@ -17,6 +17,8 @@ import { ParagonWarsuits } from '../Sororitas/datasheets/paragon-warsuits';
 import { SistersNovitiateSquad } from '../Sororitas/datasheets/sisters-novitiate-squad';
 import { Exorcist } from '../Sororitas/datasheets/exorcist';
 import { ZehpyrimSquad } from '../Sororitas/datasheets/zephyrim-squad';
+import datasheetUpdater from './datasheet-updater';
+import datasheetCombiner from '../../components/Datasheet/datasheet-combiner';
 
 interface Points {
   used: number;
@@ -46,7 +48,7 @@ interface ArmyList {
   units: Unit[];
 }
 
-export const list: ArmyList = {
+export const initialList: ArmyList = {
   name: 'Miracle Army',
   faction: { name: 'Adepta Sororitas', armyRules: ['Miracle Dice'] },
   detatchment: ArmyOfFaithDetatchment,
@@ -273,3 +275,16 @@ export const list: ArmyList = {
     },
   ],
 };
+
+function processList(list: ArmyList) {
+  const { units, ...rest } = list;
+  const processedUnits = units.map(({ datasheets, ...rest }) => {
+    const processedDatasheets = datasheets
+      .map(({ datasheet, updates }) => datasheetUpdater(datasheet, updates))
+      .reduce((prev, curr) => datasheetCombiner(prev, curr));
+    return { ...rest, datasheets: processedDatasheets };
+  });
+  return { ...rest, units: processedUnits };
+}
+
+export const list = processList(initialList);
