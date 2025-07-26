@@ -27,6 +27,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Aestred Thurga',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -42,6 +43,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
   },
   meleeWeapons: {
     BladeOfVigil: {
+      model: 'Aestred Thurga',
       type: 'melee',
       quantity: 0,
       name: 'Blade of Vigil',
@@ -55,6 +57,7 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
       damage: 2,
     },
     ScribesStaff: {
+      model: 'Aestred Thurga',
       type: 'melee',
       quantity: 0,
       name: "Scribe's Staff",
@@ -125,6 +128,6 @@ export const AestredThurgaAndAgathaeDolan: Datasheet = {
   ],
   factionKeywords: ['Adepta Sororitas'],
   wargearOptions: [],
-  wargearAbilities: [],
+  wargearAbilities: {},
   setupAbilities: [],
 };

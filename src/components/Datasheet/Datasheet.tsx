@@ -35,7 +35,7 @@ export default function Datasheet(props: DatasheetProps) {
     rangedWeapons,
     meleeWeapons,
     abilities,
-    wargearAbilities,
+    wargearAbilities: pWargearAbilities,
     setupAbilities,
     wargearOptions,
     leaderAbility,
@@ -50,6 +50,8 @@ export default function Datasheet(props: DatasheetProps) {
   const enhancements: Enhancement[] = pEnhancements.map(
     (name) => ArmyOfFaithDetatchment.enhancements[name]
   );
+
+  const wargearAbilities = Object.values(pWargearAbilities);
 
   const wargear = wargearAbilities.filter((val) => {
     if (!simplify) return true;

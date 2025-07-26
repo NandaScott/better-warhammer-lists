@@ -17,6 +17,7 @@ export const ZehpyrimSquad: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Zehpyrim Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -30,6 +31,7 @@ export const ZehpyrimSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolStandard: {
+      model: 'Zehpyrim Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -44,6 +46,7 @@ export const ZehpyrimSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Zehpyrim Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -60,6 +63,7 @@ export const ZehpyrimSquad: Datasheet = {
   },
   meleeWeapons: {
     PowerWeapon: {
+      model: 'Zehpyrim Squad',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -85,14 +89,14 @@ export const ZehpyrimSquad: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
+  wargearAbilities: {
+    SacredBanner: {
       name: 'Sacred Banner',
       effect:
         "You can re-roll Advance and Charge rolls made for the bearer's unit.",
       equipped: false,
     },
-  ],
+  },
   leaderAbility: [],
   wargearOptions: [
     {

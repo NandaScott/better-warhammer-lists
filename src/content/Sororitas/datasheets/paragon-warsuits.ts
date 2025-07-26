@@ -17,6 +17,7 @@ export const ParagonWarsuits: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -30,6 +31,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 1,
     },
     HeavyBolter: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Heavy Bolter',
@@ -43,6 +45,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 2,
     },
     MinistorumHeavyFlamer: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum heavy flamer',
@@ -56,6 +59,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 1,
     },
     MultiMelta: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Multi-melta',
@@ -69,6 +73,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 'D6',
     },
     ParagonGrenadeLaunchers: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Paragon grenade launchers',
@@ -82,6 +87,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 'D3',
     },
     ParagonStormBolters: {
+      model: 'Paragon Warsuits',
       type: 'ranged',
       quantity: 0,
       name: 'Paragon storm bolters',
@@ -97,6 +103,7 @@ export const ParagonWarsuits: Datasheet = {
   },
   meleeWeapons: {
     ParagonWarBlade: {
+      model: 'Paragon Warsuits',
       type: 'melee',
       quantity: 0,
       name: 'Paragon war blade',
@@ -110,6 +117,7 @@ export const ParagonWarsuits: Datasheet = {
       damage: 2,
     },
     ParagonWarMace: {
+      model: 'Paragon Warsuits',
       type: 'melee',
       quantity: 0,
       name: 'Paragon war mace',
@@ -134,7 +142,7 @@ export const ParagonWarsuits: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: [],
   wargearOptions: [
     {

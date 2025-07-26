@@ -17,6 +17,7 @@ export const Dialogus: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Dialogus',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -32,6 +33,7 @@ export const Dialogus: Datasheet = {
   },
   meleeWeapons: {
     DialogusStaff: {
+      model: 'Dialogus',
       type: 'melee',
       quantity: 0,
       name: 'Dialogus staff',
@@ -61,20 +63,7 @@ export const Dialogus: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
-      equipped: false,
-      name: 'Null Rod',
-      effect:
-        "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
-    },
-    {
-      equipped: false,
-      name: 'Rod of Office',
-      effect:
-        "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",
-    },
-  ],
+  wargearAbilities: {},
   // TODO: Add the double leader note to this field.
   leaderAbility: [
     'Battle Sisters Squad',

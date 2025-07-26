@@ -27,6 +27,7 @@ export const SistersNovitiateSquad: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     Autogun: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Autogun',
@@ -40,6 +41,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     Autopistol: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Autopistol',
@@ -53,6 +55,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     BoltPistol: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -66,6 +69,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     Boltgun: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Boltgun',
@@ -79,6 +83,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     MinistorumFlamer: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum flamer',
@@ -92,6 +97,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolStandard: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -106,6 +112,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Sisters Novitiate Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -122,6 +129,7 @@ export const SistersNovitiateSquad: Datasheet = {
   },
   meleeWeapons: {
     CloseCombatWeapon: {
+      model: 'Sisters Novitiate Squad',
       type: 'melee',
       quantity: 0,
       name: 'Close combat weapon',
@@ -135,6 +143,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     NovitiateMeleeWeapons: {
+      model: 'Sisters Novitiate Squad',
       type: 'melee',
       quantity: 0,
       name: 'Novitiate melee weapons',
@@ -148,6 +157,7 @@ export const SistersNovitiateSquad: Datasheet = {
       damage: 1,
     },
     PowerWeapon: {
+      model: 'Sisters Novitiate Squad',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -172,20 +182,20 @@ export const SistersNovitiateSquad: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
+  wargearAbilities: {
+    SacredBanner: {
       equipped: false,
       name: 'Sacred Banner',
       effect:
         "You can re-roll Advance and Charge rolls made for the bearer's unit.",
     },
-    {
+    SimulacrumImperialis: {
       equipped: false,
       name: 'Simulacrum Imperialis',
       effect:
         'At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.',
     },
-  ],
+  },
   leaderAbility: [],
   wargearOptions: [
     {

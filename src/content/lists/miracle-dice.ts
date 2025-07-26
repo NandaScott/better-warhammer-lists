@@ -34,7 +34,7 @@ export type ListDatasheets = DatasheetProps & {
 
 export interface Unit {
   id: string;
-  datasheets: Array<[Datasheet, updates: string[]]>;
+  datasheets: { datasheet: Datasheet; updates: string[] }[];
 }
 
 interface ArmyList {
@@ -57,224 +57,218 @@ export const list: ArmyList = {
     {
       id: uuidV4(),
       datasheets: [
-        [
-          DominionSquad,
-          [
+        {
+          datasheet: structuredClone(DominionSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:0', // Weird hack to keep Dominion Squads from bleeding equipment
-            'rangedWeapons.1.quantity:10',
-            'rangedWeapons.2.quantity:6',
-            'rangedWeapons.6.quantity:4',
-            'meleeWeapons.1.quantity:9',
-            'meleeWeapons.2.quantity:1',
-            'wargearAbilities.0.equipped:true',
+            'rangedWeapons.BoltPistol.quantity:10',
+            'rangedWeapons.Boltgun.quantity:6',
+            'rangedWeapons.Meltagun.quantity:4',
+            'meleeWeapons.CloseCombatWeapon.quantity:9',
+            'meleeWeapons.PowerWeapon.quantity:1',
+            'wargearAbilities.SimulacrumImperialis.equipped:true',
           ],
-        ],
-        [
-          Canoness,
-          [
+        },
+        {
+          datasheet: structuredClone(Canoness),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.4.quantity:1',
-            'rangedWeapons.5.quantity:1',
-            'meleeWeapons.2.quantity:1',
-            'wargearAbilities.0.equipped:true',
+            'rangedWeapons.PlasmaPistolStandard.quantity:1',
+            'rangedWeapons.PlasmaPistolSupercharge.quantity:1',
+            'meleeWeapons.PowerWeapon.quantity:1',
+            'wargearAbilities.NullRod.equipped:true',
             'enhancements:BladeOfSaintEllynor',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          CanonessWithJumpPack,
-          [
+        {
+          datasheet: structuredClone(CanonessWithJumpPack),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:1',
-            'meleeWeapons.2.quantity:1',
+            'rangedWeapons.MinistorumHandFlamer.quantity:1',
+            'meleeWeapons.PowerWeapon.quantity:1',
             'enhancements:DivineAspect',
           ],
-        ],
-        [
-          SeraphimSquad,
-          [
+        },
+        {
+          datasheet: structuredClone(SeraphimSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:12',
-            'rangedWeapons.2.quantity:8',
-            'rangedWeapons.3.quantity:1',
-            'rangedWeapons.4.quantity:1',
-            'meleeWeapons.1.quantity:10',
-            'meleeWeapons.2.quantity:1',
+            'rangedWeapons.BoltPistol.quantity:12',
+            'rangedWeapons.MinistorumHandFlamer.quantity:8',
+            'rangedWeapons.PlasmaPistolStandard.quantity:1',
+            'rangedWeapons.PlasmaPistolSupercharge.quantity:1',
+            'meleeWeapons.CloseCombatWeapon.quantity:10',
+            'meleeWeapons.PowerWeapon.quantity:1',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          Palatine,
-          [
+        {
+          datasheet: structuredClone(Palatine),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.1.quantity:1',
-            'rangedWeapons.2.quantity:1',
-            'meleeWeapons.0.quantity:1',
+            'rangedWeapons.PlasmaPistolStandard.quantity:1',
+            'rangedWeapons.PlasmaPistolSupercharge.quantity:1',
+            'meleeWeapons.PalatineBlade.quantity:1',
             'enhancements:LitaniesOfFaith',
           ],
-        ],
-        [
-          Dialogus,
-          [
+        },
+        {
+          datasheet: structuredClone(Dialogus),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:1',
-            'meleeWeapons.0.quantity:1',
+            'rangedWeapons.BoltPistol.quantity:1',
+            'meleeWeapons.DialogusStaff.quantity:1',
           ],
-        ],
-        [
-          BattleSistersSquad,
-          [
+        },
+        {
+          datasheet: structuredClone(BattleSistersSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.1.quantity:10', // Bolt Pistol
-            'rangedWeapons.2.quantity:7', // Bolt Gun
-            'rangedWeapons.4.quantity:1', // Condemnor
-            'rangedWeapons.7.quantity:2', // Meltagun
-            'rangedWeapons.8.quantity:0', // Flamer
-            'rangedWeapons.10.quantity:0', // Heavy Flamer
-            'meleeWeapons.1.quantity:9', // CCW
-            'meleeWeapons.2.quantity:1', // Powersword
-            'wargearAbilities.0.equipped:true',
+            'rangedWeapons.BoltPistol.quantity:10', // Bolt Pistol
+            'rangedWeapons.Boltgun.quantity:7', // Bolt Gun
+            'rangedWeapons.CondemnorBoltgun.quantity:1', // Condemnor
+            'rangedWeapons.Meltagun.quantity:2', // Meltagun
+            'meleeWeapons.CloseCombatWeapon.quantity:9', // CCW
+            'meleeWeapons.PowerWeapon.quantity:1', // Powersword
+            'wargearAbilities.SimulacrumImperialis.equipped:true',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          JunithEruita,
-          [
+        {
+          datasheet: structuredClone(JunithEruita),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:1',
-            'meleeWeapons.0.quantity:1',
+            'rangedWeapons.TwinMinistorumHeavyFlamer.quantity:1',
+            'meleeWeapons.MaceOfCastigation.quantity:1',
           ],
-        ],
-        [
-          BattleSistersSquad,
-          [
+        },
+        {
+          datasheet: structuredClone(BattleSistersSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.1.quantity:10', // Bolt Pistol
-            'rangedWeapons.2.quantity:7', // Bolt Gun
-            'rangedWeapons.4.quantity:0', // Condemnor
-            'rangedWeapons.7.quantity:0', // Meltagun
-            'rangedWeapons.8.quantity:1', // Flamer
-            'rangedWeapons.10.quantity:1', // Heavy Flamer
-            'meleeWeapons.1.quantity:9', // CCW
-            'meleeWeapons.2.quantity:1', // Powersword
-            'wargearAbilities.0.equipped:true',
+            'rangedWeapons.BoltPistol.quantity:10',
+            'rangedWeapons.Boltgun.quantity:7',
+            'rangedWeapons.MinistorumFlamer.quantity:1',
+            'rangedWeapons.MinistorumHeavyFlamer.quantity:1',
+            'meleeWeapons.CloseCombatWeapon.quantity:9',
+            'meleeWeapons.PowerWeapon.quantity:1',
+            'wargearAbilities.SimulacrumImperialis.equipped:true',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          MorvennVahl,
-          [
+        {
+          datasheet: structuredClone(MorvennVahl),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:1',
-            'rangedWeapons.1.quantity:1',
-            'rangedWeapons.2.quantity:1',
-            'meleeWeapons.0.quantity:1',
-            'meleeWeapons.1.quantity:1',
+            'rangedWeapons.Fidelis.quantity:1',
+            'rangedWeapons.ParagonMissileLauncherPrioris.quantity:1',
+            'rangedWeapons.ParagonMissileLauncherSanctorum.quantity:1',
+            'meleeWeapons.LanceOfIlluminationStrike.quantity:1',
+            'meleeWeapons.LanceOfIlluminationSweep.quantity:1',
           ],
-        ],
-        [
-          ParagonWarsuits,
-          [
+        },
+        {
+          datasheet: structuredClone(ParagonWarsuits),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:3',
-            'rangedWeapons.3.quantity:3',
-            'rangedWeapons.4.quantity:3',
-            'meleeWeapons.0.quantity:1',
-            'meleeWeapons.1.quantity:2',
+            'rangedWeapons.BoltPistol.quantity:3',
+            'rangedWeapons.MultiMelta.quantity:3',
+            'rangedWeapons.ParagonGrenadeLaunchers.quantity:3',
+            'meleeWeapons.ParagonWarBlade.quantity:1',
+            'meleeWeapons.ParagonWarMace.quantity:2',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          TriumphOfSaintKatherine,
-          [
+        {
+          datasheet: structuredClone(TriumphOfSaintKatherine),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:1',
-            'meleeWeapons.0.quantity:1',
+            'rangedWeapons.BoltPistol.quantity:1',
+            'meleeWeapons.RelicWeapons.quantity:1',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          DominionSquad,
-          [
+        {
+          datasheet: structuredClone(DominionSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:4',
-            'rangedWeapons.1.quantity:10',
-            'rangedWeapons.2.quantity:6',
-            'rangedWeapons.6.quantity:0', // Weird hack to keep Dominion Squads from bleeding equipment
-            'meleeWeapons.1.quantity:9',
-            'meleeWeapons.2.quantity:1',
-            'wargearAbilities.0.equipped:true',
+            'rangedWeapons.ArtificerCraftedStormBolter.quantity:4',
+            'rangedWeapons.BoltPistol.quantity:10',
+            'rangedWeapons.Boltgun.quantity:6',
+            'meleeWeapons.CloseCombatWeapon.quantity:9',
+            'meleeWeapons.PowerWeapon.quantity:1',
+            'wargearAbilities.SimulacrumImperialis.equipped:true',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          SistersNovitiateSquad,
-          [
+        {
+          datasheet: structuredClone(SistersNovitiateSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:9',
-            'rangedWeapons.1.quantity:9',
-            'rangedWeapons.2.quantity:1',
-            'rangedWeapons.3.quantity:1',
-            'rangedWeapons.0.quantity:10',
+            'rangedWeapons.Autogun.quantity:9',
+            'rangedWeapons.Autopistol.quantity:9',
+            'rangedWeapons.BoltPistol.quantity:1',
+            'rangedWeapons.Boltgun.quantity:1',
+            'meleeWeapons.CloseCombatWeapon.quantity:10',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          Exorcist,
-          [
+        {
+          datasheet: structuredClone(Exorcist),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.1.quantity:1',
-            'rangedWeapons.2.quantity:1',
-            'rangedWeapons.3.quantity:1',
-            'meleeWeapons.0.quantity:1',
+            'rangedWeapons.ExorcistMissileLauncher.quantity:1',
+            'rangedWeapons.HeavyBolter.quantity:1',
+            'rangedWeapons.HunterKillerMissile.quantity:1',
+            'meleeWeapons.ArmouredTracks.quantity:1',
           ],
-        ],
+        },
       ],
     },
     {
       id: uuidV4(),
       datasheets: [
-        [
-          ZehpyrimSquad,
-          [
+        {
+          datasheet: structuredClone(ZehpyrimSquad),
+          updates: [
             `id:${uuidV4()}`,
-            'rangedWeapons.0.quantity:5',
-            'meleeWeapons.0.quantity:5',
+            'rangedWeapons.BoltPistol.quantity:5',
+            'meleeWeapons.PowerWeapon.quantity:5',
           ],
-        ],
+        },
       ],
     },
   ],

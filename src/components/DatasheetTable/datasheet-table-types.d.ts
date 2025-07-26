@@ -26,6 +26,7 @@ type WeaponAbilities =
 type Weapon = {
   quantity: number;
   name: string;
+  model: string;
   subtitle: string;
   keywords: WeaponAbilities[];
   attacks:

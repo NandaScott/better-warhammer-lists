@@ -17,6 +17,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Triumph of Saint Katherine',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistols',
@@ -32,6 +33,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
   },
   meleeWeapons: {
     RelicWeapons: {
+      model: 'Triumph of Saint Katherine',
       type: 'melee',
       quantity: 0,
       name: 'Relic Weapons',
@@ -71,7 +73,7 @@ export const TriumphOfSaintKatherine: Datasheet = {
       // TODO: Finish these
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: ['Battle Sisters Squad'],
   wargearOptions: [],
   damaged: {

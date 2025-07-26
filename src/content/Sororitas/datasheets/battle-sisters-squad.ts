@@ -17,6 +17,7 @@ export const BattleSistersSquad: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     ArtificerCraftedStormBolter: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Artificer-crafted storm bolter',
@@ -30,6 +31,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 2,
     },
     BoltPistol: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -43,6 +45,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     Boltgun: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Boltgun',
@@ -56,6 +59,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     CombiWeapon: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Combi-weapon',
@@ -69,6 +73,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     CondemnorBoltgun: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Condemnor boltgun',
@@ -87,6 +92,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     HeavyBolter: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Heavy Bolter',
@@ -100,6 +106,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 2,
     },
     InfernoPistol: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Inferno pistol',
@@ -113,6 +120,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 'D3',
     },
     Meltagun: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Meltagun',
@@ -126,6 +134,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 'D6',
     },
     MinistorumFlamer: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum flamer',
@@ -139,6 +148,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     MinistorumHandFlamer: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum hand flamer',
@@ -152,6 +162,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     MinistorumHeavyFlamer: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum heavy flamer',
@@ -165,6 +176,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     MultiMelta: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Multi-melta',
@@ -178,6 +190,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 'D6',
     },
     PlasmaPistolStandard: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -192,6 +205,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Battle Sisters Squad',
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -208,6 +222,7 @@ export const BattleSistersSquad: Datasheet = {
   },
   meleeWeapons: {
     Chainsword: {
+      model: 'Battle Sisters Squad',
       type: 'melee',
       quantity: 0,
       name: 'Chainsword',
@@ -221,6 +236,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     CloseCombatWeapon: {
+      model: 'Battle Sisters Squad',
       type: 'melee',
       quantity: 0,
       name: 'Close combat weapon',
@@ -234,6 +250,7 @@ export const BattleSistersSquad: Datasheet = {
       damage: 1,
     },
     PowerWeapon: {
+      model: 'Battle Sisters Squad',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -264,14 +281,14 @@ export const BattleSistersSquad: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
+  wargearAbilities: {
+    SimulacrumImperialis: {
       equipped: false,
       name: 'Simulacrum Imperialis',
       effect:
         'At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.',
     },
-  ],
+  },
   setupAbilities: [],
   wargearOptions: [
     {

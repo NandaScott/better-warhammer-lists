@@ -31,7 +31,7 @@ export interface Datasheet {
     faction: 'Acts of Faith';
     datasheetAbilities: Ability[];
   };
-  wargearAbilities: WargearAbility[];
+  wargearAbilities: Record<string, WargearAbility>;
   setupAbilities: Ability[];
   unitComposition: {
     models: string[];

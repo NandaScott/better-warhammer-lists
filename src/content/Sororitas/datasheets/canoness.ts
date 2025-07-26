@@ -17,6 +17,7 @@ export const Canoness: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -30,6 +31,7 @@ export const Canoness: Datasheet = {
       damage: 1,
     },
     BrazierOfHolyFire: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Brazier of holy fire',
@@ -43,6 +45,7 @@ export const Canoness: Datasheet = {
       damage: 2,
     },
     CondemnorBoltgun: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Condemnor boltgun',
@@ -61,6 +64,7 @@ export const Canoness: Datasheet = {
       damage: 1,
     },
     InfernoPistol: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Inferno pistol',
@@ -74,6 +78,7 @@ export const Canoness: Datasheet = {
       damage: 'D3',
     },
     PlasmaPistolStandard: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -88,6 +93,7 @@ export const Canoness: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Canoness',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -104,6 +110,7 @@ export const Canoness: Datasheet = {
   },
   meleeWeapons: {
     BlessedBlade: {
+      model: 'Canoness',
       type: 'melee',
       quantity: 0,
       name: 'Blessed Blade',
@@ -117,6 +124,7 @@ export const Canoness: Datasheet = {
       damage: 2,
     },
     HallowedChainsword: {
+      model: 'Canoness',
       type: 'melee',
       quantity: 0,
       name: 'Hallowed chainsword',
@@ -130,6 +138,7 @@ export const Canoness: Datasheet = {
       damage: 1,
     },
     PowerWeapon: {
+      model: 'Canoness',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -159,20 +168,20 @@ export const Canoness: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
+  wargearAbilities: {
+    NullRod: {
       equipped: false,
       name: 'Null Rod',
       effect:
         "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
     },
-    {
+    RodOfOffice: {
       equipped: false,
       name: 'Rod of Office',
       effect:
         "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",
     },
-  ],
+  },
   leaderAbility: [
     'Battle Sisters Squad',
     'Celestian Sacresancts',

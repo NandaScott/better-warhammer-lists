@@ -17,6 +17,7 @@ export const Exorcist: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     ExorcistConflagrationRockets: {
+      model: 'Exorcist',
       type: 'ranged',
       quantity: 0,
       name: 'Exorcist conflagration rockets',
@@ -30,6 +31,7 @@ export const Exorcist: Datasheet = {
       damage: 1,
     },
     ExorcistMissileLauncher: {
+      model: 'Exorcist',
       type: 'ranged',
       quantity: 0,
       name: 'Exorcist missile launcher',
@@ -43,6 +45,7 @@ export const Exorcist: Datasheet = {
       damage: 'D6',
     },
     HeavyBolter: {
+      model: 'Exorcist',
       type: 'ranged',
       quantity: 0,
       name: 'Heavy bolter',
@@ -56,6 +59,7 @@ export const Exorcist: Datasheet = {
       damage: 2,
     },
     HunterKillerMissile: {
+      model: 'Exorcist',
       type: 'ranged',
       quantity: 0,
       name: 'Hunter-killer missile',
@@ -71,6 +75,7 @@ export const Exorcist: Datasheet = {
   },
   meleeWeapons: {
     ArmouredTracks: {
+      model: 'Exorcist',
       type: 'melee',
       quantity: 0,
       name: 'Armoured tracks',
@@ -99,7 +104,7 @@ export const Exorcist: Datasheet = {
     title: '1-4 Wounds Remaining',
     text: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: [],
   wargearOptions: [
     {

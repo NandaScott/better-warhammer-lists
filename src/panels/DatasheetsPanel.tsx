@@ -33,7 +33,9 @@ export default function DatasheetsPanel(props: DatasheetsPanelProps) {
       <div className="flex flex-col gap-4">
         {units.map(({ id, datasheets }) => {
           const combined = datasheets
-            .map(([datasheet, updates]) => datasheetUpdater(datasheet, updates))
+            .map(({ datasheet, updates }) =>
+              datasheetUpdater(datasheet, updates)
+            )
             .reduce((prev, curr) => datasheetCombiner(prev, curr));
           return (
             <Datasheet

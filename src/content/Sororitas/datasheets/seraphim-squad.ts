@@ -17,6 +17,7 @@ export const SeraphimSquad: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -31,6 +32,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: ['Pistol'],
     },
     InfernoPistol: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -45,6 +47,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: ['Melta 2', 'Pistol'],
     },
     MinistorumHandFlamer: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'ranged',
       profiled: false,
@@ -59,6 +62,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: ['Ignores Cover', 'Pistol', 'Torrent'],
     },
     PlasmaPistolStandard: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'ranged',
       profiled: true,
@@ -73,6 +77,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: ['Pistol'],
     },
     PlasmaPistolSupercharge: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'ranged',
       profiled: true,
@@ -89,6 +94,7 @@ export const SeraphimSquad: Datasheet = {
   },
   meleeWeapons: {
     Chainsword: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -103,6 +109,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: [],
     },
     CloseCombatWeapon: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -117,6 +124,7 @@ export const SeraphimSquad: Datasheet = {
       keywords: [],
     },
     PowerWeapon: {
+      model: 'Seraphim Squad',
       quantity: 0,
       type: 'melee',
       profiled: false,
@@ -142,7 +150,7 @@ export const SeraphimSquad: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: [],
   wargearOptions: [
     {

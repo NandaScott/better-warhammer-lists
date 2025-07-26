@@ -17,6 +17,7 @@ export const CanonessWithJumpPack: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     MinistorumHandFlamer: {
+      model: 'Canoness with Jump Pack',
       armorPen: 0,
       attacks: 'D6',
       ballisticSkill: 'N/A',
@@ -33,6 +34,7 @@ export const CanonessWithJumpPack: Datasheet = {
   },
   meleeWeapons: {
     BlessedHalberd: {
+      model: 'Canoness with Jump Pack',
       type: 'melee',
       quantity: 0,
       name: 'Blessed Halberd',
@@ -46,6 +48,7 @@ export const CanonessWithJumpPack: Datasheet = {
       damage: 2,
     },
     HolyEviscerator: {
+      model: 'Canoness with Jump Pack',
       type: 'melee',
       quantity: 0,
       name: 'Holy eviscerator',
@@ -59,6 +62,7 @@ export const CanonessWithJumpPack: Datasheet = {
       damage: 2,
     },
     PowerWeapon: {
+      model: 'Canoness with Jump Pack',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -88,7 +92,7 @@ export const CanonessWithJumpPack: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: ['Seraphim Squad', 'Zephyrim Squad'],
   wargearOptions: [
     {

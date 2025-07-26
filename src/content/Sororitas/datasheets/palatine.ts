@@ -17,6 +17,7 @@ export const Palatine: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     BoltPistol: {
+      model: 'Palatine',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -30,6 +31,7 @@ export const Palatine: Datasheet = {
       damage: 1,
     },
     PlasmaPistolStandard: {
+      model: 'Palatine',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -44,6 +46,7 @@ export const Palatine: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Palatine',
       type: 'ranged',
       quantity: 0,
       name: 'Plasma pistol',
@@ -60,6 +63,7 @@ export const Palatine: Datasheet = {
   },
   meleeWeapons: {
     PalatineBlade: {
+      model: 'Palatine',
       type: 'melee',
       quantity: 0,
       name: 'Palatine Blade',
@@ -89,20 +93,7 @@ export const Palatine: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
-      equipped: false,
-      name: 'Null Rod',
-      effect:
-        "Models in this bearer's unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
-    },
-    {
-      equipped: false,
-      name: 'Rod of Office',
-      effect:
-        "Each time a model in the bearer's unit make an attack, re-roll a Hit roll of 1.",
-    },
-  ],
+  wargearAbilities: {},
   leaderAbility: [
     'Battle Sisters Squad',
     'Celestian Sacresancts',

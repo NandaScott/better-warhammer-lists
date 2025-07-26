@@ -17,6 +17,7 @@ export const MorvennVahl: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     Fidelis: {
+      model: 'Morvenn Vahl',
       type: 'ranged',
       quantity: 0,
       name: 'Fidelis',
@@ -30,6 +31,7 @@ export const MorvennVahl: Datasheet = {
       damage: 2,
     },
     ParagonMissileLauncherPrioris: {
+      model: 'Morvenn Vahl',
       type: 'ranged',
       quantity: 0,
       name: 'Paragon missile launcher',
@@ -44,6 +46,7 @@ export const MorvennVahl: Datasheet = {
       damage: 'D6',
     },
     ParagonMissileLauncherSanctorum: {
+      model: 'Morvenn Vahl',
       type: 'ranged',
       quantity: 0,
       name: 'Paragon missle launcher',
@@ -60,6 +63,7 @@ export const MorvennVahl: Datasheet = {
   },
   meleeWeapons: {
     LanceOfIlluminationStrike: {
+      model: 'Morvenn Vahl',
       type: 'melee',
       quantity: 0,
       name: 'Lance of Illumination',
@@ -74,6 +78,7 @@ export const MorvennVahl: Datasheet = {
       damage: 3,
     },
     LanceOfIlluminationSweep: {
+      model: 'Morvenn Vahl',
       type: 'melee',
       quantity: 0,
       name: 'Lance of Illumination',
@@ -104,7 +109,7 @@ export const MorvennVahl: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: ['Paragon Warsuits'],
   supremeCommander: {
     text: 'If Morvennn Vahl is in your army, it must be your WARLORD.',

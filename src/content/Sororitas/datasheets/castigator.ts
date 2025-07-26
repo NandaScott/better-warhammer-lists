@@ -17,6 +17,7 @@ export const Castigator: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     CastigatorAutocannons: {
+      model: 'Castigator',
       armorPen: 1,
       attacks: 4,
       ballisticSkill: 3,
@@ -31,6 +32,7 @@ export const Castigator: Datasheet = {
       profiled: false,
     },
     CastigatorBattleCannon: {
+      model: 'Castigator',
       armorPen: 1,
       attacks: 'D6+3',
       ballisticSkill: 3,
@@ -45,6 +47,7 @@ export const Castigator: Datasheet = {
       profiled: false,
     },
     HeavyBolter: {
+      model: 'Castigator',
       armorPen: 1,
       attacks: 3,
       ballisticSkill: 3,
@@ -59,6 +62,7 @@ export const Castigator: Datasheet = {
       profiled: false,
     },
     HunterKillerMissile: {
+      model: 'Castigator',
       armorPen: 3,
       attacks: 1,
       ballisticSkill: 2,
@@ -73,6 +77,7 @@ export const Castigator: Datasheet = {
       profiled: false,
     },
     StormBolter: {
+      model: 'Castigator',
       armorPen: 0,
       attacks: 2,
       ballisticSkill: 3,
@@ -89,6 +94,7 @@ export const Castigator: Datasheet = {
   },
   meleeWeapons: {
     ArmouredTracks: {
+      model: 'Castigator',
       armorPen: 0,
       attacks: 3,
       damage: 1,
@@ -118,7 +124,7 @@ export const Castigator: Datasheet = {
     title: '1-4 Wounds Remaining',
     text: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: [],
   wargearOptions: [
     {

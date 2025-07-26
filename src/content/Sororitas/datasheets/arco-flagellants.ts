@@ -18,6 +18,7 @@ export const ArcoFlagellants: Datasheet = {
   rangedWeapons: {},
   meleeWeapons: {
     ArcoFlails: {
+      model: 'ArcoFlagellants',
       armorPen: 0,
       attacks: 4,
       damage: 1,
@@ -67,6 +68,6 @@ export const ArcoFlagellants: Datasheet = {
   keywords: ['Infantry', 'Imperium', 'Penitent', 'Arco-Flagellants'],
   factionKeywords: ['Adepta Sororitas'],
   wargearOptions: [],
-  wargearAbilities: [],
+  wargearAbilities: {},
   setupAbilities: [],
 };

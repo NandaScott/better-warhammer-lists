@@ -17,6 +17,7 @@ export const DominionSquad: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     ArtificerCraftedStormBolter: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Artificer-crafted storm bolter',
@@ -30,6 +31,7 @@ export const DominionSquad: Datasheet = {
       damage: 2,
     },
     BoltPistol: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Bolt pistol',
@@ -43,6 +45,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     Boltgun: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Boltgun',
@@ -56,6 +59,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     CombiWeapon: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Combi-weapon',
@@ -69,6 +73,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     CondemnorBoltgun: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Condemnor boltgun',
@@ -87,6 +92,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     InfernoPistol: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Inferno pistol',
@@ -100,6 +106,7 @@ export const DominionSquad: Datasheet = {
       damage: 'D3',
     },
     Meltagun: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Meltagun',
@@ -113,6 +120,7 @@ export const DominionSquad: Datasheet = {
       damage: 'D6',
     },
     MinistorumFlamer: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum flamer',
@@ -126,6 +134,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     MinistorumHandFlamer: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       name: 'Ministorum hand flamer',
@@ -139,6 +148,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolStandard: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -153,6 +163,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     PlasmaPistolSupercharge: {
+      model: 'Dominion Squad',
       type: 'ranged',
       quantity: 0,
       profiled: true,
@@ -169,6 +180,7 @@ export const DominionSquad: Datasheet = {
   },
   meleeWeapons: {
     Chainsword: {
+      model: 'Dominion Squad',
       type: 'melee',
       quantity: 0,
       name: 'Chainsword',
@@ -182,6 +194,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     CloseCombatWeapon: {
+      model: 'Dominion Squad',
       type: 'melee',
       quantity: 0,
       name: 'Close combat weapon',
@@ -195,6 +208,7 @@ export const DominionSquad: Datasheet = {
       damage: 1,
     },
     PowerWeapon: {
+      model: 'Dominion Squad',
       type: 'melee',
       quantity: 0,
       name: 'Power weapon',
@@ -225,14 +239,14 @@ export const DominionSquad: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [
-    {
+  wargearAbilities: {
+    SimulacrumImperialis: {
       equipped: false,
       name: 'Simulacrum Imperialis',
       effect:
         'At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.',
     },
-  ],
+  },
   setupAbilities: [
     {
       name: 'Holy Vanguard',

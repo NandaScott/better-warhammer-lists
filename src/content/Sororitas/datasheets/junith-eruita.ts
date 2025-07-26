@@ -17,6 +17,7 @@ export const JunithEruita: Datasheet = {
   enhancements: [],
   rangedWeapons: {
     TwinMinistorumHeavyFlamer: {
+      model: 'Junith Eruita',
       type: 'ranged',
       quantity: 0,
       name: 'Twin Ministorum heavy flamer',
@@ -32,6 +33,7 @@ export const JunithEruita: Datasheet = {
   },
   meleeWeapons: {
     MaceOfCastigation: {
+      model: 'Junith Eruita',
       type: 'melee',
       quantity: 0,
       name: 'Mace of Castigation',
@@ -61,7 +63,7 @@ export const JunithEruita: Datasheet = {
       },
     ],
   },
-  wargearAbilities: [],
+  wargearAbilities: {},
   leaderAbility: [
     'Battle Sisters Squad',
     'Celestian Sacresancts',
