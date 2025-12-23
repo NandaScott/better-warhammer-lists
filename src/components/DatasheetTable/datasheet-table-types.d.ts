@@ -1,4 +1,4 @@
-import type { DiceType, OneToSix } from '../Datasheet/datasheet-types';
+import type { DiceType, Modifiable, OneToSix } from '../Datasheet/datasheet-types';
 
 type Keyword = 'Vehicle' | 'Psyker' | 'Infantry';
 
@@ -23,20 +23,25 @@ type WeaponAbilities =
   | `Anti-${Keyword} ${OneToSix}+`
   | 'One Shot';
 
+export type ModifiedKeyword = {
+  value: WeaponAbilities;
+  source: string;
+};
+
 type Weapon = {
   quantity: number;
   name: string;
   model: string;
   subtitle: string;
-  keywords: WeaponAbilities[];
+  keywords: (WeaponAbilities | ModifiedKeyword)[];
   attacks:
     | number
     | DiceType
     | `${DiceType}+${OneToSix}`
     | `${OneToSix}${DiceType}`;
-  strength: number;
-  armorPen: number;
-  damage: number | DiceType;
+  strength: Modifiable<number>;
+  armorPen: Modifiable<number>;
+  damage: Modifiable<number | DiceType>;
   profiled?: boolean;
 };
 

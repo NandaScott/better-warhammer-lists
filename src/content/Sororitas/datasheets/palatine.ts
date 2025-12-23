@@ -85,6 +85,10 @@ export const Palatine: Datasheet = {
         name: 'Fury of the Righteous',
         effect:
           'While this model is leading a unit, weapons equipped by models in that unit have the [Lethal Hits] ability.',
+        updates: [
+          'rangedWeapons.all.keywords:Lethal Hits',
+          'meleeWeapons.all.keywords:Lethal Hits',
+        ],
       },
       {
         name: 'Rapturous Blows',

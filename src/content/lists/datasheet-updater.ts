@@ -1,14 +1,29 @@
 import ArmyOfFaithDetatchment from '../Sororitas/detatchments/army-of-faith';
 import type { Datasheet } from '../core/types';
+import { isModified } from '../../components/Datasheet/modified-value';
+import type { ModifiedValue } from '../../components/Datasheet/datasheet-types';
+import type { ModifiedKeyword } from '../../components/DatasheetTable/datasheet-table-types';
+
+/** Fields that should create ModifiedValue objects when updated */
+const MODIFIABLE_FIELDS = ['strength', 'armorPen', 'damage'];
+
+/** Fields that should create ModifiedKeyword objects when updated */
+const MODIFIABLE_ARRAY_FIELDS = ['keywords'];
 
 /**
  * Recursively traverses an object along a given path and updates the end value.
  * @param obj An object to traverse
  * @param path A dot separated path
  * @param update The update value
+ * @param source The source of the modification (ability/enhancement name)
  * @returns The original object
  */
-function traverseAndUpdate(obj: any, path: string, update: any) {
+function traverseAndUpdate(
+  obj: any,
+  path: string,
+  update: any,
+  source?: string
+) {
   const [nextNode, ...rest] = path.split('.');
   const restOfPath = rest.join('.');
 
@@ -17,17 +32,49 @@ function traverseAndUpdate(obj: any, path: string, update: any) {
   }
 
   if (restOfPath.length !== 0) {
-    obj[nextNode] = traverseAndUpdate(obj[nextNode], restOfPath, update);
+    obj[nextNode] = traverseAndUpdate(obj[nextNode], restOfPath, update, source);
     return obj;
   }
 
+  // Handle array fields (e.g., keywords) - add ModifiedKeyword
   if (Array.isArray(obj[nextNode])) {
-    obj[nextNode] = [...obj[nextNode], update];
+    if (source && MODIFIABLE_ARRAY_FIELDS.includes(nextNode)) {
+      const modifiedKeyword: ModifiedKeyword = {
+        value: update,
+        source,
+      };
+      obj[nextNode] = [...obj[nextNode], modifiedKeyword];
+    } else {
+      obj[nextNode] = [...obj[nextNode], update];
+    }
     return obj;
   }
 
+  // Handle numeric fields - create ModifiedValue
   if (typeof obj[nextNode] === 'number' && typeof update === 'number') {
-    obj[nextNode] = obj[nextNode] + update;
+    if (source && MODIFIABLE_FIELDS.includes(nextNode)) {
+      const modifiedValue: ModifiedValue<number> = {
+        base: obj[nextNode],
+        modified: obj[nextNode] + update,
+        source,
+      };
+      obj[nextNode] = modifiedValue;
+    } else {
+      obj[nextNode] = obj[nextNode] + update;
+    }
+    return obj;
+  }
+
+  // Handle already-modified values (stacking modifications)
+  if (isModified(obj[nextNode]) && typeof update === 'number') {
+    const currentModified = obj[nextNode] as ModifiedValue<number>;
+    obj[nextNode] = {
+      base: currentModified.base,
+      modified: currentModified.modified + update,
+      source: source
+        ? `${currentModified.source}, ${source}`
+        : currentModified.source,
+    };
     return obj;
   }
 
@@ -73,7 +120,8 @@ function processEnhancementUpdates(
 
 export default function datasheetUpdater(
   datasheet: Datasheet,
-  updates: string[]
+  updates: string[],
+  source?: string
 ): Datasheet {
   const parsedUpdates = parseDatasheetUpdates(updates);
 
@@ -92,12 +140,17 @@ export default function datasheetUpdater(
           newDatasheet,
           enhancement.updates
         );
-        newDatasheet = datasheetUpdater(newDatasheet, fullUpdates);
+        // Pass enhancement name as the source for these updates
+        newDatasheet = datasheetUpdater(
+          newDatasheet,
+          fullUpdates,
+          enhancement.name
+        );
       }
       continue;
     }
 
-    newDatasheet = traverseAndUpdate(newDatasheet, location, value);
+    newDatasheet = traverseAndUpdate(newDatasheet, location, value, source);
   }
 
   return newDatasheet;

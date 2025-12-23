@@ -8,8 +8,36 @@ import type {
   DatasheetTableProps,
   DatasheetTableRangedProps,
 } from './datasheet-table-types';
+import {
+  isModified,
+  isModifiedKeyword,
+  getDisplayValue,
+} from '../Datasheet/modified-value';
+import type { Modifiable } from '../Datasheet/datasheet-types';
 
 type ValueOf<O, V extends keyof O = keyof O> = O[V];
+
+/** Renders a value that may be modified, with asterisk and red color if modified */
+function ModifiableCell({
+  value,
+  showBase = false,
+}: {
+  value: Modifiable<number | string>;
+  showBase?: boolean;
+}) {
+  const displayValue = getDisplayValue(value, showBase);
+  const modified = isModified(value);
+
+  if (modified && !showBase) {
+    return (
+      <span className="text-red-600" title={`Modified by: ${value.source}`}>
+        {displayValue}*
+      </span>
+    );
+  }
+
+  return <>{displayValue}</>;
+}
 
 export default function DatasheetTable(
   props: DatasheetTableRangedProps
@@ -109,28 +137,45 @@ export default function DatasheetTable(
                     ? profile.ballisticSkill
                     : profile.weaponSkill}
                 </td>
-                <td headers="strength">{profile.strength}</td>
+                <td headers="strength">
+                  <ModifiableCell value={profile.strength} showBase={!simplify} />
+                </td>
                 <td
                   headers="armor-penetration"
                   className={clsx({
-                    'before:content-["-"]': profile.armorPen > 0,
+                    'before:content-["-"]':
+                      getDisplayValue(profile.armorPen, !simplify) > 0,
                   })}
                 >
-                  {profile.armorPen}
+                  <ModifiableCell value={profile.armorPen} showBase={!simplify} />
                 </td>
-                <td headers="damage">{profile.damage}</td>
+                <td headers="damage">
+                  <ModifiableCell value={profile.damage} showBase={!simplify} />
+                </td>
                 <td
                   headers="keywords"
                   className={clsx(
                     profile.keywords.length === 0 && '-mt-4 hidden'
                   )}
                 >
-                  {profile.keywords.map((text) => (
-                    <Badge
-                      key={`${profile.name}-${uuidv4()}-${text}`}
-                      text={text}
-                    />
-                  ))}
+                  {profile.keywords
+                    .filter((kw) => {
+                      // When simplify is off, hide modified keywords (show base)
+                      if (!simplify && isModifiedKeyword(kw)) return false;
+                      return true;
+                    })
+                    .map((kw) => {
+                      const text = isModifiedKeyword(kw) ? kw.value : kw;
+                      const modified = isModifiedKeyword(kw);
+                      return (
+                        <Badge
+                          key={`${profile.name}-${uuidv4()}-${text}`}
+                          text={text}
+                          modified={modified}
+                          source={modified ? kw.source : undefined}
+                        />
+                      );
+                    })}
                 </td>
               </tr>
             ))}
